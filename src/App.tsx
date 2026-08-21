@@ -1247,7 +1247,7 @@ export default function App() {
     {
       subtitle: "Welcome to church",
       title: <>예수께서 이르시되 내가 곧 <br /> 길이요 진리요 생명이니 <br /> 나로 말미암지 않고는 <br /> 아버지께로 올 자가 없느니라 </>,
-      description: <>예수께서 이르시되 내가 곧 길이요 진리요 생명이니 <br className="hidden md:inline" /> 나로 말미암지 않고는 아버지게로 올 자가 없느니라</>,
+      description: <>요한복음 14장 6절 <br className="hidden md:inline" /> </>,
       image: `${import.meta.env.BASE_URL}images/night.png`,
       primaryText: "처음 오셨나요?",
       secondaryText: "교회소개",
@@ -4860,18 +4860,16 @@ export default function App() {
               </h1>
           
               {currentHeroSlide !== 0 && (
-                <p className={`text-white/90 text-sm md:text-base lg:text-xl font-light max-w-2xl mx-auto leading-relaxed transition-all duration-700 ease-out ${
-                  isScrolled ? 'mb-6 sm:mb-8 md:mb-12' : 'mb-12'
-                }`}>
+                <p
+                  className="text-white/90 text-sm md:text-base lg:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-8 md:mb-12"
+                >
                   {heroSlides[currentHeroSlide].description}
                 </p>
               )}
           
               <div
                   className={`flex justify-center items-center ${
-                    currentHeroSlide === 0
-                      ? 'mt-20 md:mt-12'
-                      : ''
+                    currentHeroSlide === 0 ? 'mt-4 md:mt-0' : ''
                   }`}
                 >
                 <button onClick={heroSlides[currentHeroSlide].primaryAction}
