@@ -2870,7 +2870,7 @@ export default function App() {
                   <span className="w-8 h-px bg-brand-gold" />
                   WELCOME HOME
                 </span>
-                <h1 className="text-4xl md:text-6xl font-serif font-light leading-[1.15] mb-5">처음 방문하셨다면</h1>
+                <h1 className="text-4xl md:text-6xl font-serif font-light leading-[1.15] mb-5">첫 걸음이실 때</h1>
                 <p className="text-base md:text-xl text-white/85 font-light leading-relaxed max-w-xl">
                   예수님을 알아가는 첫걸음부터 교회에 방문하는 순간까지, 영신교회가 따뜻하게 동행하겠습니다.
                 </p>
@@ -2896,7 +2896,7 @@ export default function App() {
             <div className="max-w-7xl mx-auto relative">
               <motion.div {...fadeIn} className="flex flex-col gap-12">
                 <div className="text-center max-w-3xl mx-auto">
-                  <h3 id="who-is-jesus-title" className="font-serif text-2xl md:text-4xl font-bold text-brand-brown mt-10 mb-5">예수님은 어떤 분이십니까?</h3>
+                  <h3 id="who-is-jesus-title" className="font-serif text-2xl md:text-4xl font-bold text-brand-brown mt-10 mb-5">예수님을 알아가는 것</h3>
                   <p className="text-brand-brown/70 text-base md:text-lg leading-[1.9] font-light">
                     예수님은 우리를 멀리서 바라보는 분이 아니라, 사랑으로 찾아오신 하나님의 아들이십니다. 우리의 아픔과 질문을 아시고 십자가와 부활로 새로운 삶의 길을 여셨습니다.
                   </p>
@@ -2956,7 +2956,7 @@ export default function App() {
               <motion.div {...fadeIn} className="text-center max-w-2xl mx-auto mb-14">
                 <span className="text-brand-sage text-sm font-bold tracking-[0.18em]">02 · FIRST VISIT</span>
                 <h2 id="first-visit-title" className="font-serif text-3xl md:text-5xl font-normal text-brand-brown mt-4 mb-5">첫방문 가이드</h2>
-                <p className="text-brand-brown/65 leading-relaxed">낯설지 않도록, 도착부터 예배 후 교제까지 차근차근 안내해 드립니다.</p>
+                <p className="text-brand-brown/65 leading-relaxed">낯설지 않도록, 도착부터 예배 후 교제까지</br> 차근차근 안내해 드립니다.</p>
               </motion.div>
 
               <div className="relative grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-5">
@@ -2998,9 +2998,9 @@ export default function App() {
                   </motion.article>
                 ))}
               </div>
-              <motion.p {...fadeIn} className="mt-12 text-center text-lg md:text-2xl font-semibold leading-relaxed text-brand-sage">
+              {/* <motion.p {...fadeIn} className="mt-12 text-center text-lg md:text-2xl font-semibold leading-relaxed text-brand-sage">
                 이 과정들을 통해 복음을 새롭게 다시 만나고,<br className="md:hidden" /> 공동체에 적응하는 시간을 가질 수 있습니다.
-              </motion.p>
+              </motion.p> */}
             </div>
           </section>
 
