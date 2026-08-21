@@ -4842,7 +4842,7 @@ export default function App() {
         </motion.div>
 
         {/* Slide Content */}
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto transition-transform duration-700 ease-out -translate-y-16 sm:-translate-y-12 md:translate-y-0">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentHeroSlide}
@@ -4851,36 +4851,30 @@ export default function App() {
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              <h1 className={`font-serif text-white leading-[1.12] mb-4 md:mb-8 drop-shadow-lg ${
+              <h1
+                className={`font-serif text-white leading-[1.12] drop-shadow-lg ${
                   currentHeroSlide === 0
-                    ? 'text-[1.65rem] md:text-[41px] lg:text-[50px]'
-                    : 'text-[2rem] md:text-[41px] lg:text-[61px]'
+                    ? 'text-[1.85rem] md:text-[41px] lg:text-[61px] mb-5'
+                    : 'text-[2rem] md:text-[41px] lg:text-[61px] mb-4 md:mb-8'
                 }`}
-              > {heroSlides[currentHeroSlide].title}
+              >
+                {heroSlides[currentHeroSlide].title}
               </h1>
-          
-              {currentHeroSlide !== 0 && (
-                <p className={`text-white/90 font-light max-w-2xl mx-auto leading-relaxed ${
-                    currentHeroSlide === 0
-                      ? 'text-[13px] md:text-sm mb-8 md:mb-10'
-                      : 'text-sm md:text-base lg:text-xl mb-8 md:mb-12'
-                  }`}
-                >
+        
+              {currentHeroSlide === 0 ? (
+                <p className="block text-white/90 text-[13px] md:text-sm font-light leading-relaxed mb-12 md:mb-10">
+                  요한복음 14장 6절
+                </p>
+              ) : (
+                <p className="block text-white/90 text-sm md:text-base lg:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-8 md:mb-12">
                   {heroSlides[currentHeroSlide].description}
                 </p>
               )}
-          
-              <div
-                  className={`flex justify-center items-center ${
-                    currentHeroSlide === 0 ? 'mt-4 md:mt-0' : ''
-                  }`}
-                >
-                <button onClick={heroSlides[currentHeroSlide].primaryAction}
-                  className={`px-8 py-4 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-full text-lg md:text-sm lg:text-lg font-medium transition-all shadow-xl hover:-translate-y-1 cursor-pointer ${
-                    currentHeroSlide === 0
-                      ? 'bg-white/75 text-brand-brown backdrop-blur-md border border-white/50 hover:bg-white'
-                      : 'bg-white text-brand-brown hover:bg-white/85'
-                  }`}
+        
+              <div className="flex justify-center items-center">
+                <button
+                  onClick={heroSlides[currentHeroSlide].primaryAction}
+                  className="bg-white text-brand-brown px-8 py-4 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-full text-lg md:text-sm lg:text-lg font-medium hover:bg-white/85 transition-all shadow-xl hover:-translate-y-1 cursor-pointer"
                 >
                   {heroSlides[currentHeroSlide].primaryText}
                 </button>
