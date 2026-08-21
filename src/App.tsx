@@ -1247,7 +1247,7 @@ export default function App() {
     {
       subtitle: "Welcome to church",
       title: <>예수께서 이르시되 내가 곧 <br /> 길이요 진리요 생명이니 <br /> 나로 말미암지 않고는 <br /> 아버지께로 올 자가 없느니라 </>,
-      description: <>요한복음 14장 6절 <br className="hidden md:inline" /> </>,
+      description: <>요한복음 14장 6절</>,
       image: `${import.meta.env.BASE_URL}images/night.png`,
       primaryText: "처음 오셨나요?",
       secondaryText: "교회소개",
@@ -4860,8 +4860,11 @@ export default function App() {
               </h1>
           
               {currentHeroSlide !== 0 && (
-                <p
-                  className="text-white/90 text-sm md:text-base lg:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-8 md:mb-12"
+                <p className={`text-white/90 font-light max-w-2xl mx-auto leading-relaxed ${
+                    currentHeroSlide === 0
+                      ? 'text-[13px] md:text-sm mb-8 md:mb-10'
+                      : 'text-sm md:text-base lg:text-xl mb-8 md:mb-12'
+                  }`}
                 >
                   {heroSlides[currentHeroSlide].description}
                 </p>
