@@ -4812,26 +4812,28 @@ export default function App() {
             }`}
           >
         {/* State-driven Animated Background */}
-        <motion.div 
-          style={{ opacity, scale }}
-          className="absolute inset-0 z-0"
-        >
+        <motion.div
+          style={{ opacity }}
+          className="absolute inset-0 z-0 overflow-hidden">
           <AnimatePresence mode="popLayout">
             <motion.div
-              key={currentHeroSlide}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1.01 }}
-              exit={{ opacity: 0, scale: 0.99 }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
-              className="absolute inset-0"
-            >
-              <img src={heroSlides[currentHeroSlide].image} alt="Church Slide Image" className={`w-full h-full object-cover brightness-75 ${
-                    currentHeroSlide === 1
-                      ? 'object-[40%_center] md:object-center'
-                      : 'object-center'
-                  }`}
-                  referrerPolicy="no-referrer"
-                />
+                key={currentHeroSlide}
+                initial={{ opacity: 0, scale: 1.04 }}
+                animate={{ opacity: 1, scale: 1.02 }}
+                exit={{ opacity: 0, scale: 1.02 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+                className="absolute inset-0 overflow-hidden"
+              >
+              <img
+                src={heroSlides[currentHeroSlide].image}
+                alt="Church Slide Image"
+                className={`block w-full h-full min-w-full min-h-full object-cover brightness-75 ${
+                  currentHeroSlide === 1
+                    ? 'object-[40%_center] md:object-center'
+                    : 'object-center'
+                }`}
+                referrerPolicy="no-referrer"
+              />
               <div className="absolute inset-0 bg-gradient-to-b from-brand-brown/40 via-transparent to-brand-cream"></div>
             </motion.div>
           </AnimatePresence>
@@ -4849,8 +4851,12 @@ export default function App() {
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              <h1 className="text-[2rem] md:text-[41px] lg:text-[61px] font-serif text-white leading-[1.1] mb-4 md:mb-8 drop-shadow-lg">
-                {heroSlides[currentHeroSlide].title}
+              <h1 className={`font-serif text-white leading-[1.12] mb-4 md:mb-8 drop-shadow-lg ${
+                  currentHeroSlide === 0
+                    ? 'text-[1.85rem] md:text-[41px] lg:text-[61px]'
+                    : 'text-[2rem] md:text-[41px] lg:text-[61px]'
+                }`}
+              > {heroSlides[currentHeroSlide].title}
               </h1>
           
               {currentHeroSlide !== 0 && (
@@ -4861,10 +4867,16 @@ export default function App() {
                 </p>
               )}
           
-              <div className="flex justify-center items-center">
-                <button
-                  onClick={heroSlides[currentHeroSlide].primaryAction}
-                  className="bg-brand-gold text-brand-brown px-8 py-4 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-full text-lg md:text-sm lg:text-lg font-medium hover:bg-white transition-all shadow-xl hover:-translate-y-1 cursor-pointer"
+              <div className={`flex justify-center items-center ${
+                    currentHeroSlide === 0 ? 'mt-10 md:mt-12' : ''
+                  }`}
+                >
+                <button onClick={heroSlides[currentHeroSlide].primaryAction}
+                  className={`px-8 py-4 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-full text-lg md:text-sm lg:text-lg font-medium transition-all shadow-xl hover:-translate-y-1 cursor-pointer ${
+                    currentHeroSlide === 0
+                      ? 'bg-brand-gold/65 text-brand-brown backdrop-blur-md border border-white/30 hover:bg-brand-gold/85'
+                      : 'bg-brand-gold text-brand-brown hover:bg-white'
+                  }`}
                 >
                   {heroSlides[currentHeroSlide].primaryText}
                 </button>
