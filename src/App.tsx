@@ -4854,7 +4854,7 @@ export default function App() {
               <h1
                 className={`font-serif text-white leading-[1.12] drop-shadow-lg ${
                 currentHeroSlide === 0
-                    ? 'text-[1.75rem] md:text-[39px] lg:text-[58px] mb-5'
+                    ? 'text-[1.65rem] md:text-[35px] lg:text-[52px] mb-5'
                     : 'text-[2rem] md:text-[41px] lg:text-[61px] mb-4 md:mb-8'
                 }`}
               >
@@ -4862,7 +4862,7 @@ export default function App() {
               </h1>
         
               {currentHeroSlide === 0 ? (
-                <p className="block text-white/90 text-[17px] md:text-base font-light leading-relaxed mb-12 md:mb-10">
+                <p className="block text-white/90 text-[18px] md:text-base font-light leading-relaxed mb-12 md:mb-10">
                   요한복음 14장 6절
                 </p>
               ) : (
