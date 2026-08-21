@@ -4552,7 +4552,7 @@ export default function App() {
           {/* Sermons Hero */}
           <div className="subpage-hero relative h-[45vh] md:h-[30vh] w-full overflow-hidden">
             <img 
-              src="/images/sea.png" 
+              src={`${import.meta.env.BASE_URL}images/sea.png`}
               alt="성경책과 은은한 빛, 은혜로운 예배와 평강" 
               className="w-full h-full object-cover brightness-[0.7]"
               referrerPolicy="no-referrer"
