@@ -1246,7 +1246,7 @@ export default function App() {
   const heroSlides = [
     {
       subtitle: "Welcome to church",
-      title: <> 예수께서 이르시되 내가 곧 길이요 진리요 생명이니<br />나로 말미암지 않고는 <br />아버지께로 올 자가 없느니라</>
+      title: <>예수께서 이르시되 내가 곧 길이요 진리요 생명이니 <br /> 나로 말미암지 않고는 <br /> 아버지께로 올 자가 없느니라 </>,
       description: <>예수께서 이르시되 내가 곧 길이요 진리요 생명이니 <br className="hidden md:inline" /> 나로 말미암지 않고는 아버지게로 올 자가 없느니라</>,
       image: `${import.meta.env.BASE_URL}images/night.png`,
       primaryText: "처음 오셨나요?",
@@ -4853,7 +4853,7 @@ export default function App() {
             >
               <h1 className={`font-serif text-white leading-[1.12] mb-4 md:mb-8 drop-shadow-lg ${
                   currentHeroSlide === 0
-                    ? 'text-[1.85rem] md:text-[41px] lg:text-[61px]'
+                    ? 'text-[1.65rem] md:text-[41px] lg:text-[50px]'
                     : 'text-[2rem] md:text-[41px] lg:text-[61px]'
                 }`}
               > {heroSlides[currentHeroSlide].title}
@@ -4868,14 +4868,14 @@ export default function App() {
               )}
           
               <div className={`flex justify-center items-center ${
-                    currentHeroSlide === 0 ? 'mt-10 md:mt-12' : ''
+                    currentHeroSlide === 0 ? 'mt-6 md:mt-8' : ''
                   }`}
                 >
                 <button onClick={heroSlides[currentHeroSlide].primaryAction}
                   className={`px-8 py-4 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-full text-lg md:text-sm lg:text-lg font-medium transition-all shadow-xl hover:-translate-y-1 cursor-pointer ${
                     currentHeroSlide === 0
-                      ? 'bg-brand-gold/65 text-brand-brown backdrop-blur-md border border-white/30 hover:bg-brand-gold/85'
-                      : 'bg-brand-gold text-brand-brown hover:bg-white'
+                      ? 'bg-white/75 text-brand-brown backdrop-blur-md border border-white/50 hover:bg-white'
+                      : 'bg-white text-brand-brown hover:bg-white/85'
                   }`}
                 >
                   {heroSlides[currentHeroSlide].primaryText}
