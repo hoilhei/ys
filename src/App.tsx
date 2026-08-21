@@ -1284,7 +1284,7 @@ export default function App() {
     //   title: <>믿음의 다음세대를 <br /> 사랑으로 세워가는 교회</>,
     //   description: <>어린이부터 청소년, 귀한 청년들까지 <br className="md:hidden" /> 하나님의 꿈과 비전 속에서 <br className="hidden md:inline" /> 아름답게 동역하며 기쁨으로 자라납니다.</>,
     //   image: "./images/hug.jpg",
-    //   primaryText: "다음세대 부서 소개",
+    //   primaryText: "다음세대 안내",
     //   secondaryText: "청년 공동체 보기",
     //   primaryAction: () => { window.location.hash = '#다음세대'; },
     //   secondaryAction: () => { window.location.hash = '#nextgen/4'; }
@@ -4825,12 +4825,13 @@ export default function App() {
               transition={{ duration: 1.2, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              <img 
-                src={heroSlides[currentHeroSlide].image} 
-                alt="Church Slide Image" 
-                className="w-full h-full object-cover brightness-75"
-                referrerPolicy="no-referrer"
-              />
+              <img src={heroSlides[currentHeroSlide].image} alt="Church Slide Image" className={`w-full h-full object-cover brightness-75 ${
+                    currentHeroSlide === 1
+                      ? 'object-[40%_center] md:object-center'
+                      : 'object-center'
+                  }`}
+                  referrerPolicy="no-referrer"
+                />
               <div className="absolute inset-0 bg-gradient-to-b from-brand-brown/40 via-transparent to-brand-cream"></div>
             </motion.div>
           </AnimatePresence>
@@ -4848,33 +4849,24 @@ export default function App() {
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              <h2 className="text-brand-gold text-lg md:text-base font-medium tracking-[0.2em] mb-4 drop-shadow-md">
-                {heroSlides[currentHeroSlide].subtitle}
-              </h2>
-              <h1 className="text-[2rem] md:text-5xl lg:text-7xl font-serif text-white leading-[1.1] mb-4 md:mb-8 drop-shadow-lg">
+              <h1 className="text-[2rem] md:text-[41px] lg:text-[61px] font-serif text-white leading-[1.1] mb-4 md:mb-8 drop-shadow-lg">
                 {heroSlides[currentHeroSlide].title}
               </h1>
-              <p className={`text-white/90 text-sm md:text-base lg:text-xl font-light max-w-2xl mx-auto leading-relaxed transition-all duration-700 ease-out ${
-                isScrolled ? 'mb-6 sm:mb-8 md:mb-12' : 'mb-12'
-              }`}>
-                {heroSlides[currentHeroSlide].description}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button 
+          
+              {currentHeroSlide !== 0 && (
+                <p className={`text-white/90 text-sm md:text-base lg:text-xl font-light max-w-2xl mx-auto leading-relaxed transition-all duration-700 ease-out ${
+                  isScrolled ? 'mb-6 sm:mb-8 md:mb-12' : 'mb-12'
+                }`}>
+                  {heroSlides[currentHeroSlide].description}
+                </p>
+              )}
+          
+              <div className="flex justify-center items-center">
+                <button
                   onClick={heroSlides[currentHeroSlide].primaryAction}
                   className="bg-brand-gold text-brand-brown px-8 py-4 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-full text-lg md:text-sm lg:text-lg font-medium hover:bg-white transition-all shadow-xl hover:-translate-y-1 cursor-pointer"
                 >
                   {heroSlides[currentHeroSlide].primaryText}
-                </button>
-                <button 
-                  onClick={heroSlides[currentHeroSlide].secondaryAction}
-                  className={`px-8 py-4 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-full text-lg md:text-sm lg:text-lg font-medium transition-all backdrop-blur-sm border cursor-pointer ${
-                    isScrolled 
-                      ? 'border-brand-sage text-brand-sage bg-transparent' 
-                      : 'border-white/50 text-white bg-transparent hover:bg-white/10'
-                  }`}
-                >
-                  {heroSlides[currentHeroSlide].secondaryText}
                 </button>
               </div>
             </motion.div>
