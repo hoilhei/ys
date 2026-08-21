@@ -2956,7 +2956,9 @@ export default function App() {
               <motion.div {...fadeIn} className="text-center max-w-2xl mx-auto mb-14">
                 <span className="text-brand-sage text-sm font-bold tracking-[0.18em]">02 · FIRST VISIT</span>
                 <h2 id="first-visit-title" className="font-serif text-3xl md:text-5xl font-normal text-brand-brown mt-4 mb-5">첫방문 가이드</h2>
-                <p className="text-brand-brown/65 leading-relaxed">낯설지 않도록, 도착부터 예배 후 교제까지</br> 차근차근 안내해 드립니다.</p>
+                <p className="text-brand-brown/65 leading-relaxed">낯설지 않도록, 도착부터 예배 후 교제까지
+                < br/>
+                    차근차근 안내해 드립니다.</p>
               </motion.div>
 
               <div className="relative grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-5">
@@ -2998,9 +3000,7 @@ export default function App() {
                   </motion.article>
                 ))}
               </div>
-              {/* <motion.p {...fadeIn} className="mt-12 text-center text-lg md:text-2xl font-semibold leading-relaxed text-brand-sage">
-                이 과정들을 통해 복음을 새롭게 다시 만나고,<br className="md:hidden" /> 공동체에 적응하는 시간을 가질 수 있습니다.
-              </motion.p> */}
+              
             </div>
           </section>
 
