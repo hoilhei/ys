@@ -4840,9 +4840,7 @@ export default function App() {
         </motion.div>
 
         {/* Slide Content */}
-        <div className={`relative z-10 text-center px-6 max-w-4xl mx-auto transition-all duration-700 ease-out ${
-          isScrolled ? '-translate-y-16 sm:-translate-y-10 lg:translate-y-0' : 'translate-y-0'
-        }`}>
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto transition-transform duration-700 ease-out -translate-y-16 sm:-translate-y-12 md:translate-y-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentHeroSlide}
