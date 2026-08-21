@@ -1,0 +1,8 @@
+{
+  "name": "영신교회 (Youngshin Church)",
+  "description": "하나님 사랑, 이웃 사랑의 정신으로 복음, 공동체, 다음세대를 품으며 가나안 성도에게도 따뜻한 쉼을 주는 교회 홈페이지입니다.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

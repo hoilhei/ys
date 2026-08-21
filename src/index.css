@@ -1,0 +1,220 @@
+@font-face {
+  font-family: 'S-CoreDream';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'S-CoreDream';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'S-CoreDream';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'S-CoreDream';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "S-CoreDream", sans-serif;
+  --font-sans: "S-CoreDream", sans-serif;
+  
+  --color-brand-cream: #FDFBF7;
+  --color-brand-sage: #8E9775;
+  --color-brand-brown: #675D50;
+  --color-brand-gold: #E2C799;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-cream text-brand-brown font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  /* Keep the shared page content width consistent across the main page and subpages. */
+  .max-w-7xl {
+    max-width: 1280px;
+  }
+}
+
+/* Shared type scale for every subpage. Role-based sizing keeps page-specific
+   utility classes from making equivalent content appear inconsistently sized. */
+.subpage-shell h1[class] {
+  font-size: 2rem !important;
+  line-height: 1.2 !important;
+}
+
+.subpage-shell h2[class] {
+  font-size: 1.5rem !important;
+  line-height: 1.3 !important;
+}
+
+.subpage-shell h3[class] {
+  font-size: 1.25rem !important;
+  line-height: 1.4 !important;
+}
+
+.subpage-shell h4[class] {
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+}
+
+.subpage-shell p[class] {
+  font-size: 0.9375rem !important;
+  line-height: 1.7 !important;
+}
+
+.subpage-shell button[class],
+.subpage-shell a[class*="text-"] {
+  font-size: 0.875rem !important;
+  line-height: 1.4 !important;
+}
+
+.subpage-shell blockquote[class] {
+  font-size: 1.125rem !important;
+  line-height: 1.7 !important;
+}
+
+.subpage-shell cite[class] {
+  font-size: 0.75rem !important;
+  line-height: 1.5 !important;
+}
+
+.subpage-shell .subpage-hero span[class] {
+  font-size: 0.75rem !important;
+  line-height: 1.3 !important;
+}
+
+.subpage-shell p.first-visit-step-description {
+  font-size: 16px !important;
+}
+
+@media (max-width: 767px) {
+  .subpage-shell h3.first-visit-step-title {
+    font-size: 15.84px !important;
+  }
+
+  .subpage-shell p.first-visit-step-description,
+  .subpage-shell p.first-visit-step-meta {
+    font-size: 13.06px !important;
+  }
+}
+
+.subpage-shell p.jesus-topic-description {
+  font-size: 16px !important;
+}
+
+/* Shared hero frame for every subpage; each page keeps its own background image and copy. */
+.subpage-shell .subpage-hero {
+  height: 48vh !important;
+  min-height: 360px !important;
+}
+
+.subpage-shell .subpage-hero > div[class*="bg-gradient-to-t"] {
+  align-items: center !important;
+  background-image: linear-gradient(to right, rgb(53 47 41 / 90%), rgb(76 68 59 / 65%), rgb(76 68 59 / 10%)) !important;
+}
+
+.subpage-shell .subpage-hero > div[class*="bg-gradient-to-t"] > div[class*="max-w-7xl"] {
+  height: 100% !important;
+  padding-bottom: 0 !important;
+  align-items: center !important;
+}
+
+.subpage-shell .subpage-hero .text-left {
+  width: 100%;
+  max-width: 42rem;
+}
+
+.subpage-shell .subpage-hero h1[class] {
+  margin-bottom: 1.25rem !important;
+  font-weight: 300 !important;
+}
+
+.subpage-shell .subpage-hero p[class] {
+  font-weight: 300 !important;
+}
+
+.subpage-shell .subpage-hero span[class*="inline-flex"] {
+  margin-bottom: 1.25rem !important;
+}
+
+@media (max-width: 767px) {
+  .subpage-shell .subpage-hero {
+    height: 280px !important;
+    min-height: 280px !important;
+    max-height: 280px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .subpage-shell .subpage-hero {
+    height: 46vh !important;
+    min-height: 420px !important;
+  }
+
+  .subpage-shell h1[class] {
+    font-size: 3rem !important;
+  }
+
+  .subpage-shell h2[class] {
+    font-size: 2rem !important;
+  }
+
+  .subpage-shell h3[class] {
+    font-size: 1.5rem !important;
+  }
+
+  .subpage-shell h4[class] {
+    font-size: 1.125rem !important;
+  }
+
+  .subpage-shell p[class] {
+    font-size: 1rem !important;
+  }
+
+  .subpage-shell button[class],
+  .subpage-shell a[class*="text-"] {
+    font-size: 1rem !important;
+  }
+
+  .subpage-shell blockquote[class] {
+    font-size: 1.25rem !important;
+  }
+
+  .subpage-shell cite[class] {
+    font-size: 0.875rem !important;
+  }
+
+  .subpage-shell .subpage-hero p[class] {
+    font-size: 1.125rem !important;
+  }
+}
+
+.curve-bottom {
+  clip-path: ellipse(100% 100% at 50% 0%);
+}
+
+.curve-top {
+  clip-path: ellipse(100% 100% at 50% 100%);
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .subpage-hero h1 {
+    font-size: calc(3rem * 0.8) !important; /* 20% reduction of 3rem (text-5xl) */
+  }
+  .subpage-hero p {
+    font-size: calc(18.5px * 0.8) !important; /* 20% reduction of 18.5px */
+  }
+}
