@@ -1273,7 +1273,7 @@ export default function App() {
       subtitle: "WORSHIP & PRAISE",
       title: <>예배의 감격이 살아있고 <br /> 찬양이 넘치는 교회</>,
       description: <>신령과 진정으로 드리는 예배를 통해 <br className="md:hidden" /> 하나님의 살아 계심과 <br className="hidden md:inline" /> 하늘의 큰 평안을 누립니다.</>,
-      image: "./images/main_2.jpg",
+      image: `${import.meta.env.BASE_URL}images/main_2.jpg`,
       primaryText: "다음세대 보기",
       secondaryText: "지난 설교 보기",
       primaryAction: () => { window.location.hash = '#다음세대'; },
@@ -1429,7 +1429,7 @@ export default function App() {
                   e.preventDefault();
                   setIsSitemapOpen(true);
                 }}
-                className={`text-[20px] font-medium transition-colors relative group whitespace-nowrap py-2 cursor-pointer ${
+                className={`text-[16px] font-medium transition-colors relative group whitespace-nowrap py-2 cursor-pointer ${
                   isNextGenActive || isNeighborActive || isGodsLoveActive || isChurchIntroActive || isWorshipGuideActive || isDirectionsActive || isSmallChurchActive || isNewFamilyActive || isNoticeActive || isMinistryBoardActive || isSermonsActive || isSitemapOpen || isScrolled 
                     ? 'text-brand-brown/85 hover:text-brand-sage' 
                     : 'text-[#D3C7B5] hover:text-brand-gold'
@@ -1445,7 +1445,7 @@ export default function App() {
             ))}
             <button
               onClick={() => { window.location.hash = '#새가족안내'; }}
-              className="bg-brand-brown text-brand-cream md:px-4 md:py-2 lg:px-6 lg:py-2.5 rounded-full text-[20px] font-medium hover:bg-brand-sage transition-all hover:shadow-lg whitespace-nowrap ml-2 cursor-pointer"
+              className="bg-brand-brown text-brand-cream md:px-4 md:py-2 lg:px-6 lg:py-2.5 rounded-full text-[16px] font-medium hover:bg-brand-sage transition-all hover:shadow-lg whitespace-nowrap ml-2 cursor-pointer"
             >
               새가족 안내
             </button>
@@ -2959,7 +2959,7 @@ export default function App() {
                 <p className="text-brand-brown/65 leading-relaxed">낯설지 않도록, 도착부터 예배 후 교제까지 차근차근 안내해 드립니다.</p>
               </motion.div>
 
-              <div className="relative grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-5">
+              <div className="relative grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-5">
                 <div className="hidden md:block absolute top-12 left-[12.5%] right-[12.5%] h-px bg-brand-gold/45" />
                 {[
                   { icon: <MapPin className="w-6 h-6" />, image: undefined, title: "교회 도착", desc: "주일 예배 15분 전, 1층 안내 데스크로 오세요.", meta: "서울 양천구 목동로19길 28" },
@@ -2976,19 +2976,25 @@ export default function App() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="relative bg-white rounded-[2rem] p-[20px] md:p-6 md:pt-7 border border-brand-gold/15 text-left shadow-sm"
+                    className={`relative text-left ${
+                      index < 4
+                        ? 'col-span-full md:col-span-3 bg-white rounded-[2rem] p-[20px] md:p-6 md:pt-7 border border-brand-gold/15 shadow-sm'
+                        : 'col-span-full md:col-span-4 flex flex-col gap-4 py-8 md:py-12'
+                    }`}
                   >
                     {step.image ? (
-                      <div className="-mx-[20px] -mt-[20px] md:-mx-6 md:-mt-7 mb-4 md:mb-6 overflow-hidden bg-brand-cream">
-                        <img src={step.image} alt={`${step.title} 안내 이미지`} className="w-full aspect-[4/3] object-cover" loading="lazy" />
+                      <div className={index < 4 ? '-mx-[20px] -mt-[20px] md:-mx-6 md:-mt-7 mb-4 md:mb-6 overflow-hidden bg-brand-cream' : 'w-full aspect-[4/3] overflow-hidden bg-brand-cream'}>
+                        <img src={step.image} alt={`${step.title} 안내 이미지`} className="w-full h-full object-cover" loading="lazy" />
                       </div>
                     ) : (
                       null
                     )}
-                    <span className="text-xs font-bold text-brand-sage tracking-[0.15em]">STEP {index + 1}</span>
-                    <h3 className="first-visit-step-title font-serif text-xl font-bold text-brand-brown mt-1 mb-2 md:mt-2 md:mb-3">{step.title}</h3>
-                    <p className="first-visit-step-description text-[16px] text-brand-brown/65 leading-relaxed min-h-0 md:min-h-[66px]">{step.desc}</p>
-                    <p className="first-visit-step-meta mt-3 pt-2 md:mt-5 md:pt-4 border-t border-brand-gold/15 text-xs font-medium text-brand-brown/55">{step.meta}</p>
+                    <div className={index >= 4 ? 'flex flex-col justify-center' : ''}>
+                      <span className="text-xs font-bold text-brand-sage tracking-[0.15em]">STEP {index + 1}</span>
+                      <h3 className="first-visit-step-title font-serif text-xl font-bold text-brand-brown mt-1 mb-2 md:mt-2 md:mb-3">{step.title}</h3>
+                      <p className="first-visit-step-description text-[16px] text-brand-brown/65 leading-relaxed min-h-0 md:min-h-[66px]">{step.desc}</p>
+                      <p className={`first-visit-step-meta mt-3 pt-2 md:mt-5 md:pt-4 text-xs font-medium text-brand-brown/55 ${index < 4 ? 'border-t border-brand-gold/15' : ''}`}>{step.meta}</p>
+                    </div>
                   </motion.article>
                 ))}
               </div>
@@ -4059,11 +4065,11 @@ export default function App() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-10 gap-8 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-10 gap-8 items-stretch">
               {/* Left Column: Vision & Educational Target */}
-              <div className="md:col-span-3 space-y-6">
+              <div className="md:col-span-3 space-y-6 md:flex md:h-full md:flex-col">
                 {/* Educational Leader / Staff Photo Card */}
-                <div className="bg-white md:bg-transparent lg:bg-white p-6 md:p-0 lg:p-8 rounded-[2rem] border border-brand-gold/15 md:border-none lg:border shadow-sm md:shadow-none lg:shadow-sm text-left">
+                <div className="bg-white md:bg-transparent lg:bg-white p-6 md:p-0 lg:p-8 rounded-[2rem] border border-brand-gold/15 md:border-none lg:border shadow-sm md:shadow-none lg:shadow-sm text-left md:h-full md:flex md:flex-col">
                   {/* PC Version of Staff Info (Renders ABOVE the photo, replacing "교육담당자 소개") */}
                   <div className="hidden md:block space-y-2 text-left mb-5">
                     {nextGenSubpageId !== 0 && nextGenSubpageId !== 1 && nextGenSubpageId !== 2 && nextGenSubpageId !== 3 && nextGenSubpageId !== 4 && (
@@ -4096,7 +4102,7 @@ export default function App() {
                   </div>
                   
                   {/* Photo container (Static) */}
-                  <div className="relative w-full h-[480px] min-h-[480px] max-h-[480px] rounded-2xl overflow-hidden bg-brand-cream/35 border border-brand-gold/20 mb-4 md:mb-0 shadow-sm">
+                  <div className="relative w-full h-[480px] min-h-[480px] max-h-[480px] md:h-auto md:min-h-0 md:max-h-none md:flex-1 rounded-2xl overflow-hidden bg-brand-cream/35 border border-brand-gold/20 mb-4 md:mb-0 shadow-sm">
                     <img 
                       src={
                         customStaffPhotos[nextGenSubpageId!] || 
