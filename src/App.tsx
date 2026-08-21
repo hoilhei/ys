@@ -4868,7 +4868,7 @@ export default function App() {
               )}
           
               <div className={`flex justify-center items-center ${
-                    currentHeroSlide === 0 ? 'mt-12 md:mt-16' : ''
+                    currentHeroSlide === 0 ? 'mt-6 md:mt-8' : ''
                   }`}
                 >
                 <button onClick={heroSlides[currentHeroSlide].primaryAction}
