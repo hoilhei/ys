@@ -1546,12 +1546,14 @@ export default function App() {
         {/* Mobile Nav (With structured sitemap) */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div 
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="absolute top-full left-0 w-full bg-brand-cream border-b border-brand-gold/20 py-6 px-6 md:hidden flex flex-col gap-4 shadow-xl overflow-y-auto max-h-[85vh] text-left"
-            >
+            <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'calc(100dvh - 80px)' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.25, ease: 'easeInOut' }}
+                className="absolute top-full left-0 w-full bg-brand-cream border-b border-brand-gold/20 px-6 pt-6 pb-[calc(2rem+env(safe-area-inset-bottom))] md:hidden flex flex-col gap-4 shadow-xl overflow-y-auto overscroll-contain touch-pan-y text-left"
+                style={{ WebkitOverflowScrolling: 'touch' }}
+              >
               {sitemapData.map((category) => (
                 <div key={category.title} className="flex flex-col gap-2 border-b border-brand-gold/10 pb-3 last:border-b-0">
                   <span className="text-[20.85px] font-serif font-bold text-brand-brown">
@@ -4865,8 +4867,11 @@ export default function App() {
                 </p>
               )}
           
-              <div className={`flex justify-center items-center ${
-                    currentHeroSlide === 0 ? 'mt-6 md:mt-8' : ''
+              <div
+                  className={`flex justify-center items-center ${
+                    currentHeroSlide === 0
+                      ? 'mt-20 md:mt-12'
+                      : ''
                   }`}
                 >
                 <button onClick={heroSlides[currentHeroSlide].primaryAction}
