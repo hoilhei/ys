@@ -18,7 +18,7 @@
   pointer-events: none;
 }
 .faith-landscape {
-  background: url('/images/jesus/faith-landscape.png') center center / cover no-repeat;
+  background: url('/images/faith-landscape.png') center center / cover no-repeat;
 }
 .faith-sunset {
   background: linear-gradient(180deg, #79519c 0%, #ef8eaf 23%, #ffc2a0 37%, rgb(204 103 129 / 35%) 55%, rgb(71 29 63 / 35%) 100%);
