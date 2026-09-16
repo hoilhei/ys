@@ -1,5 +1,127 @@
 @import "tailwindcss";
 
+.floating-help {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  z-index: 40;
+  width: 184px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+}
+.floating-help-button {
+  --expanded-width: 184px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 25%);
+  box-shadow: 0 4px 16px rgb(53 47 41 / 18%);
+  cursor: pointer;
+  pointer-events: auto;
+  overflow: hidden;
+  font-size: 14px;
+  transition: width 250ms ease, box-shadow 250ms ease;
+}
+.floating-help-jesus { background: #8e9775; color: white; }
+.floating-help-welcome { background: #e2c799; color: #352f29; }
+.floating-help-prayer { background: #534b43; color: white; }
+.floating-help-top { background: #fdfbf7; color: #352f29; border-color: rgb(53 47 41 / 15%); }
+.floating-help-button svg { flex-shrink: 0; transition: opacity 180ms ease; }
+.floating-help-button span {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+.floating-help-button:hover,
+.floating-help-button:focus-visible { width: var(--expanded-width); box-shadow: 0 6px 22px rgb(53 47 41 / 25%); }
+.floating-help-button:hover svg,
+.floating-help-button:focus-visible svg { opacity: 0; }
+.floating-help-button:hover span,
+.floating-help-button:focus-visible span { opacity: 1; }
+.floating-help-button:focus-visible { outline: 2px solid #534b43; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  .floating-help-button, .floating-help-button svg, .floating-help-button span { transition: none; }
+}
+
+.hero-lights {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-lights-side {
+  position: absolute;
+  top: -25%;
+  height: 125%;
+  width: clamp(32px, 25vw, 400px);
+}
+
+.hero-lights-left { right: 100%; }
+.hero-lights-right { left: 100%; }
+
+.hero-light {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff8df;
+  box-shadow: 0 0 4px 1px #ffe8aa99, 0 0 10px 2px #ffd88a33;
+  opacity: 0;
+  animation: hero-light-glow ease-in-out both;
+}
+
+@keyframes hero-light-glow {
+  0%, 100% { opacity: 0; transform: scale(0.3); }
+  35% { opacity: 0.9; transform: scale(1); }
+  55% { opacity: 0.45; transform: scale(0.7); }
+  70% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@media (max-width: 767px) {
+  .hero-lights-side { width: 32px; }
+  .hero-lights-left { right: calc(100% - 22px); }
+  .hero-lights-right { left: calc(100% - 22px); }
+}
+
+.hero-meteor-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-meteor {
+  position: absolute;
+  top: 22%;
+  left: 68%;
+  width: 56px;
+  height: 1px;
+  border-radius: 50%;
+  background: linear-gradient(to right, transparent, #fff5da);
+  box-shadow: 0 0 4px #fff0c955;
+  opacity: 0;
+  animation: hero-meteor-fall 7s linear 7s infinite both;
+}
+
+@keyframes hero-meteor-fall {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(135deg); }
+  2% { opacity: 0.3; }
+  7% { opacity: 0.2; }
+  11%, 100% { opacity: 0; transform: translate3d(-90px, 90px, 0) rotate(135deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-lights, .hero-meteor-field { display: none; }
+}
+
 @font-face {
   font-family: "S-CoreDream";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
@@ -48,6 +170,7 @@
 @theme {
   --font-serif: "S-CoreDream", sans-serif;
   --font-sans: "S-CoreDream", sans-serif;
+  --font-mono: "S-CoreDream", sans-serif;
 
   --color-brand-cream: #fdfbf7;
   --color-brand-sage: #8e9775;
@@ -74,9 +197,24 @@
 
 /* Shared type scale for every subpage. Role-based sizing keeps page-specific
    utility classes from making equivalent content appear inconsistently sized. */
+.subpage-layout {
+  padding-top: var(--site-header-height, 79px);
+}
+
 .subpage-shell h1[class] {
   font-size: 2rem !important;
   line-height: 1.2 !important;
+}
+
+.subpage-shell h1.ministry-detail-title {
+  font-size: 1.25rem !important;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .subpage-shell h1.ministry-detail-title {
+    font-size: 1.5rem !important;
+  }
 }
 
 .subpage-shell h2[class] {
@@ -86,6 +224,7 @@
 
 .subpage-shell h3[class] {
   font-size: 1.25rem !important;
+  font-weight: 400 !important;
   line-height: 1.4 !important;
 }
 
@@ -97,6 +236,53 @@
 .subpage-shell p[class] {
   font-size: 0.9375rem !important;
   line-height: 1.7 !important;
+}
+
+.subpage-shell .church-vision p[class] {
+  line-height: 1.9 !important;
+}
+
+.subpage-shell .activity-card p[class] {
+  line-height: 1.4 !important;
+}
+
+.subpage-shell .participation-list h4[class] {
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+}
+
+.subpage-shell h3.board-card-title[class],
+.subpage-shell h3.sermon-card-title[class] {
+  font-size: 1.1rem !important;
+}
+
+.subpage-shell h2.ministry-board-heading[class] {
+  font-size: 1.25rem !important;
+  font-weight: 400;
+}
+
+.subpage-shell h3.neighbor-program-heading[class] {
+  font-size: 20px !important;
+}
+
+.subpage-shell p.board-card-description[class] {
+  font-size: 0.9rem !important;
+}
+
+.subpage-shell button.notice-card-action[class] {
+  font-size: 0.6875rem !important;
+  font-weight: 400;
+}
+
+.subpage-shell h2.notice-modal-title {
+  font-size: 1.25rem !important;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .subpage-shell h2.notice-modal-title {
+    font-size: 1.5rem !important;
+  }
 }
 
 .subpage-shell button[class],
@@ -140,9 +326,10 @@
 }
 
 /* Shared hero frame for every subpage; each page keeps its own background image and copy. */
-.subpage-shell .subpage-hero {
-  height: 48vh !important;
-  min-height: 360px !important;
+.subpage-layout .subpage-hero {
+  height: 350px !important;
+  min-height: 350px !important;
+  max-height: 350px !important;
 }
 
 .subpage-shell .subpage-hero > div[class*="bg-gradient-to-t"] {
@@ -154,6 +341,13 @@
   height: 100% !important;
   padding-bottom: 0 !important;
   align-items: center !important;
+}
+
+/* Keep introduction and ministry page titles near the bottom of the hero image. */
+.subpage-shell .subpage-hero.info-hero > div[class*="bg-gradient-to-t"],
+.subpage-shell .subpage-hero.nextgen-hero > div[class*="bg-gradient-to-t"],
+.subpage-shell .subpage-hero.ministry-hero > div[class*="bg-gradient-to-t"] {
+  align-items: flex-end !important;
 }
 
 .subpage-shell .subpage-hero .text-left {
@@ -174,20 +368,7 @@
   margin-bottom: 1.25rem !important;
 }
 
-@media (max-width: 767px) {
-  .subpage-shell .subpage-hero {
-    height: 280px !important;
-    min-height: 280px !important;
-    max-height: 280px !important;
-  }
-}
-
 @media (min-width: 768px) {
-  .subpage-shell .subpage-hero {
-    height: 46vh !important;
-    min-height: 420px !important;
-  }
-
   .subpage-shell h1[class] {
     font-size: 3rem !important;
   }
@@ -240,5 +421,368 @@
   }
   .subpage-hero p {
     font-size: calc(18.5px * 0.8) !important; /* 20% reduction of 18.5px */
+  }
+}
+
+/* Tablet layout, including larger touch tablets in landscape. */
+@media (min-width: 768px) and (max-width: 1023px),
+       (min-width: 1024px) and (max-width: 1366px) and (pointer: coarse) {
+  .site-layout {
+    --tablet-page-gutter: 40px;
+  }
+
+  .site-layout .ipad-air-hero {
+    height: calc(100svh - 240px) !important;
+    padding-top: var(--site-header-height, 79px);
+  }
+
+  .site-layout .main-quick-links {
+    margin-top: 0;
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+
+  .main-quick-links .quick-link-card {
+    height: 184px;
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .main-quick-links .quick-link-card h3 { font-size: 20px; margin-bottom: 0; }
+  .main-quick-links .quick-link-card p { display: none; }
+  .main-quick-links .quick-link-card > div:first-child > div:first-child { margin-bottom: 6px; }
+  .main-quick-links .quick-link-card > div:last-child { margin-top: 8px; }
+  .main-quick-links .quick-link-card a { width: 40px; height: 40px; }
+
+  .notice-card-grid,
+  .ministry-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Keep backgrounds full width and inset only their content containers. */
+  .site-layout .mx-auto.px-6,
+  .site-layout .mx-auto.md\:px-6,
+  .site-layout section.px-6 {
+    padding-inline: var(--tablet-page-gutter);
+  }
+
+  .site-layout .floating-help {
+    right: max(24px, env(safe-area-inset-right));
+    bottom: calc(48px + env(safe-area-inset-bottom));
+  }
+
+  #navbar .header-tagline {
+    display: none;
+  }
+
+  .recommended-book-card {
+    flex-direction: column;
+  }
+
+  .recommended-book-copy {
+    width: 100%;
+  }
+
+  .small-church-page,
+  .worship-guide-page {
+    min-height: 0;
+    padding-bottom: 2rem;
+  }
+
+  #예배안내 .worship-schedule-title {
+    font-size: 16px;
+  }
+
+  .subpage-shell h3.weekday-worship-heading {
+    font-size: 20px !important;
+  }
+
+  .subpage-shell .weekday-worship-title {
+    font-size: 16px;
+  }
+
+  .main-hero-content h1 {
+    position: relative;
+    top: -56px;
+  }
+
+  .quick-link-card[data-selected="true"] {
+    background-color: rgb(103 93 80 / 20%);
+  }
+
+  #설교말씀 h2,
+  #핵심사역 h2,
+  #가나안쉼터 h2,
+  #다음세대 h2,
+  #예배안내 h2 {
+    font-size: 36px;
+  }
+
+  #설교말씀 { height: 600px; }
+  #설교말씀 .sermon-heading { margin-bottom: 24px; }
+
+  .core-value-copy h4,
+  .core-value-copy p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #다음세대 .nextgen-card-spec { border-top: 0; }
+}
+
+@media (max-width: 767px) {
+  .main-hero-content { top: -28px; }
+  .nextgen-staff-photo {
+    height: 356px;
+    min-height: 356px;
+    max-height: 356px;
+  }
+  .site-layout .mx-auto.px-6,
+  .site-layout .mx-auto.px-4,
+  .site-layout section.px-6,
+  .site-layout #navbar > .px-6 {
+    padding-inline: 25px;
+  }
+
+  .site-layout .faith-stories,
+  .site-layout .faith-journey-reduced .faith-stage {
+    padding-inline: 25px;
+  }
+
+  .site-layout .faith-scenes,
+  .site-layout .faith-footer {
+    left: 25px;
+    right: 25px;
+  }
+
+  .site-layout .faith-heading { left: 25px; }
+  .site-layout .faith-previous { right: 25px; }
+  .subpage-shell button.notice-modal-download {
+    font-size: 11px !important;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .gods-love-navigation,
+  .neighbor-navigation,
+  .nextgen-navigation {
+    padding-bottom: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(142 151 117 / 25%) transparent;
+  }
+  .gods-love-navigation::-webkit-scrollbar,
+  .nextgen-navigation::-webkit-scrollbar,
+  .neighbor-navigation::-webkit-scrollbar { height: 3px; }
+  .gods-love-navigation::-webkit-scrollbar-track,
+  .nextgen-navigation::-webkit-scrollbar-track,
+  .neighbor-navigation::-webkit-scrollbar-track { background: transparent; }
+  .gods-love-navigation::-webkit-scrollbar-thumb,
+  .nextgen-navigation::-webkit-scrollbar-thumb,
+  .neighbor-navigation::-webkit-scrollbar-thumb {
+    background: rgb(142 151 117 / 25%);
+    border-radius: 999px;
+  }
+  .small-church-page .activity-card { container-type: inline-size; }
+  .small-church-page .activity-card p[class] {
+    font-size: clamp(8px, 3.8cqi, 14px) !important;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+  }
+  .small-church-page .activity-card p svg {
+    width: 12px;
+    height: 12px;
+    margin-top: 0;
+  }
+  .weekday-worship-card { padding: 24px; }
+  .weekday-worship-row { flex-direction: row; align-items: center; gap: 12px; }
+  .weekday-worship-row > div:first-child { width: auto; min-width: 0; }
+  .weekday-worship-row > div:first-child > div { gap: 12px; min-width: 0; }
+  .weekday-worship-row span { font-size: 12px; }
+  .weekday-worship-row .weekday-worship-title {
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: normal;
+    min-width: 0;
+  }
+  .weekday-worship-row > div:first-child > div > span:first-child { min-width: 0; padding: 4px 10px; }
+  .weekday-worship-row > div:last-child { flex-shrink: 0; }
+  .weekday-worship-row > div:last-child > span { padding: 4px 8px; white-space: nowrap; }
+  .floating-help { bottom: calc(48px + env(safe-area-inset-bottom)); }
+  .main-hero-content h1 { line-height: 1.35; }
+  #설교말씀 { height: 550px; }
+  #설교말씀 .sermon-heading { margin-bottom: 24px; }
+  #핵심사역 .ministry-heading { margin-bottom: 36px; }
+
+  .core-value-copy h4,
+  .core-value-copy p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  #가나안쉼터 .faith-subtitle { width: fit-content; justify-content: center; }
+  #가나안쉼터 .faith-description {
+    width: 90%;
+    margin-bottom: 40px;
+  }
+  #가나안쉼터 { padding-bottom: 70px; }
+  #가나안쉼터 .faith-cards > div {
+    position: relative;
+    padding-bottom: 24px;
+  }
+  #가나안쉼터 .faith-cards > div > button {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    min-height: 48px;
+  }
+  #가나안쉼터 .faith-cards { gap: 24px; }
+  #가나안쉼터 .faith-cards p { font-size: 14px; }
+
+  #다음세대 { height: 650px; min-height: 0; border-bottom: 0; }
+  .nextgen-layout { display: flex; flex-direction: column; }
+  .nextgen-heading { display: block; position: relative; }
+  .nextgen-heading h2 { padding-right: 106px; }
+  #nextgen-section-badge { width: fit-content; }
+  #nextgen-section-badge br { display: none; }
+  #nextgen-arrows { position: absolute; right: 0; bottom: 0; margin: 0; }
+  .nextgen-carousel { order: 2; }
+  #다음세대 .nextgen-card-spec { border-top: 0; }
+
+  #예배안내 .worship-heading { margin-bottom: 20px; }
+  #예배안내 .worship-columns { margin-top: 8px; }
+  #예배안내 #오시는길 {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  #예배안내 #오시는길 > div:first-child .flex.items-start {
+    color: rgb(253 251 247 / 85%);
+  }
+}
+
+@media (max-width: 767px) {
+  .main-quick-links,
+  #설교말씀, #핵심사역, #가나안쉼터, #다음세대, #예배안내 {
+    padding-top: 80px;
+  }
+  #핵심사역 { height: 800px; }
+  #가나안쉼터 .faith-description br { display: none; }
+  #가나안쉼터 .faith-cards h3 { font-size: 20px; }
+  #가나안쉼터 .faith-cards > div > button {
+    font-size: 15px;
+    max-width: calc(100% - 128px);
+    justify-content: flex-end;
+    text-align: right;
+  }
+  #가나안쉼터 .faith-cards > div > button svg { flex-shrink: 0; }
+  #nextgen-section-badge { letter-spacing: normal; }
+  #nextgen-section-badge svg { flex-shrink: 0; }
+  #예배안내 {
+    height: 800px;
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-brand-cream) 0 2px,
+      var(--color-brand-brown) 2px 100%
+    );
+  }
+  #예배안내 [id^="worship-schedule-item-"] {
+    border-radius: 12px;
+    padding: 8px 14px;
+  }
+}
+
+.main-section-subtitle,
+#가나안쉼터 .faith-subtitle,
+#nextgen-section-badge,
+#예배안내 .worship-heading span {
+  font-size: 16px;
+}
+
+@media (min-width: 1024px) {
+  #예배안내 {
+    height: auto;
+    min-height: 800px;
+  }
+  #예배안내 #오시는길 {
+    height: 390px;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  #예배안내 #오시는길 > div:first-child .flex.items-start {
+    color: rgb(253 251 247 / 85%);
+    font-size: 18px;
+  }
+  #예배안내 [id^="worship-schedule-item-"] {
+    border-radius: 12px;
+  }
+  #예배안내 .worship-map {
+    height: auto;
+    min-height: 0;
+    flex: 1;
+  }
+  #예배안내 .worship-columns > div:last-child {
+    align-self: end;
+  }
+}
+
+#설교말씀 h2,
+#핵심사역 h2,
+#가나안쉼터 h2,
+#다음세대 h2,
+#예배안내 h2 {
+  font-weight: 500;
+}
+
+@media (min-width: 1024px) {
+  #설교말씀 h2,
+  #핵심사역 h2,
+  #가나안쉼터 h2,
+  #다음세대 h2,
+  #예배안내 h2 {
+    font-size: 45px;
+    font-weight: 400;
+  }
+}
+
+/* Mobile and desktop subpage banners share menu titles. */
+.subpage-title-desktop { display: none; }
+.subpage-layout .subpage-hero h1 span[class] {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+@media (max-width: 767px), (min-width: 1024px) {
+  .subpage-layout .subpage-hero h1[class] {
+    font-size: 2.5rem !important;
+  }
+  .subpage-layout .subpage-hero .text-left > span[class*="inline-flex"],
+  .subpage-layout .subpage-hero .subpage-title-mobile {
+    display: none;
+  }
+  .subpage-layout .subpage-hero .subpage-title-desktop {
+    display: inline;
+  }
+}
+
+@media (max-width: 767px) {
+  .subpage-layout .subpage-hero h1[class] {
+    font-size: 2rem !important;
+  }
+
+  .subpage-layout .subpage-hero p[class] {
+    display: block;
+    font-size: 1rem !important;
+  }
+
+  .subpage-layout .subpage-hero button.md\:hidden {
+    display: none;
+  }
+
+  .subpage-shell .subpage-hero > div[class*="bg-gradient-to-t"] > .mx-auto {
+    padding-bottom: 3rem;
   }
 }
