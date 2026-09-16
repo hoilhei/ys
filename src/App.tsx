@@ -48,6 +48,7 @@ import React,{ useState,useEffect,useLayoutEffect,useRef } from 'react';
 
 export default function App() {
   const navbarRef=useRef<HTMLElement|null>(null);
+  const [expandedVision,setExpandedVision]=useState<number|null>(null);
 
   useLayoutEffect(() => {
     const navbar=navbarRef.current;
@@ -1080,22 +1081,22 @@ export default function App() {
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                     {(() => {
                       const staffMembers=[
-                        { name: "조은찬 목사",role: "부목사",dept: "행정 / 교구",img: "./images/1.jpg",href: "#작은교회" },
-                        { name: "김호준 목사",role: "부목사",dept: "초등부 / 행복한대학 / 교구",img: "./images/2.jpg",href: "#nextgen/2",nextGenIdx: 2 },
-                        { name: "김성호 목사",role: "협동목사",dept: "교육총괄 / 뮤직아카데미",img: "./images/0-0.jpg",href: "#이웃사랑/1" },
-                        { name: "손창성 전도사",role: "교육전도사",dept: "중고등부",img: "./images/3.jpg",href: "#nextgen/3",nextGenIdx: 3 },
-                        { name: "김진영 전도사",role: "교육전도사",dept: "유치부",img: "./images/4.jpg",href: "#nextgen/1",nextGenIdx: 1 },
-                        { name: "허승욱 전도사",role: "교육전도사",dept: "새가족 / 중보기도",img: "./images/5.jpg",href: "#새가족안내" },
+                        { name: "조은찬 목사",role: "부목사",dept: "행정/1,3교구",img: "./images/1.jpg",href: "#작은교회" },
+                        { name: "김호준 목사",role: "부목사",dept: "초등부/행복한대학/2,4교구",img: "./images/2.jpg",href: "#nextgen/2",nextGenIdx: 2 },
+                        { name: "김성호 목사",role: "협동목사",dept: "교육총괄/뮤직아카데미",img: "./images/0-0.jpg",href: "#이웃사랑/1" },
+                        { name: "손창성 전도사",role: "교육전도사",dept: "중고등부/미디어",img: "./images/3.jpg",href: "#nextgen/3",nextGenIdx: 3 },
+                        { name: "김진영 전도사",role: "교육전도사",dept: "유치부/사랑나눔",img: "./images/4.jpg",href: "#nextgen/1",nextGenIdx: 1 },
+                        { name: "허승욱 전도사",role: "교육전도사",dept: "새가족/중보기도",img: "./images/5.jpg",href: "#새가족안내" },
                         { name: "김혜민 전도사",role: "찬양전도사",dept: "예배부",img: "./images/6.jpg" },
-                        { name: "차민경 디렉터",role: "디렉터",dept: "카페쉼 / 디자인",img: "./images/8.jpeg" },
-                        { name: "박혜연 디렉터",role: "디렉터",dept: "유아부 / 영상",img: "./images/7.jpg",href: "#nextgen/0",nextGenIdx: 0 }
+                        { name: "차민경 디렉터",role: "디렉터",dept: "카페쉼/디자인",img: "./images/8.jpeg" },
+                        { name: "박혜연 디렉터",role: "디렉터",dept: "유아부/미디어",img: "./images/7.jpg",href: "#nextgen/0",nextGenIdx: 0 }
                       ];
 
                       return staffMembers.map((staff,idx) => {
                         const isLink=!!staff.href;
 
                         return (
-                          <div key={idx} className="flex flex-col items-center bg-brand-cream/10 p-3 rounded-2xl border border-brand-gold/10 hover:border-brand-sage/30 transition-all text-center">
+                          <div key={idx} className="flex flex-col items-center bg-brand-cream/10 p-3 rounded-2xl border-0 md:border border-brand-gold/10 hover:border-brand-sage/30 transition-all text-center">
                             {isLink? (
                               <a
                                 href={staff.href}
@@ -1118,7 +1119,7 @@ export default function App() {
                                     }
                                   }
                                 }}
-                                className="w-[115%] md:w-full aspect-[3/4] rounded-xl overflow-hidden border border-brand-gold/15 mb-3 bg-brand-cream/20 relative group block cursor-pointer"
+                                className="w-[115%] md:w-full aspect-[3/4] rounded-xl overflow-hidden border-0 md:border border-brand-gold/15 mb-3 bg-brand-cream/20 relative group block cursor-pointer"
                               >
                                 {staff.img? (
                                   <img
@@ -1140,7 +1141,7 @@ export default function App() {
                                 </div>
                               </a>
                             ):(
-                              <div className="w-[115%] md:w-full aspect-[3/4] rounded-xl overflow-hidden border border-brand-gold/15 mb-3 bg-brand-cream/20 relative">
+                              <div className="w-[115%] md:w-full aspect-[3/4] rounded-xl overflow-hidden border-0 md:border border-brand-gold/15 mb-3 bg-brand-cream/20 relative">
                                 {staff.img? (
                                   <img
                                     src={staff.img}
@@ -1176,25 +1177,61 @@ export default function App() {
                   <ul className="space-y-8">
                     <li className="flex gap-4 items-start">
                       <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</span>
-                      <div>
-                        <h4 className="text-[13.2px] md:text-[15.4px] font-semibold text-brand-brown">복음으로 사는 교회</h4>
-                        <p className="text-[12px] md:text-[13.2px] text-brand-brown/70 leading-relaxed mt-0.5">영신교회는 “복음”을 쉬지 않고 전하는 교회, “성장”을 멈추지 않는 교회, “가치”를 발견하고, “행동”하는 교회, “소통”하는 교회가 되어, 하나님께 영광 돌려드리는 것입니다. 이 일을 위해 예배, 양육, 전파, 교제에 대한 사역을 통해 “하나님”을 사랑하고, 하나님이 가장 사랑한 “사람”을 사랑하는 것이 영신교회의 비전입니다. 이를 위해 지역을 섬기고, 건강하고 행복한 가정, 다음 세대를 세우는 일에 힘을 쏟는 교회입니다.</p>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-[13.2px] md:text-[15.4px] font-semibold text-brand-brown">
+                          <span className="hidden md:block">복음으로 사는 교회</span>
+                          <button
+                            type="button"
+                            className="vision-toggle md:hidden flex w-full items-center justify-between gap-3 text-left cursor-pointer"
+                            aria-expanded={expandedVision===1}
+                            aria-controls="church-vision-description-1"
+                            onClick={() => setExpandedVision(previous => previous===1? null:1)}
+                          >
+                            <span>복음으로 사는 교회</span>
+                            <ChevronDown className={`w-4 h-4 shrink-0 transition-transform motion-reduce:transition-none ${expandedVision===1? 'rotate-180':''}`} aria-hidden="true" />
+                          </button>
+                        </h4>
+                        <p id="church-vision-description-1" className={`text-[12px] md:text-[13.2px] text-brand-brown/70 leading-relaxed mt-0.5 ${expandedVision===1? 'block':'hidden'} md:block`}>영신교회는 “복음”을 쉬지 않고 전하는 교회, “성장”을 멈추지 않는 교회, “가치”를 발견하고, “행동”하는 교회, “소통”하는 교회가 되어, 하나님께 영광 돌려드리는 것입니다. 이 일을 위해 예배, 양육, 전파, 교제에 대한 사역을 통해 “하나님”을 사랑하고, 하나님이 가장 사랑한 “사람”을 사랑하는 것이 영신교회의 비전입니다. 이를 위해 지역을 섬기고, 건강하고 행복한 가정, 다음 세대를 세우는 일에 힘을 쏟는 교회입니다.</p>
                       </div>
                     </li>
                     <li className="flex gap-4 items-start">
                       <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</span>
-                      <div>
-                        <h4 className="text-[13.2px] md:text-[15.4px] font-semibold text-brand-brown">다음 세대를 세우는 교회</h4>
-                        <p className="text-[12px] md:text-[13.2px] text-brand-brown/70 leading-relaxed mt-0.5">우리는 복음으로 인해 바른 믿음을 세워감으로써 하나님의 사람이라는 정체성과 옳은 것에 대한 분별력을 갖고, 하나님 나라의 비전을 품을 수 있도록 돕겠습니다.하나님의 마음으로 양육하고 돌보겠습니다.
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-[13.2px] md:text-[15.4px] font-semibold text-brand-brown">
+                          <span className="hidden md:block">다음 세대를 세우는 교회</span>
+                          <button
+                            type="button"
+                            className="vision-toggle md:hidden flex w-full items-center justify-between gap-3 text-left cursor-pointer"
+                            aria-expanded={expandedVision===2}
+                            aria-controls="church-vision-description-2"
+                            onClick={() => setExpandedVision(previous => previous===2? null:2)}
+                          >
+                            <span>다음 세대를 세우는 교회</span>
+                            <ChevronDown className={`w-4 h-4 shrink-0 transition-transform motion-reduce:transition-none ${expandedVision===2? 'rotate-180':''}`} aria-hidden="true" />
+                          </button>
+                        </h4>
+                        <p id="church-vision-description-2" className={`text-[12px] md:text-[13.2px] text-brand-brown/70 leading-relaxed mt-0.5 ${expandedVision===2? 'block':'hidden'} md:block`}>우리는 복음으로 인해 바른 믿음을 세워감으로써 하나님의 사람이라는 정체성과 옳은 것에 대한 분별력을 갖고, 하나님 나라의 비전을 품을 수 있도록 돕겠습니다.하나님의 마음으로 양육하고 돌보겠습니다.
 
                           [골1:28-29]”우리가 그를 전파하여 각 사람을 권하고 모든 지혜로 각 사람을 가르침은 각 사람을 그리스도 안에서 완전한 자로 세우려 함이니, 이를 위하여 나도 내 속에서 능력으로 역사하시는 이의 역사를 따라 힘을 다하여 수고하노라”</p>
                       </div>
                     </li>
                     <li className="flex gap-4 items-start">
                       <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">3</span>
-                      <div>
-                        <h4 className="text-[13.2px] md:text-[15.4px] font-semibold text-brand-brown">건강한 가정을 세우는 교회</h4>
-                        <p className="text-[12px] md:text-[13.2px] text-brand-brown/70 leading-relaxed mt-0.5">우리는 가정이 하나님이 주신 가장 귀한 선물임을 확신합니다. 건강한 가정을 위해서는 소통의 마음과 배움의 애씀이 있어야 합니다. 복음 안에서 나와 너를 이해할 때, 건강한 가정을 이룰 수 있습니다. 하나님이 함께 하시는 건강한 가정이 세워지기를 소망합니다.</p>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-[13.2px] md:text-[15.4px] font-semibold text-brand-brown">
+                          <span className="hidden md:block">건강한 가정을 세우는 교회</span>
+                          <button
+                            type="button"
+                            className="vision-toggle md:hidden flex w-full items-center justify-between gap-3 text-left cursor-pointer"
+                            aria-expanded={expandedVision===3}
+                            aria-controls="church-vision-description-3"
+                            onClick={() => setExpandedVision(previous => previous===3? null:3)}
+                          >
+                            <span>건강한 가정을 세우는 교회</span>
+                            <ChevronDown className={`w-4 h-4 shrink-0 transition-transform motion-reduce:transition-none ${expandedVision===3? 'rotate-180':''}`} aria-hidden="true" />
+                          </button>
+                        </h4>
+                        <p id="church-vision-description-3" className={`text-[12px] md:text-[13.2px] text-brand-brown/70 leading-relaxed mt-0.5 ${expandedVision===3? 'block':'hidden'} md:block`}>우리는 가정이 하나님이 주신 가장 귀한 선물임을 확신합니다. 건강한 가정을 위해서는 소통의 마음과 배움의 애씀이 있어야 합니다. 복음 안에서 나와 너를 이해할 때, 건강한 가정을 이룰 수 있습니다. 하나님이 함께 하시는 건강한 가정이 세워지기를 소망합니다.</p>
                       </div>
                     </li>
                   </ul>
@@ -1488,7 +1525,7 @@ export default function App() {
                   </div>
                 </div>
                 {/* 교회 위치 지도 */}
-                <div className="min-w-0 flex flex-col bg-white p-6 md:p-8 rounded-[2rem] border border-brand-gold/15 shadow-sm text-left hover:shadow-md transition-all">
+                <div className="directions-map-card min-w-0 flex flex-col bg-white p-6 md:p-8 rounded-[2rem] border border-brand-gold/15 shadow-sm text-left hover:shadow-md transition-all">
                   <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
                     <div className="flex items-center gap-3">
                       <div className="p-3 bg-brand-sage/10 text-brand-sage rounded-2xl">
@@ -1924,7 +1961,7 @@ export default function App() {
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#352f29]/90 via-[#4c443b]/65 to-[#4c443b]/10" />
-            <div className="relative max-w-[1300px] mx-auto h-full px-6 flex items-center">
+            <div className="welcome-hero-content relative max-w-[1300px] mx-auto h-full px-6 flex items-center">
               <motion.div
                 initial={{ opacity: 0,y: 24 }}
                 animate={{ opacity: 1,y: 0 }}
@@ -2026,7 +2063,7 @@ export default function App() {
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#352f29]/90 via-[#4c443b]/65 to-[#4c443b]/10" />
-            <div className="relative max-w-[1300px] mx-auto h-full px-6 flex items-center">
+            <div className="welcome-hero-content relative max-w-[1300px] mx-auto h-full px-6 flex items-center">
               <motion.div
                 initial={{ opacity: 0,y: 24 }}
                 animate={{ opacity: 1,y: 0 }}

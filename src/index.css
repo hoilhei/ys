@@ -124,8 +124,10 @@
 
 @font-face {
   font-family: "S-CoreDream";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
-    format("woff");
+  src: url("/fonts/s-core-dream/S-CoreDream-3Light.woff2") format("woff2"),
+    url("/fonts/s-core-dream/S-CoreDream-3Light.woff") format("woff"),
+    url("/fonts/s-core-dream/SCDream3.otf") format("opentype"),
+    url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -133,8 +135,10 @@
 
 @font-face {
   font-family: "S-CoreDream";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff")
-    format("woff");
+  src: url("/fonts/s-core-dream/S-CoreDream-4Regular.woff2") format("woff2"),
+    url("/fonts/s-core-dream/S-CoreDream-4Regular.woff") format("woff"),
+    url("/fonts/s-core-dream/SCDream4.otf") format("opentype"),
+    url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -142,8 +146,10 @@
 
 @font-face {
   font-family: "S-CoreDream";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff")
-    format("woff");
+  src: url("/fonts/s-core-dream/S-CoreDream-5Medium.woff2") format("woff2"),
+    url("/fonts/s-core-dream/S-CoreDream-5Medium.woff") format("woff"),
+    url("/fonts/s-core-dream/SCDream5.otf") format("opentype"),
+    url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -151,8 +157,10 @@
 
 @font-face {
   font-family: "S-CoreDream";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff")
-    format("woff");
+  src: url("/fonts/s-core-dream/S-CoreDream-6Bold.woff2") format("woff2"),
+    url("/fonts/s-core-dream/S-CoreDream-6Bold.woff") format("woff"),
+    url("/fonts/s-core-dream/SCDream6.otf") format("opentype"),
+    url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -160,8 +168,10 @@
 
 @font-face {
   font-family: "S-CoreDream";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff")
-    format("woff");
+  src: url("/fonts/s-core-dream/S-CoreDream-7ExtraBold.woff2") format("woff2"),
+    url("/fonts/s-core-dream/S-CoreDream-7ExtraBold.woff") format("woff"),
+    url("/fonts/s-core-dream/SCDream7.otf") format("opentype"),
+    url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -532,7 +542,27 @@
 }
 
 @media (max-width: 767px) {
-  .main-hero-content { top: -28px; }
+  .subpage-hero .welcome-hero-content {
+    align-items: flex-end;
+    padding-bottom: 32px;
+  }
+  .subpage-shell .church-vision .vision-toggle {
+    font-size: inherit !important;
+    font-weight: inherit;
+    line-height: inherit !important;
+  }
+  .directions-map-card {
+    background: transparent;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .main-hero-content { top: 0; }
+  .main-hero-content button {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
   .nextgen-staff-photo {
     height: 356px;
     min-height: 356px;
@@ -584,7 +614,7 @@
   }
   .small-church-page .activity-card { container-type: inline-size; }
   .small-church-page .activity-card p[class] {
-    font-size: clamp(8px, 3.8cqi, 14px) !important;
+    font-size: clamp(8.5px, 4cqi, 14.5px) !important;
     align-items: center;
     gap: 4px;
     white-space: nowrap;
@@ -608,7 +638,9 @@
   .weekday-worship-row > div:first-child > div > span:first-child { min-width: 0; padding: 4px 10px; }
   .weekday-worship-row > div:last-child { flex-shrink: 0; }
   .weekday-worship-row > div:last-child > span { padding: 4px 8px; white-space: nowrap; }
-  .floating-help { bottom: calc(48px + env(safe-area-inset-bottom)); }
+  .floating-help { bottom: calc(24px + env(safe-area-inset-bottom)); gap: 10px; }
+  .floating-help-button { width: 44px; height: 44px; }
+  .floating-help-button svg { width: 18px; height: 18px; }
   .main-hero-content h1 { line-height: 1.35; }
   #설교말씀 { height: 550px; }
   #설교말씀 .sermon-heading { margin-bottom: 24px; }
