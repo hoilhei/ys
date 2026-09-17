@@ -175,9 +175,14 @@
 
 
 @theme {
-  --font-serif: "S-CoreDream", sans-serif;
-  --font-sans: "S-CoreDream", sans-serif;
-  --font-mono: "S-CoreDream", sans-serif;
+  --font-serif: "S-CoreDream", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", system-ui, sans-serif;
+
+  --font-sans: "S-CoreDream", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", system-ui, sans-serif;
+
+  --font-mono: "S-CoreDream", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", system-ui, sans-serif;
 
   --color-brand-cream: #fdfbf7;
   --color-brand-sage: #8e9775;
