@@ -187,9 +187,19 @@
 
 @layer base {
   html,
-  body {
-    font-family: "S-CoreDream", sans-serif;
-  }
+  body,
+  button,
+  input,
+  textarea,
+  select {
+          font-family:
+            "S-CoreDream",
+            "Apple SD Gothic Neo",
+            "Noto Sans KR",
+            "Malgun Gothic",
+            system-ui,
+            sans-serif;
+          }
 
   body {
     @apply bg-brand-cream text-brand-brown antialiased;
