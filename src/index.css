@@ -125,7 +125,9 @@
 /* S-Core Dream */
 @font-face {
   font-family: "S-CoreDream";
-  src: url("/ys/s-core_dream/SCDream3.otf") format("opentype");
+  src:
+  url("/ys/s-core_dream/SCDream3.woff2") format("woff2");
+  url("/ys/s-core_dream/SCDream3.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -133,6 +135,7 @@
 
 @font-face {
   font-family: "S-CoreDream";
+  src: url("/ys/s-core_dream/SCDream4.woff2") format("woff2");
   src: url("/ys/s-core_dream/SCDream4.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
@@ -141,6 +144,7 @@
 
 @font-face {
   font-family: "S-CoreDream";
+  src: url("/ys/s-core_dream/SCDream5.woff2") format("woff2");
   src: url("/ys/s-core_dream/SCDream5.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
@@ -149,6 +153,7 @@
 
 @font-face {
   font-family: "S-CoreDream";
+  src: url("/ys/s-core_dream/SCDream6.woff2") format("woff2");
   src: url("/ys/s-core_dream/SCDream6.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
@@ -157,6 +162,7 @@
 
 @font-face {
   font-family: "S-CoreDream";
+  src: url("/ys/s-core_dream/SCDream7.woff2") format("woff2");
   src: url("/ys/s-core_dream/SCDream7.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
