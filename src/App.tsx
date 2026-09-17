@@ -1952,7 +1952,7 @@ export default function App() {
           </div>
         </div>
       ):isJesusActive? (
-        <main className="min-h-screen bg-brand-cream font-sans pb-20 subpage-layout">
+        <main className="min-h-screen bg-brand-cream font-sans pb-20 subpage-layout subpage-copy-standard">
           <header className="subpage-hero relative h-[48vh] min-h-[22.5rem] md:h-[46vh] md:min-h-[26.25rem] w-full overflow-hidden">
             <img
               src="images/cross.png"
@@ -2054,7 +2054,7 @@ export default function App() {
           <FaithJourney />
         </main>
       ):isNewFamilyActive? (
-        <main className="min-h-screen bg-brand-cream font-sans pb-20 subpage-layout">
+        <main className="min-h-screen bg-brand-cream font-sans pb-20 subpage-layout subpage-copy-standard">
           <header className="subpage-hero relative h-[48vh] min-h-[22.5rem] md:h-[46vh] md:min-h-[26.25rem] w-full overflow-hidden">
             <img
               src="images/light.png"
