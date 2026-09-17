@@ -1056,7 +1056,7 @@ export default function App() {
                     {/* 오른편: 인사말 */}
                     <div className="min-w-0 space-y-4 p-4 md:p-6 mt-4 md:min-h-[380px] md:flex md:flex-col md:justify-center">
                       <h4 className="font-serif text-[16px] md:text-lg font-bold text-brand-brown leading-snug">
-                        "하나님의 평화와 축복이 여러분의 삶과 가정에 <br />
+                        "하나님의 평화와 축복이 여러분의 삶과 가정에 <br className="hidden md:block" />
                         늘 가득하시기를 소망합니다."
                       </h4>
                       <p className="w-full text-xs md:text-sm text-brand-brown/85 font-light leading-relaxed whitespace-pre-line intro-body-text">
@@ -1071,7 +1071,7 @@ export default function App() {
 
                 {/* 1.5 교역자 소개 Card */}
                 <div className="text-left">
-                  <div className="flex items-center gap-3 mb-6">
+                  <div className="staff-heading flex items-center gap-3 mb-6">
                     <div className="p-3 bg-brand-sage/10 text-brand-sage rounded-2xl">
                       <Users className="w-6 h-6" />
                     </div>
@@ -1158,7 +1158,7 @@ export default function App() {
                             )}
                             <p className="font-serif text-[17.2px] font-bold text-brand-brown leading-tight">{staff.name}</p>
                             <p className="text-[13.2px] text-brand-sage font-semibold mt-1">{staff.role}</p>
-                            <p className="text-[12px] text-brand-brown/50 mt-0.5">{staff.dept}</p>
+                            <p className="staff-department text-[12px] text-brand-brown/50 mt-0.5">{staff.dept}</p>
                           </div>
                         );
                       });
@@ -1324,7 +1324,7 @@ export default function App() {
                       <div className="flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto">
                         <div className="flex items-center gap-3">
                           <span className="px-2.5 py-1 text-xs font-semibold rounded bg-brand-sage/10 text-brand-sage shrink-0">1부 예배</span>
-                          <span className="text-[18px] font-normal text-brand-brown">주일 오전 예배</span>
+                          <span className="sunday-worship-title text-[18px] font-normal text-brand-brown">주일 오전 예배</span>
                         </div>
                         <span className="sm:hidden text-xs font-bold bg-brand-cream px-2 py-1 rounded text-brand-brown/85 whitespace-nowrap">오전 9:30분</span>
                       </div>
@@ -1337,7 +1337,7 @@ export default function App() {
                       <div className="flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto">
                         <div className="flex items-center gap-3">
                           <span className="px-2.5 py-1 text-xs font-semibold rounded bg-brand-gold/10 text-brand-gold shrink-0">2부 예배</span>
-                          <span className="text-[18px] font-normal text-brand-brown">주일 오전 예배</span>
+                          <span className="sunday-worship-title text-[18px] font-normal text-brand-brown">주일 오전 예배</span>
                         </div>
                         <span className="sm:hidden text-xs font-bold bg-brand-cream px-2 py-1 rounded text-brand-brown/85 whitespace-nowrap">오전 11:30분</span>
                       </div>
@@ -1350,7 +1350,7 @@ export default function App() {
                       <div className="flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto">
                         <div className="flex items-center gap-3">
                           <span className="px-2.5 py-1 text-xs font-semibold rounded bg-brand-sage/10 text-brand-sage shrink-0">청년부</span>
-                          <span className="text-[18px] font-normal text-brand-brown">주일 오후 모임</span>
+                          <span className="sunday-worship-title text-[18px] font-normal text-brand-brown">주일 오후 모임</span>
                         </div>
                         <span className="sm:hidden text-xs font-bold bg-brand-cream px-2 py-1 rounded text-brand-brown/85 whitespace-nowrap">오후 2:30분</span>
                       </div>
@@ -2145,7 +2145,7 @@ export default function App() {
                   { image: "./images/new-family/step_7.png",title: "정식 등록교인이 되기까지",desc: "담임목사와의 만남과 새가족교육(7주) 프로그램을 수료하면 정식으로 등록교인이 됩니다.",meta: "STEP 3 · 공동체에 정착" }
                 ].map((step,index) => (
                   <motion.article key={step.title} initial={{ opacity: 0,y: 20 }} whileInView={{ opacity: 1,y: 0 }} viewport={{ once: true }} transition={{ delay: index*0.1 }} className="text-left flex flex-col gap-4">
-                    <div className="w-full aspect-[4/3] overflow-hidden"><img src={step.image} alt={`${step.title} 안내 이미지`} className="w-full h-full object-cover" loading="lazy" /></div>
+                    <div className="w-full aspect-[4/3] overflow-hidden rounded-[2rem]"><img src={step.image} alt={`${step.title} 안내 이미지`} className="w-full h-full object-cover" loading="lazy" /></div>
                     <div>
                       <span className="text-xs font-bold text-brand-sage tracking-[0.15em]">STEP {index+1}</span>
                       <h3 className="first-visit-step-title font-serif text-xl font-bold text-brand-brown mt-1 mb-2 md:mt-2 md:mb-3">{step.title}</h3>
@@ -3519,7 +3519,7 @@ export default function App() {
               {/* Full-width ministry details and application form */}
               <div className="w-full min-w-0 space-y-6">
                 {/* Content Details Block */}
-                <div className="p-6 md:p-8 rounded-[2rem] border border-brand-gold/15 shadow-sm text-left bg-[#F1F3EC]">
+                <div className="neighbor-content-card p-6 md:p-8 rounded-[2rem] border border-brand-gold/15 shadow-sm text-left bg-[#F1F3EC]">
                   <span className="inline-flex items-center gap-1 px-3 py-1 bg-brand-sage/10 text-brand-sage rounded-full text-[14.4px] font-semibold mb-4">
                     사역소개
                   </span>
@@ -4085,7 +4085,7 @@ export default function App() {
                       이번주 주일 설교
                     </div>
                   </div>
-                  <h3 className="text-2xl md:text-base lg:text-3xl font-serif text-brand-brown mb-1.5 md:mb-3 group-hover:text-brand-sage transition-colors leading-tight">
+                  <h3 className="main-sermon-title text-2xl md:text-base lg:text-3xl font-serif text-brand-brown mb-1.5 md:mb-3 group-hover:text-brand-sage transition-colors leading-tight">
                     복음, 그 가슴 뛰는 부르심
                   </h3>
                   <div className="flex items-center gap-4 text-brand-brown/60 text-sm">
@@ -4178,7 +4178,7 @@ export default function App() {
                     />
 
                     {/* Elegant Overlay Layer */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-black/55 via-black/20 to-transparent flex flex-col justify-start p-8 md:p-10">
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/55 via-black/20 to-transparent flex flex-col justify-start p-5 md:p-10">
                       <motion.div
                         key={`${activeCoreValue}-overlay`}
                         initial={{ opacity: 0,y: -12 }}
@@ -4533,17 +4533,13 @@ export default function App() {
 
                       {/* Mobile Version Layout (Hidden on PC) */}
                       <div className="flex md:hidden items-center justify-between w-full h-full gap-2">
-                        <div className="flex flex-col text-left gap-1">
+                        <div className="text-left">
                           <div className="text-brand-gold/60 text-[16px] sm:text-[17px] uppercase tracking-widest font-semibold leading-none">
                             {item.type==="주일 1부 예배"? "1부예배":
                               item.type==="주일 2부 예배"? "2부예배":
                                 item.type==="주일 청년부 예배"? "청년부":
                                   item.type==="금요 기도회"? "금요기도":
                                     item.type==="수요 성경 대학"? "성경대학":item.type}
-                          </div>
-                          <div className="flex text-white/40 items-center gap-1 text-[10.89px] sm:text-[14.52px] leading-none">
-                            <MapPin className="w-2.5 h-2.5 text-brand-gold/40 shrink-0" />
-                            <span>{item.place==="교회 2층 본당"? "2층 본당":item.place}</span>
                           </div>
                         </div>
                         <div className="text-right flex items-center shrink-0">

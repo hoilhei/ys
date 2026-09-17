@@ -558,6 +558,23 @@
     align-items: flex-end;
     padding-bottom: 32px;
   }
+  .staff-heading { margin-bottom: 12px; }
+  .subpage-shell p.staff-department[class] { font-size: 11px !important; }
+  .subpage-shell .church-vision {
+    background: transparent;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .subpage-shell .neighbor-content-card {
+    background: transparent;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .subpage-shell .sunday-worship-title { font-size: 15px; }
   .subpage-shell .church-vision .vision-toggle {
     font-size: inherit !important;
     font-weight: inherit;
@@ -656,6 +673,7 @@
   .main-hero-content h1 { line-height: 1.35; }
   #설교말씀 { height: 550px; }
   #설교말씀 .sermon-heading { margin-bottom: 24px; }
+  #설교말씀 .main-sermon-title { font-size: 20px; }
   #핵심사역 .ministry-heading { margin-bottom: 36px; }
 
   .core-value-copy h4,
@@ -667,7 +685,9 @@
 
   #가나안쉼터 .faith-subtitle { width: fit-content; justify-content: center; }
   #가나안쉼터 .faith-description {
-    width: 90%;
+    width: 100%;
+    max-width: none;
+    font-size: 15px;
     margin-bottom: 40px;
   }
   #가나안쉼터 { padding-bottom: 70px; }
@@ -814,12 +834,12 @@
 
 @media (max-width: 767px) {
   .subpage-layout .subpage-hero h1[class] {
-    font-size: 2rem !important;
+    font-size: 1.75rem !important;
   }
 
   .subpage-layout .subpage-hero p[class] {
     display: block;
-    font-size: 1rem !important;
+    font-size: 0.875rem !important;
   }
 
   .subpage-layout .subpage-hero button.md\:hidden {
