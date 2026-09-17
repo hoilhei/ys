@@ -36,7 +36,7 @@ export default function SermonCard({ sermon,index,goldAccent,onPlay }: {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-4 left-4 px-3 py-1 bg-brand-brown/85 backdrop-blur-sm text-brand-cream text-[9px] uppercase tracking-wider rounded-full font-medium">
+      <div className="absolute bottom-4 left-4 px-3 py-1 bg-brand-brown/85 backdrop-blur-sm text-brand-cream text-[0.5625rem] uppercase tracking-wider rounded-full font-medium">
         {sermon.type}
       </div>
     </div>
