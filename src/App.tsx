@@ -745,11 +745,11 @@ export default function App() {
           <div className="flex items-center gap-1.5 group cursor-pointer" id="logo" onClick={() => { window.location.hash=''; }}>
             <IconLogo size={30} />
             <div className="flex items-baseline gap-2">
-              <span className={`font-serif text-[1.75rem] font-semibold tracking-tight transition-colors duration-300 mt-1 ${isNextGenActive||isNeighborActive||isGodsLoveActive||isChurchIntroActive||isWorshipGuideActive||isDirectionsActive||isSmallChurchActive||isJesusActive||isNewFamilyActive||isNoticeActive||isMinistryBoardActive||isSermonsActive||isSitemapOpen||isScrolled
+              <span className={`font-serif text-3xl-compact font-semibold tracking-tight transition-colors duration-300 mt-1 ${isNextGenActive||isNeighborActive||isGodsLoveActive||isChurchIntroActive||isWorshipGuideActive||isDirectionsActive||isSmallChurchActive||isJesusActive||isNewFamilyActive||isNoticeActive||isMinistryBoardActive||isSermonsActive||isSitemapOpen||isScrolled
                   ? 'text-brand-brown'
                   :'text-brand-gold'
                 }`}>영신교회</span>
-              <span className={`header-tagline hidden sm:inline-block md:hidden lg:inline-block text-[0.875rem] font-medium tracking-tight whitespace-nowrap transition-colors duration-300 ${isNextGenActive||isNeighborActive||isGodsLoveActive||isChurchIntroActive||isWorshipGuideActive||isDirectionsActive||isSmallChurchActive||isJesusActive||isNewFamilyActive||isNoticeActive||isMinistryBoardActive||isSermonsActive||isSitemapOpen||isScrolled
+              <span className={`header-tagline hidden sm:inline-block md:hidden lg:inline-block text-sm font-medium tracking-tight whitespace-nowrap transition-colors duration-300 ${isNextGenActive||isNeighborActive||isGodsLoveActive||isChurchIntroActive||isWorshipGuideActive||isDirectionsActive||isSmallChurchActive||isJesusActive||isNewFamilyActive||isNoticeActive||isMinistryBoardActive||isSermonsActive||isSitemapOpen||isScrolled
                   ? 'text-brand-brown/50'
                   :'text-[#B5A795]'
                 }`}>하나님을 기쁘시게, 사람을 행복하게</span>
@@ -765,7 +765,7 @@ export default function App() {
                   e.preventDefault();
                   setIsSitemapOpen(true);
                 }}
-                className={`text-[1rem] font-medium transition-colors relative group whitespace-nowrap py-2 cursor-pointer ${isNextGenActive||isNeighborActive||isGodsLoveActive||isChurchIntroActive||isWorshipGuideActive||isDirectionsActive||isSmallChurchActive||isJesusActive||isNewFamilyActive||isNoticeActive||isMinistryBoardActive||isSermonsActive||isSitemapOpen||isScrolled
+                className={`text-base font-medium transition-colors relative group whitespace-nowrap py-2 cursor-pointer ${isNextGenActive||isNeighborActive||isGodsLoveActive||isChurchIntroActive||isWorshipGuideActive||isDirectionsActive||isSmallChurchActive||isJesusActive||isNewFamilyActive||isNoticeActive||isMinistryBoardActive||isSermonsActive||isSitemapOpen||isScrolled
                     ? 'text-brand-brown/85 hover:text-brand-sage'
                     :'text-[#D3C7B5] hover:text-brand-gold'
                   }`}
@@ -779,7 +779,7 @@ export default function App() {
             ))}
             <button
               onClick={() => { window.location.hash='#새가족안내'; }}
-              className="bg-brand-brown text-brand-cream md:px-4 md:py-2 lg:px-6 lg:py-2.5 rounded-full text-[1rem] font-medium hover:bg-brand-sage transition-all hover:shadow-lg whitespace-nowrap ml-2 cursor-pointer"
+              className="bg-brand-brown text-brand-cream md:px-4 md:py-2 lg:px-6 lg:py-2.5 rounded-full text-base font-medium hover:bg-brand-sage transition-all hover:shadow-lg whitespace-nowrap ml-2 cursor-pointer"
             >
               새가족 안내
             </button>
@@ -806,7 +806,7 @@ export default function App() {
               <div className="max-w-[var(--content-max)] mx-auto px-8 py-10 grid grid-cols-5 gap-6 text-left">
                 {sitemapData.map((category) => (
                   <div key={category.title} className="flex flex-col gap-4">
-                    <h4 className="font-serif text-[1.17188rem] font-bold text-brand-brown border-b border-brand-gold/25 pb-2 mb-1">
+                    <h4 className="font-serif text-lg font-bold text-brand-brown border-b border-brand-gold/25 pb-2 mb-1">
                       {category.title}
                     </h4>
                     <ul className="flex flex-col gap-3">
@@ -815,7 +815,7 @@ export default function App() {
                           <a
                             href={item.href}
                             onClick={() => setIsSitemapOpen(false)}
-                            className="text-[0.92063rem] lg:text-[1.03rem] font-semibold text-brand-brown/95 hover:text-brand-sage transition-colors leading-normal"
+                            className="text-sm lg:text-base font-semibold text-brand-brown/95 hover:text-brand-sage transition-colors leading-normal"
                           >
                             {item.name}
                           </a>
@@ -857,7 +857,7 @@ export default function App() {
                                           setNextGenIndex(idxMap[sub]);
                                         }
                                       }}
-                                      className="text-[0.85rem] text-brand-brown/80 hover:text-brand-sage transition-colors block leading-tight font-normal"
+                                      className="text-sm text-brand-brown/80 hover:text-brand-sage transition-colors block leading-tight font-normal"
                                     >
                                       • {sub}
                                     </a>
@@ -889,27 +889,27 @@ export default function App() {
             >
               {sitemapData.map((category) => (
                 <div key={category.title} className="flex flex-col gap-2 border-b border-brand-gold/10 pb-3 last:border-b-0">
-                  <span className="text-[1.30313rem] font-serif font-bold text-brand-brown">
+                  <span className="text-xl font-serif font-bold text-brand-brown">
                     {category.title}
                   </span>
                   <div className="grid grid-cols-2 gap-x-4 gap-y-3 mt-1 pl-2">
                     {category.items.map((item) => (
                       <div key={item.name} className="flex flex-col gap-1">
                         {category.title==='공동체'&&item.name==='다음세대'? (
-                          <span className="text-[0.9775rem] font-semibold text-brand-brown/80">
+                          <span className="text-base font-semibold text-brand-brown/80">
                             {item.name}
                           </span>
                         ):(
                           <a
                             href={item.href}
                             onClick={() => setIsMenuOpen(false)}
-                            className="text-[0.9775rem] font-semibold text-brand-brown/80 active:text-brand-sage hover:text-brand-sage"
+                            className="text-base font-semibold text-brand-brown/80 active:text-brand-sage hover:text-brand-sage"
                           >
                             {item.name}
                           </a>
                         )}
                         {item.subItems&&(
-                          <div className="flex flex-wrap gap-1.5 mt-1 text-[0.81437rem] text-brand-brown/50 pl-1.5 border-l border-brand-gold/20 leading-tight">
+                          <div className="flex flex-wrap gap-1.5 mt-1 text-sm text-brand-brown/50 pl-1.5 border-l border-brand-gold/20 leading-tight">
                             {item.subItems.map((sub) => {
                               const isNextGenSub=category.title==='공동체'&&item.name==='다음세대';
                               const isNeighborSub=category.title==='사역과양육'&&item.name==='이웃사랑';
@@ -944,7 +944,7 @@ export default function App() {
                                       setNextGenIndex(idxMap[sub]);
                                     }
                                   }}
-                                  className="text-[0.81437rem] text-brand-brown/65 active:text-brand-sage hover:text-brand-sage underline decoration-brand-gold/20"
+                                  className="text-sm text-brand-brown/65 active:text-brand-sage hover:text-brand-sage underline decoration-brand-gold/20"
                                 >
                                   {sub}
                                 </a>
@@ -962,7 +962,7 @@ export default function App() {
                   setIsMenuOpen(false);
                   window.location.hash='#새가족안내';
                 }}
-                className="bg-brand-brown text-brand-cream w-full py-3.5 rounded-full text-[1.10688rem] font-semibold hover:bg-brand-sage transition-all mt-2"
+                className="bg-brand-brown text-brand-cream w-full py-3.5 rounded-full text-lg font-semibold hover:bg-brand-sage transition-all mt-2"
               >
                 새가족 안내
               </button>
@@ -985,17 +985,17 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end">
               <div className="max-w-[var(--content-max)] mx-auto w-full px-6 pb-8 md:pb-12 flex justify-between items-end">
                 <div className="text-left">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-sage text-white text-[0.825rem] font-bold tracking-wider mb-2">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-sage text-white text-sm font-bold tracking-wider mb-2">
                     ABOUT OUR CHURCH
                   </span>
-                  <h1 className="text-3xl md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">영신교회 소개</span><span className="subpage-title-desktop">영신교회</span></h1>
-                  <p className="hidden md:block text-white/85 text-[0.9875rem] md:text-[1.15625rem] font-light max-w-[var(--reading-max)] leading-relaxed w-full">
+                  <h1 className="text-3xl-compact md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">영신교회 소개</span><span className="subpage-title-desktop">영신교회</span></h1>
+                  <p className="hidden md:block text-white/85 text-base md:text-lg font-light max-w-[var(--reading-max)] leading-relaxed w-full">
                     하나님의 말씀을 중심으로 예배하고 양육하며 지역과 세대를 함께 세우는 은혜의 공동체입니다.
                   </p>
                 </div>
                 <button
                   onClick={() => { window.location.hash=''; }}
-                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-[0.8625rem] font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
+                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-sm font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4 shrink-0" />
                   <span>뒤로 가기</span>
@@ -1016,7 +1016,7 @@ export default function App() {
                 <span>메인 화면으로 돌아가기</span>
               </button>
 
-              <div className="text-[0.825rem] text-brand-brown/50 font-medium">
+              <div className="text-sm text-brand-brown/50 font-medium">
                 교회소개 &gt; <span className="text-brand-sage">영신교회</span>
               </div>
             </div>
@@ -1048,14 +1048,14 @@ export default function App() {
                         />
                       </div>
                       <div className="mt-6 text-center">
-                        <p className="font-serif text-[0.9375rem] font-bold text-brand-brown">김상호 담임목사</p>
-                        <p className="text-[0.79063rem] md:text-[0.6875rem] text-brand-brown/50">영신교회 담임목사</p>
+                        <p className="font-serif text-base font-bold text-brand-brown">김상호 담임목사</p>
+                        <p className="text-xs md:text-xs text-brand-brown/50">영신교회 담임목사</p>
                       </div>
                     </div>
 
                     {/* 오른편: 인사말 */}
                     <div className="min-w-0 space-y-4 p-4 md:p-6 mt-4 md:min-h-[23.75rem] md:flex md:flex-col md:justify-center">
-                      <h4 className="font-serif text-[1rem] md:text-lg font-bold text-brand-brown leading-snug">
+                      <h4 className="font-serif text-base md:text-lg font-bold text-brand-brown leading-snug">
                         "하나님의 평화와 축복이 여러분의 삶과 가정에 <br className="hidden md:block" />
                         늘 가득하시기를 소망합니다."
                       </h4>
@@ -1063,7 +1063,7 @@ export default function App() {
                         영신교회는 믿음의 길을 걸어가는 교회입니다. 같은 말, 같은 마음, 같은 뜻으로 기성세대들이 걸어가는 믿음의 길을 따라 가는 다음세대들에게 예수님만이 진리이며 결론임을 증명하려 힘쓰는 교회입니다. 우리의 행동지침은“복음”을 쉬지 않고 전하는 교회,“성장”을 멈추지 않는 교회,“가치”를 알고, 행동하는 교회가 되는 것입니다. 사람을 행복하게 함으로 하나님을 기쁘시게 하는 것이 우리들의 사명이요. 꿈입니다. 이것이 영신교회의 존재 이유입니다. 예수님을 알아감으로 예수님을 닮아감으로 하나님을 사랑하고, 사람을 사랑하여 하나님을 감동시켜 드리는 것. 즉, 사람을 행복하게 함으로 하나님을 사랑하는 것입니다. 이를 위해, 지역을 섬기고, 가정과 다음 세대를 세우는 일에 최우선으로 할 것입니다.
                       </p>
                       <p className="text-right font-serif text-xs md:text-sm text-brand-brown font-semibold mt-4">
-                        영신교회 담임목사 <span className="text-[0.9375rem] font-bold text-brand-brown">김상호</span> 드림
+                        영신교회 담임목사 <span className="text-base font-bold text-brand-brown">김상호</span> 드림
                       </p>
                     </div>
                   </div>
@@ -1135,7 +1135,7 @@ export default function App() {
                                 )}
                                 <div className={`absolute inset-0 bg-black/55 flex items-center justify-center transition-opacity duration-300 ${activeStaffMobileIdx===idx? 'opacity-100':'opacity-0 md:group-hover:opacity-100'
                                   }`}>
-                                  <span className="text-white text-[0.875rem] font-semibold text-center leading-tight px-4 py-2.5 bg-brand-sage rounded-lg shadow-sm">
+                                  <span className="text-white text-sm font-semibold text-center leading-tight px-4 py-2.5 bg-brand-sage rounded-lg shadow-sm">
                                     담당 사역 이동
                                   </span>
                                 </div>
@@ -1156,9 +1156,9 @@ export default function App() {
                                 )}
                               </div>
                             )}
-                            <p className="font-serif text-[1.075rem] font-bold text-brand-brown leading-tight">{staff.name}</p>
-                            <p className="text-[0.825rem] text-brand-sage font-semibold mt-1">{staff.role}</p>
-                            <p className="staff-department text-[0.75rem] text-brand-brown/50 mt-0.5">{staff.dept}</p>
+                            <p className="font-serif text-lg font-bold text-brand-brown leading-tight">{staff.name}</p>
+                            <p className="text-sm text-brand-sage font-semibold mt-1">{staff.role}</p>
+                            <p className="staff-department text-xs text-brand-brown/50 mt-0.5">{staff.dept}</p>
                           </div>
                         );
                       });
@@ -1178,7 +1178,7 @@ export default function App() {
                     <li className="flex gap-4 items-start">
                       <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</span>
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-[0.825rem] md:text-[0.9625rem] font-semibold text-brand-brown">
+                        <h4 className="text-sm md:text-base font-semibold text-brand-brown">
                           <span className="hidden md:block">복음으로 사는 교회</span>
                           <button
                             type="button"
@@ -1191,13 +1191,13 @@ export default function App() {
                             <ChevronDown className={`w-4 h-4 shrink-0 transition-transform motion-reduce:transition-none ${expandedVision===1? 'rotate-180':''}`} aria-hidden="true" />
                           </button>
                         </h4>
-                        <p id="church-vision-description-1" className={`text-[0.75rem] md:text-[0.825rem] text-brand-brown/70 leading-relaxed mt-0.5 ${expandedVision===1? 'block':'hidden'} md:block`}>영신교회는 “복음”을 쉬지 않고 전하는 교회, “성장”을 멈추지 않는 교회, “가치”를 발견하고, “행동”하는 교회, “소통”하는 교회가 되어, 하나님께 영광 돌려드리는 것입니다. 이 일을 위해 예배, 양육, 전파, 교제에 대한 사역을 통해 “하나님”을 사랑하고, 하나님이 가장 사랑한 “사람”을 사랑하는 것이 영신교회의 비전입니다. 이를 위해 지역을 섬기고, 건강하고 행복한 가정, 다음 세대를 세우는 일에 힘을 쏟는 교회입니다.</p>
+                        <p id="church-vision-description-1" className={`text-xs md:text-sm text-brand-brown/70 leading-relaxed mt-0.5 ${expandedVision===1? 'block':'hidden'} md:block`}>영신교회는 “복음”을 쉬지 않고 전하는 교회, “성장”을 멈추지 않는 교회, “가치”를 발견하고, “행동”하는 교회, “소통”하는 교회가 되어, 하나님께 영광 돌려드리는 것입니다. 이 일을 위해 예배, 양육, 전파, 교제에 대한 사역을 통해 “하나님”을 사랑하고, 하나님이 가장 사랑한 “사람”을 사랑하는 것이 영신교회의 비전입니다. 이를 위해 지역을 섬기고, 건강하고 행복한 가정, 다음 세대를 세우는 일에 힘을 쏟는 교회입니다.</p>
                       </div>
                     </li>
                     <li className="flex gap-4 items-start">
                       <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</span>
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-[0.825rem] md:text-[0.9625rem] font-semibold text-brand-brown">
+                        <h4 className="text-sm md:text-base font-semibold text-brand-brown">
                           <span className="hidden md:block">다음 세대를 세우는 교회</span>
                           <button
                             type="button"
@@ -1210,7 +1210,7 @@ export default function App() {
                             <ChevronDown className={`w-4 h-4 shrink-0 transition-transform motion-reduce:transition-none ${expandedVision===2? 'rotate-180':''}`} aria-hidden="true" />
                           </button>
                         </h4>
-                        <p id="church-vision-description-2" className={`text-[0.75rem] md:text-[0.825rem] text-brand-brown/70 leading-relaxed mt-0.5 ${expandedVision===2? 'block':'hidden'} md:block`}>우리는 복음으로 인해 바른 믿음을 세워감으로써 하나님의 사람이라는 정체성과 옳은 것에 대한 분별력을 갖고, 하나님 나라의 비전을 품을 수 있도록 돕겠습니다.하나님의 마음으로 양육하고 돌보겠습니다.
+                        <p id="church-vision-description-2" className={`text-xs md:text-sm text-brand-brown/70 leading-relaxed mt-0.5 ${expandedVision===2? 'block':'hidden'} md:block`}>우리는 복음으로 인해 바른 믿음을 세워감으로써 하나님의 사람이라는 정체성과 옳은 것에 대한 분별력을 갖고, 하나님 나라의 비전을 품을 수 있도록 돕겠습니다.하나님의 마음으로 양육하고 돌보겠습니다.
 
                           [골1:28-29]”우리가 그를 전파하여 각 사람을 권하고 모든 지혜로 각 사람을 가르침은 각 사람을 그리스도 안에서 완전한 자로 세우려 함이니, 이를 위하여 나도 내 속에서 능력으로 역사하시는 이의 역사를 따라 힘을 다하여 수고하노라”</p>
                       </div>
@@ -1218,7 +1218,7 @@ export default function App() {
                     <li className="flex gap-4 items-start">
                       <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">3</span>
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-[0.825rem] md:text-[0.9625rem] font-semibold text-brand-brown">
+                        <h4 className="text-sm md:text-base font-semibold text-brand-brown">
                           <span className="hidden md:block">건강한 가정을 세우는 교회</span>
                           <button
                             type="button"
@@ -1231,7 +1231,7 @@ export default function App() {
                             <ChevronDown className={`w-4 h-4 shrink-0 transition-transform motion-reduce:transition-none ${expandedVision===3? 'rotate-180':''}`} aria-hidden="true" />
                           </button>
                         </h4>
-                        <p id="church-vision-description-3" className={`text-[0.75rem] md:text-[0.825rem] text-brand-brown/70 leading-relaxed mt-0.5 ${expandedVision===3? 'block':'hidden'} md:block`}>우리는 가정이 하나님이 주신 가장 귀한 선물임을 확신합니다. 건강한 가정을 위해서는 소통의 마음과 배움의 애씀이 있어야 합니다. 복음 안에서 나와 너를 이해할 때, 건강한 가정을 이룰 수 있습니다. 하나님이 함께 하시는 건강한 가정이 세워지기를 소망합니다.</p>
+                        <p id="church-vision-description-3" className={`text-xs md:text-sm text-brand-brown/70 leading-relaxed mt-0.5 ${expandedVision===3? 'block':'hidden'} md:block`}>우리는 가정이 하나님이 주신 가장 귀한 선물임을 확신합니다. 건강한 가정을 위해서는 소통의 마음과 배움의 애씀이 있어야 합니다. 복음 안에서 나와 너를 이해할 때, 건강한 가정을 이룰 수 있습니다. 하나님이 함께 하시는 건강한 가정이 세워지기를 소망합니다.</p>
                       </div>
                     </li>
                   </ul>
@@ -1256,17 +1256,17 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end">
               <div className="max-w-[var(--content-max)] mx-auto w-full px-6 pb-8 md:pb-12 flex justify-between items-end">
                 <div className="text-left">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-gold text-brand-brown text-[0.6875rem] font-bold tracking-wider mb-2 font-sans">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-gold text-brand-brown text-xs font-bold tracking-wider mb-2 font-sans">
                     WORSHIP GUIDE
                   </span>
-                  <h1 className="text-3xl md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">예배 안내</span><span className="subpage-title-desktop">예배안내</span></h1>
-                  <p className="hidden md:block text-white/85 text-[0.825rem] md:text-[0.9625rem] font-light max-w-[var(--reading-max)] leading-relaxed w-full">
+                  <h1 className="text-3xl-compact md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">예배 안내</span><span className="subpage-title-desktop">예배안내</span></h1>
+                  <p className="hidden md:block text-white/85 text-sm md:text-base font-light max-w-[var(--reading-max)] leading-relaxed w-full">
                     영신교회는 언제나 열려있습니다. 기쁨과 은총이 넘치는 주님의 성전으로 여러분을 초대합니다.
                   </p>
                 </div>
                 <button
                   onClick={() => { window.location.hash=''; }}
-                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-[0.8625rem] font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
+                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-sm font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4 shrink-0" />
                   <span>뒤로 가기</span>
@@ -1287,7 +1287,7 @@ export default function App() {
                 <span>메인 화면으로 돌아가기</span>
               </button>
 
-              <div className="text-[0.825rem] text-brand-brown/50 font-medium font-sans">
+              <div className="text-sm text-brand-brown/50 font-medium font-sans">
                 교회소개 &gt; <span className="text-brand-sage">예배안내</span>
               </div>
             </div>
@@ -1315,7 +1315,7 @@ export default function App() {
                     </div>
                     <div className="flex items-center gap-1 text-brand-brown/60">
                       <MapPin className="w-3.5 h-3.5 shrink-0" />
-                      <span className="text-[0.79063rem] md:text-[0.9rem] font-sans font-medium">교회2층 본당</span>
+                      <span className="text-xs md:text-sm font-sans font-medium">교회2층 본당</span>
                     </div>
                   </div>
 
@@ -1324,7 +1324,7 @@ export default function App() {
                       <div className="flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto">
                         <div className="flex items-center gap-3">
                           <span className="px-2.5 py-1 text-xs font-semibold rounded bg-brand-sage/10 text-brand-sage shrink-0">1부 예배</span>
-                          <span className="sunday-worship-title text-[1.125rem] font-normal text-brand-brown">주일 오전 예배</span>
+                          <span className="sunday-worship-title text-lg font-normal text-brand-brown">주일 오전 예배</span>
                         </div>
                         <span className="sm:hidden text-xs font-bold bg-brand-cream px-2 py-1 rounded text-brand-brown/85 whitespace-nowrap">오전 9:30분</span>
                       </div>
@@ -1337,7 +1337,7 @@ export default function App() {
                       <div className="flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto">
                         <div className="flex items-center gap-3">
                           <span className="px-2.5 py-1 text-xs font-semibold rounded bg-brand-gold/10 text-brand-gold shrink-0">2부 예배</span>
-                          <span className="sunday-worship-title text-[1.125rem] font-normal text-brand-brown">주일 오전 예배</span>
+                          <span className="sunday-worship-title text-lg font-normal text-brand-brown">주일 오전 예배</span>
                         </div>
                         <span className="sm:hidden text-xs font-bold bg-brand-cream px-2 py-1 rounded text-brand-brown/85 whitespace-nowrap">오전 11:30분</span>
                       </div>
@@ -1350,7 +1350,7 @@ export default function App() {
                       <div className="flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto">
                         <div className="flex items-center gap-3">
                           <span className="px-2.5 py-1 text-xs font-semibold rounded bg-brand-sage/10 text-brand-sage shrink-0">청년부</span>
-                          <span className="sunday-worship-title text-[1.125rem] font-normal text-brand-brown">주일 오후 모임</span>
+                          <span className="sunday-worship-title text-lg font-normal text-brand-brown">주일 오후 모임</span>
                         </div>
                         <span className="sm:hidden text-xs font-bold bg-brand-cream px-2 py-1 rounded text-brand-brown/85 whitespace-nowrap">오후 2:30분</span>
                       </div>
@@ -1372,7 +1372,7 @@ export default function App() {
                     </div>
                     <div className="flex items-center gap-1 text-brand-brown/60 shrink-0">
                       <MapPin className="w-3.5 h-3.5 shrink-0" />
-                      <span className="text-[0.79063rem] md:text-[0.9rem] font-sans font-medium whitespace-nowrap">교회2층 본당</span>
+                      <span className="text-xs md:text-sm font-sans font-medium whitespace-nowrap">교회2층 본당</span>
                     </div>
                   </div>
 
@@ -1380,8 +1380,8 @@ export default function App() {
                     <div className="weekday-worship-row py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                       <div className="flex items-center justify-start gap-3 w-full sm:w-auto">
                         <div className="flex items-center gap-2 sm:gap-3">
-                          <span className="min-w-[4.5rem] sm:min-w-[5.25rem] px-2 sm:px-2.5 py-0.5 text-center text-xs sm:text-[0.8625rem] md:text-xs font-semibold rounded bg-brand-brown/5 text-brand-brown/80 shrink-0 whitespace-nowrap">새벽기도회</span>
-                          <span className="weekday-worship-title block text-xs sm:text-[1.125rem] font-normal text-brand-brown leading-relaxed whitespace-nowrap">매일 새벽 문을 여는 기도</span>
+                          <span className="min-w-[4.5rem] sm:min-w-[5.25rem] px-2 sm:px-2.5 py-0.5 text-center text-xs sm:text-sm md:text-xs font-semibold rounded bg-brand-brown/5 text-brand-brown/80 shrink-0 whitespace-nowrap">새벽기도회</span>
+                          <span className="weekday-worship-title block text-xs sm:text-lg font-normal text-brand-brown leading-relaxed whitespace-nowrap">매일 새벽 문을 여는 기도</span>
                         </div>
                       </div>
                       <div className="flex items-center text-brand-brown/85">
@@ -1392,8 +1392,8 @@ export default function App() {
                     <div className="weekday-worship-row py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                       <div className="flex items-center justify-start gap-3 w-full sm:w-auto">
                         <div className="flex items-center gap-2 sm:gap-3">
-                          <span className="min-w-[4.5rem] sm:min-w-[5.25rem] px-2 sm:px-2.5 py-0.5 text-center text-xs sm:text-[0.8625rem] md:text-xs font-semibold rounded bg-brand-brown/5 text-brand-brown/80 shrink-0 whitespace-nowrap">수요예배</span>
-                          <span className="weekday-worship-title block text-xs sm:text-[1.125rem] font-normal text-brand-brown leading-relaxed whitespace-nowrap">성경 말씀 강해</span>
+                          <span className="min-w-[4.5rem] sm:min-w-[5.25rem] px-2 sm:px-2.5 py-0.5 text-center text-xs sm:text-sm md:text-xs font-semibold rounded bg-brand-brown/5 text-brand-brown/80 shrink-0 whitespace-nowrap">수요예배</span>
+                          <span className="weekday-worship-title block text-xs sm:text-lg font-normal text-brand-brown leading-relaxed whitespace-nowrap">성경 말씀 강해</span>
                         </div>
                       </div>
                       <div className="flex items-center text-brand-brown/85">
@@ -1404,8 +1404,8 @@ export default function App() {
                     <div className="weekday-worship-row py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                       <div className="flex items-center justify-start gap-3 w-full sm:w-auto">
                         <div className="flex items-center gap-2 sm:gap-3">
-                          <span className="min-w-[4.5rem] sm:min-w-[5.25rem] px-2 sm:px-2.5 py-0.5 text-center text-xs sm:text-[0.8625rem] md:text-xs font-semibold rounded bg-brand-brown/5 text-brand-brown/80 shrink-0 whitespace-nowrap">금요기도회</span>
-                          <span className="weekday-worship-title block text-xs sm:text-[1.125rem] font-normal text-brand-brown leading-relaxed whitespace-nowrap">찬양이 넘치는 은혜의 밤</span>
+                          <span className="min-w-[4.5rem] sm:min-w-[5.25rem] px-2 sm:px-2.5 py-0.5 text-center text-xs sm:text-sm md:text-xs font-semibold rounded bg-brand-brown/5 text-brand-brown/80 shrink-0 whitespace-nowrap">금요기도회</span>
+                          <span className="weekday-worship-title block text-xs sm:text-lg font-normal text-brand-brown leading-relaxed whitespace-nowrap">찬양이 넘치는 은혜의 밤</span>
                         </div>
                       </div>
                       <div className="flex items-center text-brand-brown/85">
@@ -1434,17 +1434,17 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end">
               <div className="max-w-[var(--content-max)] mx-auto w-full px-6 pb-8 md:pb-12 flex justify-between items-end">
                 <div className="text-left">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-sage text-white text-[0.6875rem] font-bold tracking-wider mb-2 font-sans">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-sage text-white text-xs font-bold tracking-wider mb-2 font-sans">
                     LOCATION &amp; DIRECTIONS
                   </span>
-                  <h1 className="text-3xl md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">오시는 길</span><span className="subpage-title-desktop">오시는길</span></h1>
-                  <p className="hidden md:block text-white/85 text-[0.825rem] md:text-[0.9625rem] font-light max-w-[var(--reading-max)] leading-relaxed w-full">
+                  <h1 className="text-3xl-compact md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">오시는 길</span><span className="subpage-title-desktop">오시는길</span></h1>
+                  <p className="hidden md:block text-white/85 text-sm md:text-base font-light max-w-[var(--reading-max)] leading-relaxed w-full">
                     지역 주민과 성도님 누구나 편안하게 방문하실 수 있도록 자세히 안내합니다.
                   </p>
                 </div>
                 <button
                   onClick={() => { window.location.hash=''; }}
-                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-[0.8625rem] font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
+                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-sm font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4 shrink-0" />
                   <span>뒤로 가기</span>
@@ -1465,7 +1465,7 @@ export default function App() {
                 <span>메인 화면으로 돌아가기</span>
               </button>
 
-              <div className="text-[0.825rem] text-brand-brown/50 font-medium font-sans">
+              <div className="text-sm text-brand-brown/50 font-medium font-sans">
                 교회소개 &gt; <span className="text-brand-sage">오시는 길</span>
               </div>
             </div>
@@ -1487,7 +1487,7 @@ export default function App() {
                   <div className="bg-[#8E9775] text-white p-6 rounded-[2rem] shadow-md text-left">
                     <Church className="w-8 h-8 mb-4 text-[#E2C799]" />
                     <h4 className="font-serif text-xl font-bold mb-2">교무행정실 연락처</h4>
-                    <p className="text-[0.825rem] md:text-xs text-white/95 leading-relaxed font-light">
+                    <p className="text-sm md:text-xs text-white/95 leading-relaxed font-light">
                       전화 : 02-123-4567 <br />
                       방문 및 차량 등록, 장소 대여 안내 등 상세 내용은 행정실로 연락 주시기 바랍니다.
                     </p>
@@ -1503,8 +1503,8 @@ export default function App() {
                           <Train className="w-5 h-5" />
                         </div>
                         <div>
-                          <h5 className="text-[0.8625rem] md:text-sm font-semibold text-brand-brown">지하철</h5>
-                          <p className="text-[0.79063rem] md:text-xs text-brand-brown/70 leading-relaxed mt-0.5">인근 역 하차 후 도보 이동</p>
+                          <h5 className="text-sm md:text-sm font-semibold text-brand-brown">지하철</h5>
+                          <p className="text-xs md:text-xs text-brand-brown/70 leading-relaxed mt-0.5">인근 역 하차 후 도보 이동</p>
                         </div>
                       </div>
 
@@ -1513,13 +1513,13 @@ export default function App() {
                           <Bus className="w-5 h-5" />
                         </div>
                         <div>
-                          <h5 className="text-[0.8625rem] md:text-sm font-semibold text-brand-brown">버스</h5>
-                          <p className="text-[0.79063rem] md:text-xs text-brand-brown/70 leading-relaxed mt-0.5">목동로 주요 정류장 하차</p>
+                          <h5 className="text-sm md:text-sm font-semibold text-brand-brown">버스</h5>
+                          <p className="text-xs md:text-xs text-brand-brown/70 leading-relaxed mt-0.5">목동로 주요 정류장 하차</p>
                         </div>
                       </div>
                     </div>
 
-                    <div className="mt-6 p-4 bg-brand-cream/30 rounded-xl border border-brand-gold/10 text-[0.79063rem] md:text-xs text-brand-brown/70 leading-relaxed">
+                    <div className="mt-6 p-4 bg-brand-cream/30 rounded-xl border border-brand-gold/10 text-xs md:text-xs text-brand-brown/70 leading-relaxed">
                       💡 상세 주소와 지도는 교회위치 지도 영역에서 확인하실 수 있습니다.
                     </div>
                   </div>
@@ -1589,17 +1589,17 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end">
               <div className="max-w-[var(--content-max)] mx-auto w-full px-6 pb-8 md:pb-12 flex justify-between items-end">
                 <div className="text-left">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-sage text-white text-[0.825rem] font-bold tracking-wider mb-2 font-sans">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-sage text-white text-sm font-bold tracking-wider mb-2 font-sans">
                     COMMUNITY
                   </span>
-                  <h1 className="text-3xl md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">작은교회(교구)</span><span className="subpage-title-desktop">작은교회</span></h1>
-                  <p className="hidden md:block text-white/85 text-[0.9875rem] md:text-[1.15625rem] font-light max-w-[var(--reading-max)] leading-relaxed w-full">
+                  <h1 className="text-3xl-compact md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">작은교회(교구)</span><span className="subpage-title-desktop">작은교회</span></h1>
+                  <p className="hidden md:block text-white/85 text-base md:text-lg font-light max-w-[var(--reading-max)] leading-relaxed w-full">
                     소그룹의 따뜻한 모임 속에서 역사하시는 예수 그리스도의 생명을 함께 나눕니다
                   </p>
                 </div>
                 <button
                   onClick={() => { window.location.hash=''; }}
-                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-[0.8625rem] font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
+                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-sm font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4 shrink-0" />
                   <span>뒤로 가기</span>
@@ -1614,13 +1614,13 @@ export default function App() {
             <div className="hidden md:flex mb-2.5 md:mb-6 flex-wrap items-center justify-between gap-x-4 gap-y-1.5 md:gap-4">
               <button
                 onClick={() => { window.location.hash=''; }}
-                className="text-brand-sage hover:text-brand-brown text-[1.05rem] font-medium inline-flex items-center gap-1 cursor-pointer overflow-hidden leading-none border-none bg-transparent py-1 px-0"
+                className="text-brand-sage hover:text-brand-brown text-lg font-medium inline-flex items-center gap-1 cursor-pointer overflow-hidden leading-none border-none bg-transparent py-1 px-0"
               >
                 <ChevronLeft className="w-4 h-4 shrink-0" />
                 <span>메인 화면으로 돌아가기</span>
               </button>
 
-              <div className="text-[0.9875rem] text-brand-brown/50 font-medium font-sans">
+              <div className="text-base text-brand-brown/50 font-medium font-sans">
                 공동체 &gt; <span className="text-brand-sage">작은교회</span>
               </div>
             </div>
@@ -1635,20 +1635,20 @@ export default function App() {
                       <div className="p-3 bg-white/10 text-[#E2C799] rounded-2xl">
                         <Users className="w-6 h-6" />
                       </div>
-                      <h3 className="font-serif text-[1.5rem] md:text-[1.8rem] font-bold text-white">작은교회란?</h3>
+                      <h3 className="font-serif text-2xl md:text-3xl-compact font-bold text-white">작은교회란?</h3>
                     </div>
                     <div className="space-y-4">
-                      <p className="text-[0.9rem] md:text-[1.05rem] text-white/90 font-light leading-relaxed whitespace-pre-line">
+                      <p className="text-sm md:text-lg text-white/90 font-light leading-relaxed whitespace-pre-line">
                         각 교구내에 소그룹(작은교회)으로 운영되고 있습니다. 함께 모여 말씀을 나누며, 서로의 삶을 돌보는 진정한 교제와 영적성장을 이루어나갑니다.
                       </p>
                       <div className="border-t border-white/20 pt-4 mt-4">
                         <div className="hidden md:block">
-                          <h4 className="font-serif text-[1.1375rem] md:text-[1.28125rem] font-bold text-[#E2C799] leading-relaxed break-keep">
+                          <h4 className="font-serif text-lg md:text-xl font-bold text-[#E2C799] leading-relaxed break-keep">
                             1교구 : 65세 이상 / 2교구 : 50대 / 3교구 : 40대 / 4교구 : 40대이하 젊은 부부
                           </h4>
                         </div>
                         <div className="block md:hidden">
-                          <ul className="space-y-2 text-[0.9875rem] font-bold text-[#E2C799] font-sans text-left">
+                          <ul className="space-y-2 text-base font-bold text-[#E2C799] font-sans text-left">
                             <li>• 1교구 : 65세 이상</li>
                             <li>• 2교구 : 50대</li>
                             <li>• 3교구 : 40대</li>
@@ -1671,36 +1671,36 @@ export default function App() {
                     <div className="p-3 bg-brand-sage/10 text-brand-sage rounded-2xl">
                       <Check className="w-6 h-6" />
                     </div>
-                    <h3 className="font-serif text-[1.5rem] md:text-[1.8rem] font-bold text-brand-brown">참여 안내</h3>
+                    <h3 className="font-serif text-2xl md:text-3xl-compact font-bold text-brand-brown">참여 안내</h3>
                   </div>
 
                   <ul className="participation-list space-y-4 font-sans text-left">
                     <li className="flex gap-4 items-start">
-                      <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-[0.9rem] font-bold shrink-0 mt-0.5">A</span>
+                      <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">A</span>
                       <div>
-                        <h4 className="text-[0.9rem] md:text-[1.05rem] font-semibold text-brand-brown">지역별 편성</h4>
-                        <p className="text-[0.825rem] md:text-[0.9rem] text-brand-brown/70 leading-relaxed mt-0.5">작은교회는 지역별로 편성되어 있습니다.</p>
+                        <h4 className="text-sm md:text-lg font-semibold text-brand-brown">지역별 편성</h4>
+                        <p className="text-sm md:text-sm text-brand-brown/70 leading-relaxed mt-0.5">작은교회는 지역별로 편성되어 있습니다.</p>
                       </div>
                     </li>
                     <li className="flex gap-4 items-start">
-                      <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-[0.9rem] font-bold shrink-0 mt-0.5">B</span>
+                      <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">B</span>
                       <div>
-                        <h4 className="text-[0.9rem] md:text-[1.05rem] font-semibold text-brand-brown">모임 시간</h4>
-                        <p className="text-[0.825rem] md:text-[0.9rem] text-brand-brown/70 leading-relaxed mt-0.5">주중 저녁 또는 주말에 모입니다.</p>
+                        <h4 className="text-sm md:text-lg font-semibold text-brand-brown">모임 시간</h4>
+                        <p className="text-sm md:text-sm text-brand-brown/70 leading-relaxed mt-0.5">주중 저녁 또는 주말에 모입니다.</p>
                       </div>
                     </li>
                     <li className="flex gap-4 items-start">
-                      <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-[0.9rem] font-bold shrink-0 mt-0.5">C</span>
+                      <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-sm font-bold shrink-0 mt-0.5">C</span>
                       <div>
-                        <h4 className="text-[0.9rem] md:text-[1.05rem] font-semibold text-brand-brown">문의처</h4>
-                        <p className="text-[0.825rem] md:text-[0.9rem] text-brand-brown/70 leading-relaxed mt-0.5">참여를 원하시면 교회 사무실 또는 담당 목사님께 문의해 주세요.</p>
+                        <h4 className="text-sm md:text-lg font-semibold text-brand-brown">문의처</h4>
+                        <p className="text-sm md:text-sm text-brand-brown/70 leading-relaxed mt-0.5">참여를 원하시면 교회 사무실 또는 담당 목사님께 문의해 주세요.</p>
                       </div>
                     </li>
                     <li className="flex gap-4 items-start">
-                      <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-[0.9rem] font-bold shrink-0 mt-0.5 font-sans">D</span>
+                      <span className="w-6 h-6 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-sm font-bold shrink-0 mt-0.5 font-sans">D</span>
                       <div>
-                        <h4 className="text-[0.9rem] md:text-[1.05rem] font-semibold text-brand-brown font-serif">새가족 배정</h4>
-                        <p className="text-[0.825rem] md:text-[0.9rem] text-brand-brown/70 leading-relaxed mt-0.5">새가족은 새가족반 수료 후 배정됩니다.</p>
+                        <h4 className="text-sm md:text-lg font-semibold text-brand-brown font-serif">새가족 배정</h4>
+                        <p className="text-sm md:text-sm text-brand-brown/70 leading-relaxed mt-0.5">새가족은 새가족반 수료 후 배정됩니다.</p>
                       </div>
                     </li>
                   </ul>
@@ -1723,11 +1723,11 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end">
               <div className="max-w-[var(--content-max)] mx-auto w-full px-6 pb-8 md:pb-12 flex justify-between items-end">
                 <div className="text-left">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#8E9775] text-white text-[0.825rem] font-bold tracking-wider mb-2 font-sans">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#8E9775] text-white text-sm font-bold tracking-wider mb-2 font-sans">
                     MINISTRY & DISCIPLESHIP
                   </span>
-                  <h1 className="text-3xl md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">{['제자반/사역반','성경대학','온라인 독서모임','마더와이즈/파더와이즈'][godsLoveSubpageId]??'하나님사랑'}</span><span className="subpage-title-desktop">{sitemapData.find((menu) => menu.title==='사역과양육')?.items[0].subItems?.[godsLoveSubpageId]??'하나님사랑'}</span></h1>
-                  <p className="hidden md:block text-white/85 text-[0.9875rem] md:text-[1.15625rem] font-light max-w-[var(--reading-max)] leading-relaxed w-full">
+                  <h1 className="text-3xl-compact md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">{['제자반/사역반','성경대학','온라인 독서모임','마더와이즈/파더와이즈'][godsLoveSubpageId]??'하나님사랑'}</span><span className="subpage-title-desktop">{sitemapData.find((menu) => menu.title==='사역과양육')?.items[0].subItems?.[godsLoveSubpageId]??'하나님사랑'}</span></h1>
+                  <p className="hidden md:block text-white/85 text-base md:text-lg font-light max-w-[var(--reading-max)] leading-relaxed w-full">
                     {[
                       '말씀으로 세워지는 제자, 사역으로 성장하는 일꾼. 제자반과 사역반을 통해 말씀과 삶이 하나 되는 신앙을 함께 배워갑니다.',
                       '말씀을 깊이 배우고 삶에 적용하는 시간. 성경을 체계적으로 읽고 배우며 하나님을 알아가는 기쁨과 신앙의 깊이를 더해갑니다.',
@@ -1738,7 +1738,7 @@ export default function App() {
                 </div>
                 <button
                   onClick={() => { window.location.hash=''; }}
-                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-[0.8625rem] font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
+                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-sm font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4 shrink-0" />
                   <span>뒤로 가기</span>
@@ -1753,13 +1753,13 @@ export default function App() {
             <div className="hidden md:flex mb-2.5 md:mb-6 flex-wrap items-center justify-between gap-x-4 gap-y-1.5 md:gap-4">
               <button
                 onClick={() => { window.location.hash=''; }}
-                className="text-brand-sage hover:text-brand-brown text-[1.05rem] font-medium inline-flex items-center gap-1 cursor-pointer overflow-hidden leading-none border-none bg-transparent py-1 px-0"
+                className="text-brand-sage hover:text-brand-brown text-lg font-medium inline-flex items-center gap-1 cursor-pointer overflow-hidden leading-none border-none bg-transparent py-1 px-0"
               >
                 <ChevronLeft className="w-4 h-4 shrink-0" />
                 <span>메인 화면으로 돌아가기</span>
               </button>
 
-              <div className="text-[0.9875rem] text-brand-brown/50 font-medium font-sans">
+              <div className="text-base text-brand-brown/50 font-medium font-sans">
                 사역과양육 &gt; 하나님사랑 &gt; <span className="text-brand-sage">{
                   godsLoveSubpageId>=0&&godsLoveSubpageId<4? ['제자반/사역반','성경대학','온라인 독서모임','마더와이즈/파더와이즈'][godsLoveSubpageId]:'훈련 프로그램'
                 }</span>
@@ -1784,7 +1784,7 @@ export default function App() {
                           key={item.idx}
                           onClick={() => { window.location.hash=`#하나님사랑/${item.idx}`; }}
                           aria-current={isActive? 'page':undefined}
-                          className={`shrink-0 md:flex-1 text-center whitespace-nowrap py-3 px-4 rounded-2xl text-[0.9rem] sm:text-[1.05rem] font-medium transition-all border cursor-pointer ${isActive
+                          className={`shrink-0 md:flex-1 text-center whitespace-nowrap py-3 px-4 rounded-2xl text-sm sm:text-lg font-medium transition-all border cursor-pointer ${isActive
                               ? 'bg-[#8E9775] text-white border-[#8E9775] shadow-sm font-semibold'
                               :'bg-white border-brand-gold/15 text-brand-brown hover:bg-brand-cream/30 hover:border-brand-sage'
                             }`}
@@ -1817,7 +1817,7 @@ export default function App() {
                               godsLoveSubpageId===2? <Sparkles className="w-6 h-6" />:
                                 <Heart className="w-6 h-6" />}
                         </div>
-                        <h2 className="font-serif text-[1.8rem] md:text-[2.25rem] font-medium text-brand-brown">
+                        <h2 className="font-serif text-3xl-compact md:text-4xl font-medium text-brand-brown">
                           {godsLoveSubpageId===3? (
                             <>
                               <span className="hidden md:inline">마더와이즈 / 파더와이즈</span>
@@ -1828,7 +1828,7 @@ export default function App() {
                           )}
                         </h2>
                       </div>
-                      <p className="text-brand-sage text-[1.05rem] md:text-[1.2rem] font-medium font-sans mb-0 select-none">
+                      <p className="text-brand-sage text-lg md:text-xl font-medium font-sans mb-0 select-none">
                         {['말씀으로 세워지는 제자, 사역으로 성장하는 일꾼',
                           '말씀을 깊이 배우고 삶에 적용하는 시간',
                           '함께 읽고 나누는 신앙 독서 공동체',
@@ -1837,7 +1837,7 @@ export default function App() {
                     </div>
 
                     {/* Section intro block */}
-                    <div className="p-5 rounded-2xl border border-brand-gold/15 text-[0.9rem] md:text-[1.05rem] text-brand-brown/85 font-light leading-relaxed font-sans bg-[#F1F3EC]">
+                    <div className="p-5 rounded-2xl border border-brand-gold/15 text-sm md:text-lg text-brand-brown/85 font-light leading-relaxed font-sans bg-[#F1F3EC]">
                       {['제자반은 신앙의 기초를 다지고 그리스도의 제자로 세워지는 훈련 과정입니다. 사역반은 제자반 수료 후 교회 사역자로 실제 사역에 참여하며 성장하는 과정입니다. 두 과정을 통해 말씀과 삶이 하나 되는 성도를 세워갑니다.',
                         '성경공부는 하나님의 말씀을 체계적으로 배우고 삶에 적용하는 모임입니다. 교역자의 인도 아래 함께 성경을 읽고 나누며 신앙의 깊이를 더해갑니다.',
                         '온라인 독서모임은 신앙 서적과 기독교 고전을 함께 읽고 온라인으로 나누는 모임입니다. 장소에 구애받지 않고 참여할 수 있어 바쁜 일상 속에서도 말씀과 신앙 훈련을 이어갈 수 있습니다.',
@@ -1846,59 +1846,59 @@ export default function App() {
 
                     {/* Left Column Description list */}
                     <div className="space-y-4">
-                      <h3 className="font-serif text-[1.35rem] font-bold text-brand-brown border-b border-brand-gold/10 pb-2">
+                      <h3 className="font-serif text-xl font-bold text-brand-brown border-b border-brand-gold/10 pb-2">
                         모임 및 등록 안내
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {godsLoveSubpageId===0&&(
                           <>
                             <div className="p-5 rounded-2xl border border-brand-gold/10 bg-[#F1F3EC]">
-                              <span className="text-[0.825rem] font-bold text-brand-sage block mb-1">모임 방식</span>
-                              <span className="text-[0.9rem] md:text-[1.05rem] text-brand-brown font-medium">교회 내 소그룹 편성 후 기수제 운영</span>
+                              <span className="text-sm font-bold text-brand-sage block mb-1">모임 방식</span>
+                              <span className="text-sm md:text-lg text-brand-brown font-medium">교회 내 소그룹 편성 후 기수제 운영</span>
                             </div>
                             <div className="p-5 rounded-2xl border border-brand-gold/10 bg-[#F1F3EC]">
-                              <span className="text-[0.825rem] font-bold text-brand-sage block mb-1">수강 신청</span>
-                              <span className="text-[0.9rem] md:text-[1.05rem] text-brand-brown font-medium">수강 신청 및 일정 문의는 교회 사무실로 연락해 주세요.</span>
+                              <span className="text-sm font-bold text-brand-sage block mb-1">수강 신청</span>
+                              <span className="text-sm md:text-lg text-brand-brown font-medium">수강 신청 및 일정 문의는 교회 사무실로 연락해 주세요.</span>
                             </div>
                           </>
                         )}
                         {godsLoveSubpageId===1&&(
                           <>
                             <div className="p-4 rounded-2xl border border-brand-gold/10 bg-[#F1F3EC]">
-                              <span className="text-[0.825rem] font-bold text-brand-sage block mb-1">시간</span>
-                              <span className="text-[0.9rem] md:text-[1.05rem] text-brand-brown font-medium">화요일 오전 10:00</span>
+                              <span className="text-sm font-bold text-brand-sage block mb-1">시간</span>
+                              <span className="text-sm md:text-lg text-brand-brown font-medium">화요일 오전 10:00</span>
                             </div>
                             <div className="p-4 rounded-2xl border border-brand-gold/10 bg-[#F1F3EC]">
-                              <span className="text-[0.825rem] font-bold text-brand-sage block mb-1">장소</span>
-                              <span className="text-[0.9rem] md:text-[1.05rem] text-brand-brown font-medium">교육관</span>
+                              <span className="text-sm font-bold text-brand-sage block mb-1">장소</span>
+                              <span className="text-sm md:text-lg text-brand-brown font-medium">교육관</span>
                             </div>
                             <div className="p-4 rounded-2xl border border-brand-gold/10 md:col-span-2 bg-[#F1F3EC]">
-                              <span className="text-[0.825rem] font-bold text-brand-sage block mb-1">비고</span>
-                              <span className="text-[0.9rem] md:text-[1.05rem] text-brand-brown font-medium">사전 등록 후 참여</span>
+                              <span className="text-sm font-bold text-brand-sage block mb-1">비고</span>
+                              <span className="text-sm md:text-lg text-brand-brown font-medium">사전 등록 후 참여</span>
                             </div>
                           </>
                         )}
                         {godsLoveSubpageId===2&&(
                           <>
                             <div className="p-5 rounded-2xl border border-brand-gold/10 bg-[#F1F3EC]">
-                              <span className="text-[0.825rem] font-bold text-brand-sage block mb-1">방식/매체</span>
-                              <span className="text-[0.9rem] md:text-[1.05rem] text-brand-brown font-medium">Zoom 온라인 소모임 지원</span>
+                              <span className="text-sm font-bold text-brand-sage block mb-1">방식/매체</span>
+                              <span className="text-sm md:text-lg text-brand-brown font-medium">Zoom 온라인 소모임 지원</span>
                             </div>
                             <div className="p-5 rounded-2xl border border-brand-gold/15 bg-[#F1F3EC]">
-                              <span className="text-[0.825rem] font-bold text-brand-sage block mb-1">참여 안내</span>
-                              <span className="text-[0.9rem] md:text-[1.05rem] text-brand-brown font-medium">참여 신청 및 교재 안내는 교회 사무실 또는 담당 사역자에게 문의해 주세요.</span>
+                              <span className="text-sm font-bold text-brand-sage block mb-1">참여 안내</span>
+                              <span className="text-sm md:text-lg text-brand-brown font-medium">참여 신청 및 교재 안내는 교회 사무실 또는 담당 사역자에게 문의해 주세요.</span>
                             </div>
                           </>
                         )}
                         {godsLoveSubpageId===3&&(
                           <>
                             <div className="p-5 rounded-2xl border border-brand-gold/10 bg-[#F1F3EC]">
-                              <span className="text-[0.825rem] font-bold text-brand-sage block mb-1">운영 주기</span>
-                              <span className="text-[0.9rem] md:text-[1.05rem] text-brand-brown font-medium">학기별 기수제 운영 (주중 8주~10주 과정)</span>
+                              <span className="text-sm font-bold text-brand-sage block mb-1">운영 주기</span>
+                              <span className="text-sm md:text-lg text-brand-brown font-medium">학기별 기수제 운영 (주중 8주~10주 과정)</span>
                             </div>
                             <div className="p-5 rounded-2xl border border-brand-gold/10 bg-[#F1F3EC]">
-                              <span className="text-[0.825rem] font-bold text-brand-sage block mb-1">신청 및 개강</span>
-                              <span className="text-[0.9rem] md:text-[1.05rem] text-brand-brown font-medium">개강 및 모집 일정은 매 학기별 교회 광고를 참조해 주세요.</span>
+                              <span className="text-sm font-bold text-brand-sage block mb-1">신청 및 개강</span>
+                              <span className="text-sm md:text-lg text-brand-brown font-medium">개강 및 모집 일정은 매 학기별 교회 광고를 참조해 주세요.</span>
                             </div>
                           </>
                         )}
@@ -1907,7 +1907,7 @@ export default function App() {
 
                     {/* Features list */}
                     <div className="space-y-4 pt-2">
-                      <h3 className="font-serif text-[1.35rem] font-bold text-brand-brown border-b border-brand-gold/10 pb-2">
+                      <h3 className="font-serif text-xl font-bold text-brand-brown border-b border-brand-gold/10 pb-2">
                         사역 핵심 목표 및 특징
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-sans">
@@ -1930,12 +1930,12 @@ export default function App() {
                           ]
                         ][godsLoveSubpageId].map((feat,idx) => (
                           <div key={idx} className="border border-brand-gold/10 p-5 rounded-2xl bg-white hover:border-brand-sage transition-colors text-left flex gap-3 items-start">
-                            <span className="p-1 rounded-lg bg-brand-sage/10 text-brand-sage text-[0.825rem] font-bold shrink-0">
+                            <span className="p-1 rounded-lg bg-brand-sage/10 text-brand-sage text-sm font-bold shrink-0">
                               0{idx+1}
                             </span>
                             <div>
-                              <h4 className="text-[0.9rem] md:text-[1.05rem] font-semibold text-brand-brown mb-1">{feat.t}</h4>
-                              <p className="text-[0.825rem] md:text-[0.9rem] text-brand-brown/70 leading-relaxed font-light">{feat.d}</p>
+                              <h4 className="text-sm md:text-lg font-semibold text-brand-brown mb-1">{feat.t}</h4>
+                              <p className="text-sm md:text-sm text-brand-brown/70 leading-relaxed font-light">{feat.d}</p>
                             </div>
                           </div>
                         ))}
@@ -1943,7 +1943,7 @@ export default function App() {
                     </div>
                   </motion.div>
                 ):(
-                  <div className="bg-white p-8 rounded-2xl text-center text-brand-brown/50 font-sans text-[1.2rem]">
+                  <div className="bg-white p-8 rounded-2xl text-center text-brand-brown/50 font-sans text-xl">
                     프로그램 상세를 로딩하고 있습니다.
                   </div>
                 )}
@@ -2042,7 +2042,7 @@ export default function App() {
                       </div>
                       <div className="mt-6 px-6 pb-6 md:px-7 md:pb-7 text-left">
                         <h3 className="font-serif text-xl font-bold text-brand-brown mb-3">{item.title}</h3>
-                        <p className="jesus-topic-description text-[1rem] text-brand-brown/65 leading-relaxed">{item.desc}</p>
+                        <p className="jesus-topic-description text-base text-brand-brown/65 leading-relaxed">{item.desc}</p>
                       </div>
                     </motion.article>
                   ))}
@@ -2099,7 +2099,7 @@ export default function App() {
             <div className="max-w-[var(--content-max)] mx-auto">
               <motion.div {...fadeIn} className="text-center max-w-2xl mx-auto mb-14">
                 <span className="text-brand-sage text-sm font-bold tracking-[0.18em]">01 · FIRST VISIT</span>
-                <h2 id="first-visit-title" className="font-serif text-3xl md:text-5xl font-normal text-brand-brown mt-4 mb-5">첫방문 가이드</h2>
+                <h2 id="first-visit-title" className="font-serif text-3xl-compact md:text-5xl font-normal text-brand-brown mt-4 mb-5">첫방문 가이드</h2>
                 <p className="text-brand-brown/65 leading-relaxed">낯설지 않도록, 도착부터 예배 후 교제까지
                   < br />
                   차근차근 안내해 드립니다.</p>
@@ -2117,7 +2117,7 @@ export default function App() {
                     <div>
                       <span className="text-xs font-bold text-brand-sage tracking-[0.15em]">STEP {index+1}</span>
                       <h3 className="first-visit-step-title font-serif text-xl font-bold text-brand-brown mt-1 mb-2 md:mt-2 md:mb-3">{step.title}</h3>
-                      <p className="first-visit-step-description text-[1rem] text-brand-brown/65 leading-relaxed min-h-0 md:min-h-[4.125rem]">{step.desc}</p>
+                      <p className="first-visit-step-description text-base text-brand-brown/65 leading-relaxed min-h-0 md:min-h-[4.125rem]">{step.desc}</p>
                       <p className="first-visit-step-meta mt-3 pt-2 md:mt-5 md:pt-4 text-xs font-medium text-brand-brown/55 border-t border-brand-gold/15">{step.meta}</p>
                     </div>
                   </motion.article>
@@ -2135,7 +2135,7 @@ export default function App() {
             <div className="max-w-[var(--content-max)] mx-auto">
               <motion.div {...fadeIn} className="text-center max-w-2xl mx-auto mb-14">
                 <span className="text-brand-sage text-sm font-bold tracking-[0.18em]">02 · REGISTRATION</span>
-                <h2 id="registration-title" className="font-serif text-3xl md:text-5xl font-normal text-brand-brown mt-4 mb-5">등록과 정착 안내</h2>
+                <h2 id="registration-title" className="font-serif text-3xl-compact md:text-5xl font-normal text-brand-brown mt-4 mb-5">등록과 정착 안내</h2>
                 <p className="text-brand-brown/65 leading-relaxed">등록을 결심하셨다면, 영신교회의 가족으로 함께하는 과정을 안내해 드립니다.</p>
               </motion.div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -2149,7 +2149,7 @@ export default function App() {
                     <div>
                       <span className="text-xs font-bold text-brand-sage tracking-[0.15em]">STEP {index+1}</span>
                       <h3 className="first-visit-step-title font-serif text-xl font-bold text-brand-brown mt-1 mb-2 md:mt-2 md:mb-3">{step.title}</h3>
-                      <p className="first-visit-step-description text-[1rem] text-brand-brown/65 leading-relaxed min-h-0 md:min-h-[4.125rem]">{step.desc}</p>
+                      <p className="first-visit-step-description text-base text-brand-brown/65 leading-relaxed min-h-0 md:min-h-[4.125rem]">{step.desc}</p>
                       <p className="first-visit-step-meta mt-3 pt-2 md:mt-5 md:pt-4 text-xs font-medium text-brand-brown/55 ">{step.meta}</p>
                     </div>
                   </motion.article>
@@ -2164,7 +2164,7 @@ export default function App() {
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-7 mb-12">
                 <motion.div {...fadeIn} className="text-left max-w-2xl">
                   <span className="text-brand-gold text-sm font-bold tracking-[0.18em]">03 · RECOMMENDED BOOKS</span>
-                  <h2 id="recommended-books-title" className="font-serif text-3xl md:text-5xl font-normal mt-4 mb-5">처음 믿음을 위한 추천도서</h2>
+                  <h2 id="recommended-books-title" className="font-serif text-3xl-compact md:text-5xl font-normal mt-4 mb-5">처음 믿음을 위한 추천도서</h2>
                   <p className="text-brand-cream/65 leading-relaxed">신앙의 질문을 천천히 풀어가며 예수님을 더 깊이 알아가도록 돕는 책들입니다.</p>
                 </motion.div>
                 <div className="flex gap-2 shrink-0">
@@ -2237,14 +2237,14 @@ export default function App() {
                             />
                             <div className="absolute inset-y-0 left-0 w-3 bg-black/15 border-r border-white/10" />
                             <div className="h-full pl-6 pr-4 py-5 flex flex-col">
-                              <span className="text-[0.5rem] tracking-[0.2em] opacity-75">YOUNGSHIN SELECT</span>
+                              <span className="text-3xs tracking-[0.2em] opacity-75">YOUNGSHIN SELECT</span>
                               <BookOpen className="w-5 h-5 mt-6 opacity-80" />
                               <strong className="font-serif text-base sm:text-lg leading-snug mt-3 break-keep">{book.title}</strong>
-                              <span className="mt-auto text-[0.5625rem] opacity-80">{book.author}</span>
+                              <span className="mt-auto text-2xs opacity-80">{book.author}</span>
                             </div>
                           </div>
                           <div className="recommended-book-copy text-left min-w-0">
-                            <span className="inline-block text-[0.6875rem] font-bold tracking-wider text-brand-gold mb-3">{book.category}</span>
+                            <span className="inline-block text-xs font-bold tracking-wider text-brand-gold mb-3">{book.category}</span>
                             <h3 className="font-serif text-xl md:text-2xl font-bold text-white leading-snug mb-3 break-keep">{book.title}</h3>
                             <p className="text-xs text-brand-cream/45 mb-4">{book.author}</p>
                             <p className="hidden sm:block text-sm text-brand-cream/65 leading-relaxed">{book.description}</p>
@@ -2286,17 +2286,17 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end">
               <div className="max-w-[var(--content-max)] mx-auto w-full px-6 pb-6 md:pb-8 flex justify-between items-end">
                 <div className="text-left">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#E4C59E] text-brand-brown text-[0.825rem] font-bold tracking-wider mb-2">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#E4C59E] text-brand-brown text-sm font-bold tracking-wider mb-2">
                     CHURCH NEWS & BULLETIN
                   </span>
-                  <h1 className="text-3xl md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">공지사항 & 주보</span><span className="subpage-title-desktop">공지사항</span></h1>
-                  <p className="hidden md:block text-white/80 text-[0.9875rem] md:text-[1.15625rem] font-light max-w-[var(--reading-max)] mt-1 leading-relaxed">
+                  <h1 className="text-3xl-compact md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">공지사항 & 주보</span><span className="subpage-title-desktop">공지사항</span></h1>
+                  <p className="hidden md:block text-white/80 text-base md:text-lg font-light max-w-[var(--reading-max)] mt-1 leading-relaxed">
                     매주 발행되는 영신교회 소식지와 성경 공부, 사역모임 포스터를 한눈에 모아보세요.
                   </p>
                 </div>
                 <button
                   onClick={() => { window.location.hash=''; }}
-                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-[0.8625rem] font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
+                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-sm font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4 shrink-0" />
                   <span>뒤로 가기</span>
@@ -2314,7 +2314,7 @@ export default function App() {
                   <button
                     key={cat}
                     onClick={() => setNoticeFilter(cat)}
-                    className={`px-4 py-1.5 rounded-full text-[0.85rem] font-medium transition-all whitespace-nowrap cursor-pointer ${noticeFilter===cat
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all whitespace-nowrap cursor-pointer ${noticeFilter===cat
                         ? 'bg-brand-sage/25 text-brand-brown ring-1 ring-brand-sage/40'
                         :'bg-brand-sage/10 text-brand-brown/70 hover:bg-brand-sage/20'
                       }`}
@@ -2332,12 +2332,12 @@ export default function App() {
                   placeholder="제목이나 소식 검색..."
                   value={noticeSearch}
                   onChange={(e) => setNoticeSearch(e.target.value)}
-                  className="w-full text-[0.85rem] pl-9 pr-4 py-2 border border-brand-gold/25 focus:border-brand-sage rounded-full outline-none bg-brand-cream/10 text-brand-brown transition-colors"
+                  className="w-full text-sm pl-9 pr-4 py-2 border border-brand-gold/25 focus:border-brand-sage rounded-full outline-none bg-brand-cream/10 text-brand-brown transition-colors"
                 />
                 {noticeSearch&&(
                   <button
                     onClick={() => setNoticeSearch('')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[0.85rem] text-brand-brown/40 hover:text-brand-brown"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-brand-brown/40 hover:text-brand-brown"
                   >
                     초기화
                   </button>
@@ -2378,27 +2378,27 @@ export default function App() {
                     }}
                     className="bg-white p-6 rounded-2xl border border-brand-gold/15 shadow-sm space-y-4 text-left"
                   >
-                    <h3 className="font-serif text-[1.125rem] font-bold text-brand-brown flex items-center gap-2">
+                    <h3 className="font-serif text-lg font-bold text-brand-brown flex items-center gap-2">
                       <FileText className="w-4 h-4 text-brand-sage" /> 새로운 공지 등록하기
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-[0.85rem] font-semibold text-brand-brown/85 mb-1">제목 <span className="text-brand-sage">*</span></label>
+                        <label className="block text-sm font-semibold text-brand-brown/85 mb-1">제목 <span className="text-brand-sage">*</span></label>
                         <input
                           type="text"
                           required
                           value={noticeFormTitle}
                           onChange={(e) => setNoticeFormTitle(e.target.value)}
                           placeholder="예: 2026년 여름 전교인 수련회 안내"
-                          className="w-full text-[0.85rem] px-3 py-2 border border-brand-gold/20 hover:border-brand-sage focus:border-brand-sage rounded-xl outline-none text-brand-brown bg-brand-cream/5"
+                          className="w-full text-sm px-3 py-2 border border-brand-gold/20 hover:border-brand-sage focus:border-brand-sage rounded-xl outline-none text-brand-brown bg-brand-cream/5"
                         />
                       </div>
                       <div>
-                        <label className="block text-[0.85rem] font-semibold text-brand-brown/85 mb-1">분류</label>
+                        <label className="block text-sm font-semibold text-brand-brown/85 mb-1">분류</label>
                         <select
                           value={noticeFormCategory}
                           onChange={(e) => setNoticeFormCategory(e.target.value)}
-                          className="w-full text-[0.85rem] px-3 py-2 border border-brand-gold/20 hover:border-brand-sage rounded-xl outline-none text-brand-brown bg-brand-cream/5"
+                          className="w-full text-sm px-3 py-2 border border-brand-gold/20 hover:border-brand-sage rounded-xl outline-none text-brand-brown bg-brand-cream/5"
                         >
                           <option value="주보">주보 (Weekly Bulletin)</option>
                           <option value="포스터">포스터 (Ministry Poster)</option>
@@ -2407,18 +2407,18 @@ export default function App() {
                     </div>
 
                     <div>
-                      <label className="block text-[0.85rem] font-semibold text-brand-brown/85 mb-1">상세 설명 / 내용</label>
+                      <label className="block text-sm font-semibold text-brand-brown/85 mb-1">상세 설명 / 내용</label>
                       <textarea
                         value={noticeFormDesc}
                         onChange={(e) => setNoticeFormDesc(e.target.value)}
                         placeholder="공지사항의 상세한 내용을 입력해 주세요."
                         rows={3}
-                        className="w-full text-[0.85rem] px-3 py-2 border border-brand-gold/20 hover:border-brand-sage rounded-xl outline-none text-brand-brown bg-brand-cream/5"
+                        className="w-full text-sm px-3 py-2 border border-brand-gold/20 hover:border-brand-sage rounded-xl outline-none text-brand-brown bg-brand-cream/5"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[0.85rem] font-semibold text-brand-brown/85 mb-1.5">대표 세련된 디자인 (프리셋 선택)</label>
+                      <label className="block text-sm font-semibold text-brand-brown/85 mb-1.5">대표 세련된 디자인 (프리셋 선택)</label>
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                         {[
                           { name: '대예배 주보형',img: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop' },
@@ -2436,7 +2436,7 @@ export default function App() {
                               }`}
                           >
                             <img src={preset.img} alt="" className="w-full h-12 object-cover rounded-lg mb-1" referrerPolicy="no-referrer" />
-                            <span className="text-[0.70625rem] text-brand-brown font-medium block text-center truncate">{preset.name}</span>
+                            <span className="text-xs text-brand-brown font-medium block text-center truncate">{preset.name}</span>
                           </button>
                         ))}
                       </div>
@@ -2446,13 +2446,13 @@ export default function App() {
                       <button
                         type="button"
                         onClick={() => setIsAddNoticeOpen(false)}
-                        className="px-4 py-2 border border-brand-gold/20 hover:bg-brand-cream text-brand-brown text-[0.85rem] rounded-xl"
+                        className="px-4 py-2 border border-brand-gold/20 hover:bg-brand-cream text-brand-brown text-sm rounded-xl"
                       >
                         취소
                       </button>
                       <button
                         type="submit"
-                        className="px-5 py-2 bg-brand-sage text-white text-[0.85rem] font-semibold rounded-xl hover:bg-brand-brown transition-colors shadow-sm"
+                        className="px-5 py-2 bg-brand-sage text-white text-sm font-semibold rounded-xl hover:bg-brand-brown transition-colors shadow-sm"
                       >
                         등록하기
                       </button>
@@ -2475,8 +2475,8 @@ export default function App() {
                 return (
                   <div className="bg-white p-12 rounded-3xl border border-brand-gold/15 mt-8 text-center text-brand-brown/50">
                     <FileText className="w-10 h-10 text-brand-gold/30 mx-auto mb-2" />
-                    <p className="text-[0.9875rem] font-medium">검색 결과에 맞는 공지사항이나 주보가 없습니다.</p>
-                    <p className="text-[0.85rem] text-brand-brown/40 mt-1">다른 검색어를 입력해 보시거나 필터를 변경해 보세요.</p>
+                    <p className="text-base font-medium">검색 결과에 맞는 공지사항이나 주보가 없습니다.</p>
+                    <p className="text-sm text-brand-brown/40 mt-1">다른 검색어를 입력해 보시거나 필터를 변경해 보세요.</p>
                   </div>
                 );
               }
@@ -2502,11 +2502,11 @@ export default function App() {
                               referrerPolicy="no-referrer"
                             />
                             <div className="absolute top-3 left-3 flex gap-1">
-                              <span className={`px-2 py-1 text-[0.6375rem] font-bold rounded-lg text-white ${item.category==='주보'? 'bg-brand-sage':'bg-brand-gold'
+                              <span className={`px-2 py-1 text-2xs font-bold rounded-lg text-white ${item.category==='주보'? 'bg-brand-sage':'bg-brand-gold'
                                 }`}>
                                 {item.category}
                               </span>
-                              <span className="bg-black/40 backdrop-blur-md px-2 py-1 text-[0.6375rem] font-medium text-white rounded-lg">
+                              <span className="bg-black/40 backdrop-blur-md px-2 py-1 text-2xs font-medium text-white rounded-lg">
                                 {item.date}
                               </span>
                             </div>
@@ -2525,7 +2525,7 @@ export default function App() {
 
                         {/* Card Action footer */}
                         <div className="px-5 pb-8 pt-2 border-t border-brand-gold/10 flex items-center justify-between">
-                          <span className="text-[0.625rem] text-brand-brown/40 font-mono">
+                          <span className="text-2xs text-brand-brown/40 font-mono">
                             조회/다운: {item.downloads}회
                           </span>
 
@@ -2581,7 +2581,7 @@ export default function App() {
                       <button
                         type="button"
                         onClick={() => setVisibleNoticeCount(prev => prev+6)}
-                        className="flex items-center gap-1.5 px-6 py-2.5 bg-white border border-brand-gold/20 hover:border-brand-sage hover:bg-brand-sage/5 text-brand-brown hover:text-brand-sage text-[0.85rem] font-semibold rounded-full shadow-sm transition-all duration-200 cursor-pointer"
+                        className="flex items-center gap-1.5 px-6 py-2.5 bg-white border border-brand-gold/20 hover:border-brand-sage hover:bg-brand-sage/5 text-brand-brown hover:text-brand-sage text-sm font-semibold rounded-full shadow-sm transition-all duration-200 cursor-pointer"
                       >
                         공지사항 및 주보 더보기 <ChevronDown className="w-4 h-4 animate-bounce" />
                       </button>
@@ -2619,23 +2619,23 @@ export default function App() {
                         referrerPolicy="no-referrer"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-6">
-                        <span className="inline-block px-2.5 py-1 bg-brand-sage text-white self-start text-[0.6375rem] font-bold rounded mb-1">{currentItem.category}</span>
+                        <span className="inline-block px-2.5 py-1 bg-brand-sage text-white self-start text-2xs font-bold rounded mb-1">{currentItem.category}</span>
                         <h2 className="notice-modal-title font-serif font-normal text-white leading-normal">{currentItem.title}</h2>
-                        <p className="text-white/70 text-[0.70625rem] mt-1 font-mono">발행일자: {currentItem.date}</p>
+                        <p className="text-white/70 text-xs mt-1 font-mono">발행일자: {currentItem.date}</p>
                       </div>
                     </div>
 
                     <div className="p-6 space-y-4">
                       <div>
-                        <h4 className="text-[0.85rem] font-semibold text-brand-brown/50">상세 안내 사항</h4>
-                        <p className="text-[0.85rem] md:text-[0.9875rem] text-brand-brown/85 mt-2 leading-relaxed whitespace-pre-line font-light">
+                        <h4 className="text-sm font-semibold text-brand-brown/50">상세 안내 사항</h4>
+                        <p className="text-sm md:text-base text-brand-brown/85 mt-2 leading-relaxed whitespace-pre-line font-light">
                           {currentItem.desc}
                         </p>
                       </div>
 
                       {currentItem.img&&(
                         <div className="space-y-2">
-                          <h4 className="text-[0.85rem] font-semibold text-brand-brown/50">안내 포스터</h4>
+                          <h4 className="text-sm font-semibold text-brand-brown/50">안내 포스터</h4>
                           <div className="bg-black/5 p-2 rounded-xl border border-brand-gold/10 flex justify-center">
                             <img
                               src={currentItem.img}
@@ -2648,8 +2648,8 @@ export default function App() {
                       )}
 
                       <div className="p-4 bg-white rounded-xl border border-brand-gold/10 space-y-2">
-                        <h4 className="text-[0.70625rem] font-bold text-brand-sage font-mono">Simulated PDF Attachment</h4>
-                        <div className="flex items-center justify-between text-[0.85rem]">
+                        <h4 className="text-xs font-bold text-brand-sage font-mono">Simulated PDF Attachment</h4>
+                        <div className="flex items-center justify-between text-sm">
                           <span className="text-brand-brown/70 truncate flex items-center gap-1">
                             <FileText className="w-4 h-4 text-[#A81E1E]" /> {currentItem.title.slice(0,18)}..._Bulletin.pdf
                           </span>
@@ -2665,7 +2665,7 @@ export default function App() {
                                 });
                               },1500);
                             }}
-                            className="notice-modal-download text-[0.70625rem] text-brand-brown bg-brand-cream border border-brand-gold/20 hover:bg-brand-sage hover:text-white px-2 py-1 rounded-lg transition-colors cursor-pointer"
+                            className="notice-modal-download text-xs text-brand-brown bg-brand-cream border border-brand-gold/20 hover:bg-brand-sage hover:text-white px-2 py-1 rounded-lg transition-colors cursor-pointer"
                           >
                             {noticeDownloadStatus[currentItem.id]||'다운로드'}
                           </button>
@@ -2675,7 +2675,7 @@ export default function App() {
                       <div className="flex justify-end pt-2">
                         <button
                           onClick={() => setSelectedNoticeId(null)}
-                          className="px-5 py-2 bg-brand-brown hover:bg-brand-sage text-white text-[0.85rem] font-semibold rounded-xl transition-all cursor-pointer"
+                          className="px-5 py-2 bg-brand-brown hover:bg-brand-sage text-white text-sm font-semibold rounded-xl transition-all cursor-pointer"
                         >
                           문서 확인완료
                         </button>
@@ -2759,12 +2759,12 @@ export default function App() {
                     <ChevronLeft className="w-4 h-4 shrink-0" />
                     <span>목록으로 돌아가기</span>
                   </button>
-                  <span className="text-[0.8125rem] text-brand-brown/40 font-mono">영신 공동체 소식</span>
+                  <span className="text-sm text-brand-brown/40 font-mono">영신 공동체 소식</span>
                 </div>
 
                 <div className="bg-white p-6 sm:p-10 md:p-14 rounded-3xl border border-brand-gold/10 shadow-sm text-left font-sans">
                   {/* Category */}
-                  <span className="inline-block text-brand-sage text-[0.85rem] font-bold tracking-wider mb-3">
+                  <span className="inline-block text-brand-sage text-sm font-bold tracking-wider mb-3">
                     {currentDetailPost.category} 사역
                   </span>
 
@@ -2774,7 +2774,7 @@ export default function App() {
                   </h1>
 
                   {/* Metadata Row */}
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.85rem] text-brand-brown/50 font-mono mb-8 border-b border-brand-gold/15 pb-6">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-brand-brown/50 font-mono mb-8 border-b border-brand-gold/15 pb-6">
                     <span className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5 text-brand-gold" /> {currentDetailPost.date}
                     </span>
@@ -2793,15 +2793,15 @@ export default function App() {
                   </div>
 
                   {/* Paragraph 1 */}
-                  <p className="text-[1rem] sm:text-[1.09375rem] text-brand-brown/85 leading-relaxed mb-8 whitespace-pre-line font-light break-keep">
+                  <p className="text-base sm:text-lg text-brand-brown/85 leading-relaxed mb-8 whitespace-pre-line font-light break-keep">
                     {currentDetailPost.desc}
                   </p>
 
-                  <h3 className="font-serif text-[1.1875rem] sm:text-[1.3125rem] font-bold text-brand-brown mt-12 mb-4 leading-snug">
+                  <h3 className="font-serif text-xl sm:text-xl font-bold text-brand-brown mt-12 mb-4 leading-snug">
                     나눔의 기쁨이 싹트는 은혜로운 순간들
                   </h3>
 
-                  <p className="text-[0.95rem] sm:text-[1.03125rem] text-brand-brown/75 leading-relaxed mb-8 font-light break-keep">
+                  <p className="text-base sm:text-base text-brand-brown/75 leading-relaxed mb-8 font-light break-keep">
                     영신교회 공동체 성도들의 기쁜 동참 속에 진행된 이번 사역은 일회성의 섬김을 넘어, 주님의 사랑을 삶의 자리에서 성실하게 구현하는 소중한 시간이었습니다. 우리의 작은 섬김이 씨앗이 되어 영과 육의 회복을 일구고, 마침내 풍성한 하늘의 열매들을 거둘 수 있기를 고대합니다.
                   </p>
 
@@ -2817,7 +2817,7 @@ export default function App() {
                     </div>
                   )}
 
-                  <p className="text-[0.95rem] sm:text-[1.03125rem] text-brand-brown/75 leading-relaxed mb-8 font-light break-keep">
+                  <p className="text-base sm:text-base text-brand-brown/75 leading-relaxed mb-8 font-light break-keep">
                     각 파트에서 보이지 않는 곳까지 수고해주신 모든 봉사자분들의 손길 위에 하늘의 위로와 기쁨이 충만하게 머무시길 기원합니다. 영신교회는 언제나 이웃을 사랑하며 영생의 소망을 나누는 따뜻한 소통의 사역을 멈추지 않고 이어가겠습니다.
                   </p>
 
@@ -2835,10 +2835,10 @@ export default function App() {
 
                   {/* Highlight callout block */}
                   <div className="bg-brand-cream/30 p-6 sm:p-8 rounded-2xl border border-brand-gold/10 my-12 text-center">
-                    <p className="font-serif italic text-[0.9875rem] sm:text-[1.125rem] text-brand-brown/80 leading-relaxed mb-2 break-keep">
+                    <p className="font-serif italic text-base sm:text-lg text-brand-brown/80 leading-relaxed mb-2 break-keep">
                       "서로 사랑하며 격려하고, 선한 일에 더욱 열심을 내는 복된 성도의 삶이 되기를 축복합니다."
                     </p>
-                    <span className="text-[0.70625rem] text-brand-gold font-mono tracking-wider">영신교회 교우 일동</span>
+                    <span className="text-xs text-brand-gold font-mono tracking-wider">영신교회 교우 일동</span>
                   </div>
 
                   {/* Bottom interactions */}
@@ -2850,7 +2850,7 @@ export default function App() {
                         setMinistryLikeCount(updatedLikes);
                         localStorage.setItem('yungshin_ministry_likes',JSON.stringify(updatedLikes));
                       }}
-                      className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-red-50/50 border border-brand-gold/15 hover:border-red-200 rounded-2xl text-[0.9rem] font-semibold text-brand-brown active:scale-95 transition-all cursor-pointer group shadow-sm font-sans"
+                      className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-red-50/50 border border-brand-gold/15 hover:border-red-200 rounded-2xl text-sm font-semibold text-brand-brown active:scale-95 transition-all cursor-pointer group shadow-sm font-sans"
                     >
                       <Heart className="w-4.5 h-4.5 text-red-500 fill-red-500 group-hover:scale-125 transition-transform" />
                       <span>은혜감사 격려하기 (+{likes+1})</span>
@@ -2859,7 +2859,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={() => { window.location.hash='#사역게시판'; }}
-                      className="w-full sm:w-auto px-6 py-3 bg-brand-brown hover:bg-brand-sage text-white text-[0.9rem] font-semibold rounded-2xl text-center transition-all cursor-pointer shadow-md font-sans"
+                      className="w-full sm:w-auto px-6 py-3 bg-brand-brown hover:bg-brand-sage text-white text-sm font-semibold rounded-2xl text-center transition-all cursor-pointer shadow-md font-sans"
                     >
                       사역갤러리 목록으로
                     </button>
@@ -2881,17 +2881,17 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end">
                   <div className="max-w-[var(--content-max)] mx-auto w-full px-6 pb-6 md:pb-8 flex justify-between items-end">
                     <div className="text-left">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-sage text-white text-[0.825rem] font-bold tracking-wider mb-2 font-sans">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-sage text-white text-sm font-bold tracking-wider mb-2 font-sans">
                         MINISTRY PHOTO GALLERY
                       </span>
-                      <h1 className="text-3xl md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">사역 활동 게시판</span><span className="subpage-title-desktop">사역게시판</span></h1>
-                      <p className="hidden md:block text-white/80 text-[0.9875rem] md:text-[1.15625rem] font-light max-w-[var(--reading-max)] mt-1 leading-relaxed">
+                      <h1 className="text-3xl-compact md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">사역 활동 게시판</span><span className="subpage-title-desktop">사역게시판</span></h1>
+                      <p className="hidden md:block text-white/80 text-base md:text-lg font-light max-w-[var(--reading-max)] mt-1 leading-relaxed">
                         지역사회를 축복하며 아름답게 섬기는 성도들의 나눔·봉사 활동 스냅샷입니다.
                       </p>
                     </div>
                     <button
                       onClick={() => { window.location.hash=''; }}
-                      className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-[0.8625rem] font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
+                      className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-sm font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
                     >
                       <ChevronLeft className="w-4 h-4 shrink-0" />
                       <span>뒤로 가기</span>
@@ -2904,7 +2904,7 @@ export default function App() {
                 {/* Header and action trigger */}
                 <div className="bg-white p-4 md:p-6 rounded-2xl border border-brand-gold/15 shadow-sm text-left">
                   <h2 className="ministry-board-heading font-serif font-normal text-brand-brown">사역과 섬김의 모습을 남겨주세요.</h2>
-                  <p className="text-brand-brown/60 text-[0.85rem] font-light mt-0.5">영신 공동체가 뿌린 기쁨과 소망의 열매들을 함께 살펴보며 은혜를 경험하세요.</p>
+                  <p className="text-brand-brown/60 text-sm font-light mt-0.5">영신 공동체가 뿌린 기쁨과 소망의 열매들을 함께 살펴보며 은혜를 경험하세요.</p>
                 </div>
 
                 {/* Collapsible New Ministry Photo Form */}
@@ -2939,28 +2939,28 @@ export default function App() {
                         }}
                         className="bg-white p-6 rounded-2xl border border-brand-gold/15 shadow-sm space-y-4 text-left"
                       >
-                        <h3 className="font-serif text-[1.125rem] font-bold text-brand-brown flex items-center gap-2">
+                        <h3 className="font-serif text-lg font-bold text-brand-brown flex items-center gap-2">
                           <Sparkles className="w-4 h-4 text-brand-gold" /> 새로운 사역 스냅샷 등록
                         </h3>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-[0.85rem] font-semibold text-brand-brown/85 mb-1">활동 제목 <span className="text-brand-sage">*</span></label>
+                            <label className="block text-sm font-semibold text-brand-brown/85 mb-1">활동 제목 <span className="text-brand-sage">*</span></label>
                             <input
                               type="text"
                               required
                               value={ministryFormTitle}
                               onChange={(e) => setMinistryFormTitle(e.target.value)}
                               placeholder="예: 2026 사랑의 경로잔치 대성황"
-                              className="w-full text-[0.85rem] px-3 py-2 border border-brand-gold/20 hover:border-brand-sage focus:border-brand-sage rounded-xl outline-none text-brand-brown bg-brand-cream/5"
+                              className="w-full text-sm px-3 py-2 border border-brand-gold/20 hover:border-brand-sage focus:border-brand-sage rounded-xl outline-none text-brand-brown bg-brand-cream/5"
                             />
                           </div>
                           <div>
-                            <label className="block text-[0.85rem] font-semibold text-brand-brown/85 mb-1">분류</label>
+                            <label className="block text-sm font-semibold text-brand-brown/85 mb-1">분류</label>
                             <select
                               value={ministryFormCategory}
                               onChange={(e) => setMinistryFormCategory(e.target.value)}
-                              className="w-full text-[0.85rem] px-3 py-2 border border-brand-gold/20 hover:border-brand-sage rounded-xl outline-none text-brand-brown bg-brand-cream/5"
+                              className="w-full text-sm px-3 py-2 border border-brand-gold/20 hover:border-brand-sage rounded-xl outline-none text-brand-brown bg-brand-cream/5"
                             >
                               <option value="사랑나눔">사랑나눔 사역</option>
                               <option value="다음세대">다음세대 공동체</option>
@@ -2972,18 +2972,18 @@ export default function App() {
                         </div>
 
                         <div>
-                          <label className="block text-[0.85rem] font-semibold text-brand-brown/85 mb-1">활동 내용 및 성도 감상평</label>
+                          <label className="block text-sm font-semibold text-brand-brown/85 mb-1">활동 내용 및 성도 감상평</label>
                           <textarea
                             value={ministryFormDesc}
                             onChange={(e) => setMinistryFormDesc(e.target.value)}
                             placeholder="이루어진 아름다운 은혜를 짧게 기록해 주세요."
                             rows={3}
-                            className="w-full text-[0.85rem] px-3 py-2 border border-brand-gold/20 hover:border-brand-sage rounded-xl outline-none text-brand-brown bg-brand-cream/5"
+                            className="w-full text-sm px-3 py-2 border border-brand-gold/20 hover:border-brand-sage rounded-xl outline-none text-brand-brown bg-brand-cream/5"
                           />
                         </div>
 
                         <div>
-                          <label className="block text-[0.85rem] font-semibold text-brand-brown/85 mb-1.5">사진 활동 대표 프리셋 (선택)</label>
+                          <label className="block text-sm font-semibold text-brand-brown/85 mb-1.5">사진 활동 대표 프리셋 (선택)</label>
                           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                             {[
                               { name: '사랑나눔',img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=600&auto=format&fit=crop' },
@@ -3001,7 +3001,7 @@ export default function App() {
                                   }`}
                               >
                                 <img src={preset.img} alt="" className="w-full h-12 object-cover rounded-lg mb-1" referrerPolicy="no-referrer" />
-                                <span className="text-[0.70625rem] text-brand-brown font-medium block text-center truncate">{preset.name}</span>
+                                <span className="text-xs text-brand-brown font-medium block text-center truncate">{preset.name}</span>
                               </button>
                             ))}
                           </div>
@@ -3011,13 +3011,13 @@ export default function App() {
                           <button
                             type="button"
                             onClick={() => setIsAddMinistryOpen(false)}
-                            className="px-4 py-2 border border-brand-gold/20 hover:bg-brand-cream text-brand-brown text-[0.85rem] rounded-xl"
+                            className="px-4 py-2 border border-brand-gold/20 hover:bg-brand-cream text-brand-brown text-sm rounded-xl"
                           >
                             취소
                           </button>
                           <button
                             type="submit"
-                            className="px-5 py-2 bg-brand-sage text-white text-[0.85rem] font-semibold rounded-xl hover:bg-brand-brown transition-colors shadow-sm"
+                            className="px-5 py-2 bg-brand-sage text-white text-sm font-semibold rounded-xl hover:bg-brand-brown transition-colors shadow-sm"
                           >
                             등록하기
                           </button>
@@ -3048,7 +3048,7 @@ export default function App() {
                           referrerPolicy="no-referrer"
                         />
                         <div className="absolute top-3 left-3 flex gap-1">
-                          <span className="bg-brand-brown/70 backdrop-blur-md text-white text-[0.6375rem] font-semibold px-2 py-1 rounded-lg">
+                          <span className="bg-brand-brown/70 backdrop-blur-md text-white text-2xs font-semibold px-2 py-1 rounded-lg">
                             {post.category}
                           </span>
                         </div>
@@ -3056,7 +3056,7 @@ export default function App() {
 
                       <div className="p-4 pb-7 flex-grow flex flex-col justify-between">
                         <div>
-                          <div className="flex items-center gap-1 text-[0.70625rem] text-brand-brown/50 mb-1.5 font-mono">
+                          <div className="flex items-center gap-1 text-xs text-brand-brown/50 mb-1.5 font-mono">
                             <Calendar className="w-3 h-3 text-brand-gold" /> {post.date}
                           </div>
 
@@ -3069,7 +3069,7 @@ export default function App() {
                           </p>
                         </div>
 
-                        <div className="pt-3 mt-2 border-t border-brand-gold/10 flex items-center justify-between text-[0.70625rem] text-brand-brown/40 font-mono">
+                        <div className="pt-3 mt-2 border-t border-brand-gold/10 flex items-center justify-between text-xs text-brand-brown/40 font-mono">
                           <span>영신교회 동정</span>
                           <span className="group-hover:text-brand-sage transition-colors flex items-center gap-0.5 font-sans font-medium text-brand-brown/50">
                             귀하게 동참 <Heart className="w-3 h-3 inline text-red-500 fill-red-500" /> +{ministryLikeCount[post.id]||0}
@@ -3089,7 +3089,7 @@ export default function App() {
                         setVisibleMinistryCount(currentVisibleMinistryCount+ministryPageSize);
                         setHasExpandedMinistry(true);
                       }}
-                      className="flex items-center gap-1.5 px-6 py-2.5 bg-white border border-brand-gold/20 hover:border-brand-sage hover:bg-brand-sage/5 text-brand-brown hover:text-brand-sage text-[0.85rem] font-semibold rounded-full shadow-sm transition-all duration-200 cursor-pointer"
+                      className="flex items-center gap-1.5 px-6 py-2.5 bg-white border border-brand-gold/20 hover:border-brand-sage hover:bg-brand-sage/5 text-brand-brown hover:text-brand-sage text-sm font-semibold rounded-full shadow-sm transition-all duration-200 cursor-pointer"
                     >
                       사역과 섬김의 모습 더보기 <ChevronDown className="w-4 h-4 animate-bounce" />
                     </button>
@@ -3113,17 +3113,17 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end">
               <div className="max-w-[var(--content-max)] mx-auto w-full px-6 pb-8 md:pb-12 flex justify-between items-end">
                 <div className="text-left">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-sage text-white text-[0.825rem] font-bold tracking-wider mb-2">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-sage text-white text-sm font-bold tracking-wider mb-2">
                     {activeSubpageItem.title}
                   </span>
-                  <h1 className="text-3xl md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">{activeSubpageItem.sub}</span><span className="subpage-title-desktop">{activeSubpageItem.title==='청소년부(SFC)'? '청소년부':activeSubpageItem.title}</span></h1>
-                  <p className="hidden md:block text-white/85 text-[0.9875rem] md:text-[1.15625rem] font-light max-w-[var(--reading-max)] leading-relaxed border-none break-keep">
+                  <h1 className="text-3xl-compact md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">{activeSubpageItem.sub}</span><span className="subpage-title-desktop">{activeSubpageItem.title==='청소년부(SFC)'? '청소년부':activeSubpageItem.title}</span></h1>
+                  <p className="hidden md:block text-white/85 text-base md:text-lg font-light max-w-[var(--reading-max)] leading-relaxed border-none break-keep">
                     {activeSubpageItem.desc}
                   </p>
                 </div>
                 <button
                   onClick={() => { window.location.hash='#다음세대'; }}
-                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-[0.8625rem] font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
+                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-sm font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4 shrink-0" />
                   <span>뒤로 가기</span>
@@ -3324,21 +3324,21 @@ export default function App() {
                     </span>
                     <h3 className="font-serif text-xl md:text-2xl font-medium text-brand-brown">모임안내</h3>
                   </div>
-                  <div className="space-y-4 text-[0.9375rem] md:text-[1.0625rem] font-normal">
+                  <div className="space-y-4 text-base md:text-lg font-normal">
                     <div className="flex items-center gap-3">
-                      <span className="w-20 shrink-0 text-[0.6875rem] md:text-[0.8125rem] font-normal uppercase tracking-wider text-brand-sage bg-brand-sage/10 px-2.5 py-1 rounded text-center">대상</span>
+                      <span className="w-20 shrink-0 text-xs md:text-sm font-normal uppercase tracking-wider text-brand-sage bg-brand-sage/10 px-2.5 py-1 rounded text-center">대상</span>
                       <span className="text-brand-brown/80 font-normal">{activeSubpageItem.target}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className="w-20 shrink-0 text-[0.6875rem] md:text-[0.8125rem] font-normal uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded text-center">시간</span>
+                      <span className="w-20 shrink-0 text-xs md:text-sm font-normal uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded text-center">시간</span>
                       <span className="text-brand-brown/80 font-normal">{activeSubpageItem.time}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className="w-20 shrink-0 text-[0.6875rem] md:text-[0.8125rem] font-normal uppercase tracking-wider text-brand-brown bg-brand-brown/10 px-2.5 py-1 rounded text-center">장소</span>
+                      <span className="w-20 shrink-0 text-xs md:text-sm font-normal uppercase tracking-wider text-brand-brown bg-brand-brown/10 px-2.5 py-1 rounded text-center">장소</span>
                       <span className="text-brand-brown/80 font-normal">{activeSubpageItem.location}</span>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="w-20 shrink-0 text-[0.6875rem] md:text-[0.8125rem] font-normal uppercase tracking-wider text-brand-sage/80 bg-brand-sage/5 px-2.5 py-1 rounded text-center">담당</span>
+                      <span className="w-20 shrink-0 text-xs md:text-sm font-normal uppercase tracking-wider text-brand-sage/80 bg-brand-sage/5 px-2.5 py-1 rounded text-center">담당</span>
                       <span className="text-brand-brown/85 font-normal leading-relaxed">{activeSubpageDetails.staff}</span>
                     </div>
                   </div>
@@ -3368,7 +3368,7 @@ export default function App() {
                         <h4 className="text-base md:text-lg font-medium text-brand-brown leading-tight">
                           {event.title}
                         </h4>
-                        <p className="text-xs md:text-[0.95rem] text-brand-brown/70 font-normal leading-relaxed">
+                        <p className="text-xs md:text-base text-brand-brown/70 font-normal leading-relaxed">
                           {event.desc}
                         </p>
                       </div>
@@ -3381,7 +3381,7 @@ export default function App() {
               {nextGenSubpageId!==3&&nextGenSubpageId!==4&&(
                 <div className="bg-brand-sage/10 p-6 md:p-8 rounded-[2rem] border border-brand-sage/20 text-left relative overflow-hidden">
                   <div className="absolute -right-12 -bottom-12 w-32 h-32 bg-brand-sage/10 rounded-full blur-2xl"></div>
-                  <h3 className="font-serif text-[1.0625rem] md:text-xl font-medium text-brand-brown mb-3">처음 방문하는 어린이를 환영합니다!</h3>
+                  <h3 className="font-serif text-lg md:text-xl font-medium text-brand-brown mb-3">처음 방문하는 어린이를 환영합니다!</h3>
                   <p className="text-xs md:text-sm text-brand-brown/80 font-light leading-relaxed mb-4">
                     영신교회 다음세대는 새로운 아이를 따듯하게 초대하며 환대합니다. 주일날 시간과 장소에 맞춰 방문해 주시거나 본당 로비 안전 데스크 또는 교무 행정실로 알려주시면 자세한 안내 및 소그룹 매칭을 도와드립니다.
                   </p>
@@ -3421,11 +3421,11 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end">
               <div className="max-w-[var(--content-max)] mx-auto w-full px-6 pb-8 md:pb-12 flex justify-between items-end">
                 <div className="text-left">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-gold text-brand-brown text-[0.825rem] font-bold tracking-wider mb-2 uppercase">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-gold text-brand-brown text-sm font-bold tracking-wider mb-2 uppercase">
                     {neighborItems[neighborSubpageId].sub}
                   </span>
-                  <h1 className="text-3xl md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">이웃사랑 - {neighborItems[neighborSubpageId].title}</span><span className="subpage-title-desktop">{neighborItems[neighborSubpageId].title}</span></h1>
-                  <p className="hidden md:block text-white/85 text-[0.9875rem] md:text-[1.15625rem] font-light max-w-[var(--reading-max)] leading-relaxed">
+                  <h1 className="text-3xl-compact md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">이웃사랑 - {neighborItems[neighborSubpageId].title}</span><span className="subpage-title-desktop">{neighborItems[neighborSubpageId].title}</span></h1>
+                  <p className="hidden md:block text-white/85 text-base md:text-lg font-light max-w-[var(--reading-max)] leading-relaxed">
                     {neighborItems[neighborSubpageId].desc}
                   </p>
                 </div>
@@ -3435,7 +3435,7 @@ export default function App() {
                     setActiveCoreValue(mappedCoreValue);
                     window.location.hash='#핵심사역';
                   }}
-                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-[0.8625rem] font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
+                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-sm font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4 shrink-0" />
                   <span>뒤로 가기</span>
@@ -3454,13 +3454,13 @@ export default function App() {
                   setActiveCoreValue(mappedCoreValue);
                   window.location.hash='#핵심사역';
                 }}
-                className="text-brand-sage hover:text-brand-brown text-[1.05rem] font-medium inline-flex items-center gap-1 cursor-pointer overflow-hidden leading-none"
+                className="text-brand-sage hover:text-brand-brown text-lg font-medium inline-flex items-center gap-1 cursor-pointer overflow-hidden leading-none"
               >
                 <ChevronLeft className="w-4 h-4 shrink-0" />
                 <span>메인 화면으로 돌아가기</span>
               </button>
 
-              <div className="text-[0.9875rem] text-brand-brown/50 font-medium">
+              <div className="text-base text-brand-brown/50 font-medium">
                 사역과양육 &gt; 이웃사랑 &gt; <span className="text-brand-sage">{neighborItems[neighborSubpageId].title}</span>
               </div>
             </div>
@@ -3479,7 +3479,7 @@ export default function App() {
                             window.location.hash=`#이웃사랑/${idx}`;
                           }}
                           aria-current={isActive? 'page':undefined}
-                          className={`shrink-0 md:flex-1 text-center whitespace-nowrap py-3 px-4 rounded-2xl text-[0.9rem] sm:text-[1.05rem] font-medium transition-all border cursor-pointer ${isActive
+                          className={`shrink-0 md:flex-1 text-center whitespace-nowrap py-3 px-4 rounded-2xl text-sm sm:text-lg font-medium transition-all border cursor-pointer ${isActive
                               ? 'bg-[#8E9775] text-white border-[#8E9775] shadow-sm font-semibold'
                               :'bg-white border-brand-gold/15 text-brand-brown hover:bg-brand-cream/30 hover:border-brand-sage'
                             }`}
@@ -3497,19 +3497,19 @@ export default function App() {
                     <span className="inline-block p-2 rounded-full bg-brand-gold/10 text-brand-gold mb-4">
                       <Clock className="w-5 h-5" />
                     </span>
-                    <h3 className="font-serif text-[1.5rem] font-bold text-brand-brown mb-4">모임 안내</h3>
-                    <div className="space-y-4 text-[1.05rem]">
+                    <h3 className="font-serif text-2xl font-bold text-brand-brown mb-4">모임 안내</h3>
+                    <div className="space-y-4 text-lg">
                       <div className="flex items-start gap-2.5">
-                        <span className="w-16 shrink-0 text-[0.9rem] font-semibold tracking-wider text-brand-sage bg-brand-sage/10 px-2.5 py-1 rounded text-center">대상</span>
-                        <span className="text-brand-brown/80 text-[0.9rem] sm:text-[1.05rem]">{neighborItems[neighborSubpageId].target}</span>
+                        <span className="w-16 shrink-0 text-sm font-semibold tracking-wider text-brand-sage bg-brand-sage/10 px-2.5 py-1 rounded text-center">대상</span>
+                        <span className="text-brand-brown/80 text-sm sm:text-lg">{neighborItems[neighborSubpageId].target}</span>
                       </div>
                       <div className="flex items-start gap-2.5">
-                        <span className="w-16 shrink-0 text-[0.9rem] font-semibold tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded text-center">시간</span>
-                        <span className="text-brand-brown/80 text-[0.9rem] sm:text-[1.05rem]">{neighborItems[neighborSubpageId].time}</span>
+                        <span className="w-16 shrink-0 text-sm font-semibold tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded text-center">시간</span>
+                        <span className="text-brand-brown/80 text-sm sm:text-lg">{neighborItems[neighborSubpageId].time}</span>
                       </div>
                       <div className="flex items-start gap-2.5">
-                        <span className="w-16 shrink-0 text-[0.9rem] font-semibold tracking-wider text-brand-brown bg-brand-brown/10 px-2.5 py-1 rounded text-center font-bold">장소</span>
-                        <span className="text-brand-brown/80 text-[0.9rem] sm:text-[1.05rem]">{neighborItems[neighborSubpageId].location}</span>
+                        <span className="w-16 shrink-0 text-sm font-semibold tracking-wider text-brand-brown bg-brand-brown/10 px-2.5 py-1 rounded text-center font-bold">장소</span>
+                        <span className="text-brand-brown/80 text-sm sm:text-lg">{neighborItems[neighborSubpageId].location}</span>
                       </div>
                     </div>
                   </div>
@@ -3520,38 +3520,38 @@ export default function App() {
               <div className="w-full min-w-0 space-y-6">
                 {/* Content Details Block */}
                 <div className="neighbor-content-card p-6 md:p-8 rounded-[2rem] border border-brand-gold/15 shadow-sm text-left bg-[#F1F3EC]">
-                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-brand-sage/10 text-brand-sage rounded-full text-[0.9rem] font-semibold mb-4">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-brand-sage/10 text-brand-sage rounded-full text-sm font-semibold mb-4">
                     사역소개
                   </span>
 
-                  <blockquote className="border-l-4 border-brand-sage pl-4 py-1 my-4 not-italic text-brand-brown/85 font-serif text-[1.2rem] leading-relaxed">
+                  <blockquote className="border-l-4 border-brand-sage pl-4 py-1 my-4 not-italic text-brand-brown/85 font-serif text-xl leading-relaxed">
                     "{neighborItems[neighborSubpageId].desc}"
                   </blockquote>
 
                   {/* Worship/Group Info placement below Ministry Introduction */}
                   {(neighborSubpageId===1||neighborSubpageId===2||neighborSubpageId===3)&&(
                     <div className="mt-4 mb-8 p-5 rounded-2xl border border-brand-gold/15 text-left bg-[#F1F3EC]">
-                      <h4 className="font-serif text-[1.125rem] font-bold text-brand-brown mb-3 flex items-center gap-1.5">
+                      <h4 className="font-serif text-lg font-bold text-brand-brown mb-3 flex items-center gap-1.5">
                         <Clock className="w-4.5 h-4.5 text-brand-sage" />
                         <span>모임 안내</span>
                       </h4>
-                      <div className="flex flex-col gap-3 text-[0.9rem] md:text-[1.05rem]">
+                      <div className="flex flex-col gap-3 text-sm md:text-lg">
                         <div className="flex items-start gap-2">
-                          <span className="shrink-0 px-2 py-0.5 rounded bg-brand-sage/10 text-brand-sage font-semibold text-[0.825rem] tracking-wide">대상</span>
-                          <span className="text-brand-brown/80 leading-snug text-[0.9rem] md:text-[1.05rem]">{neighborItems[neighborSubpageId].target}</span>
+                          <span className="shrink-0 px-2 py-0.5 rounded bg-brand-sage/10 text-brand-sage font-semibold text-sm tracking-wide">대상</span>
+                          <span className="text-brand-brown/80 leading-snug text-sm md:text-lg">{neighborItems[neighborSubpageId].target}</span>
                         </div>
                         <div className="flex items-start gap-2">
-                          <span className="shrink-0 px-2 py-0.5 rounded bg-brand-gold/15 text-brand-gold/90 font-semibold text-[0.825rem] tracking-wide">시간</span>
-                          <span className="text-brand-brown/80 leading-snug text-[0.9rem] md:text-[1.05rem]">{neighborItems[neighborSubpageId].time}</span>
+                          <span className="shrink-0 px-2 py-0.5 rounded bg-brand-gold/15 text-brand-gold/90 font-semibold text-sm tracking-wide">시간</span>
+                          <span className="text-brand-brown/80 leading-snug text-sm md:text-lg">{neighborItems[neighborSubpageId].time}</span>
                         </div>
                         <div className="flex items-start gap-2">
-                          <span className="shrink-0 px-2 py-0.5 rounded bg-brand-brown/10 text-brand-brown font-bold text-[0.825rem] tracking-wide">장소</span>
-                          <span className="text-brand-brown/80 leading-snug text-[0.9rem] md:text-[1.05rem]">{neighborItems[neighborSubpageId].location}</span>
+                          <span className="shrink-0 px-2 py-0.5 rounded bg-brand-brown/10 text-brand-brown font-bold text-sm tracking-wide">장소</span>
+                          <span className="text-brand-brown/80 leading-snug text-sm md:text-lg">{neighborItems[neighborSubpageId].location}</span>
                         </div>
                         {neighborSubpageId===1&&(
                           <div className="flex items-start gap-2">
-                            <span className="shrink-0 px-2 py-0.5 rounded bg-brand-sage/10 text-brand-sage font-semibold text-[0.825rem] tracking-wide">문의</span>
-                            <span className="text-brand-brown/80 leading-snug font-medium text-[0.9rem] md:text-[1.05rem]">사무실 : 02-2602-8002</span>
+                            <span className="shrink-0 px-2 py-0.5 rounded bg-brand-sage/10 text-brand-sage font-semibold text-sm tracking-wide">문의</span>
+                            <span className="text-brand-brown/80 leading-snug font-medium text-sm md:text-lg">사무실 : 02-2602-8002</span>
                           </div>
                         )}
                       </div>
@@ -3570,12 +3570,12 @@ export default function App() {
                           key={dIdx}
                           className="p-4 rounded-2xl bg-brand-cream/20 border border-brand-gold/5 flex gap-3 hover:bg-brand-cream/35 transition-colors"
                         >
-                          <div className="w-6 h-6 shrink-0 rounded-full bg-brand-sage text-white flex items-center justify-center font-bold text-[0.9rem] mt-0.5">
+                          <div className="w-6 h-6 shrink-0 rounded-full bg-brand-sage text-white flex items-center justify-center font-bold text-sm mt-0.5">
                             {dIdx+1}
                           </div>
                           <div>
-                            <h4 className="text-[1.05rem] font-medium text-brand-brown mb-1">{title}</h4>
-                            <p className="text-[0.9rem] md:text-[1.05rem] text-brand-brown/70 leading-relaxed font-light whitespace-pre-line">{desc}</p>
+                            <h4 className="text-lg font-medium text-brand-brown mb-1">{title}</h4>
+                            <p className="text-sm md:text-lg text-brand-brown/70 leading-relaxed font-light whitespace-pre-line">{desc}</p>
                           </div>
                         </div>
                       );
@@ -3587,11 +3587,11 @@ export default function App() {
                 {neighborSubpageId!==2&&neighborSubpageId!==3&&(
                   <div className="p-6 md:p-8 rounded-[2rem] border border-brand-gold/15 shadow-sm text-left relative overflow-hidden bg-[#F1F3EC]">
                     <div className="absolute right-0 top-0 w-32 h-32 bg-brand-sage/5 rounded-full blur-2xl pointer-events-none"></div>
-                    <h3 className="font-serif text-[1.5rem] font-bold text-brand-brown mb-2 flex items-center gap-2">
+                    <h3 className="font-serif text-2xl font-bold text-brand-brown mb-2 flex items-center gap-2">
                       <Send className="w-5 h-5 text-brand-sage" />
                       <span>{neighborSubpageId===1? '아카데미 참여 신청':'참여 및 후원 신청'}</span>
                     </h3>
-                    <p className="text-[0.9rem] md:text-[1.05rem] text-brand-brown/65 font-light leading-relaxed mb-6">
+                    <p className="text-sm md:text-lg text-brand-brown/65 font-light leading-relaxed mb-6">
                       {neighborSubpageId===1
                         ? `${neighborItems[neighborSubpageId].title}에 참가(등록)하여 수강생으로 함께 배우실 분은 아래 정보를 남겨주시면 담당 파트에서 정성을 다해 연락을 드리겠습니다.`
                         :`${neighborItems[neighborSubpageId].title}에 참가(등록)하시거나 봉사 및 물품 후원으로 뜻깊게 동참하고 싶으신 분은 아래 정보를 남겨주시면 담당 파트에서 정성을 다해 연락을 드리겠습니다.`
@@ -3600,7 +3600,7 @@ export default function App() {
 
                     {neighborSubpageId===1&&(
                       <div className="mb-6 p-4 rounded-2xl border border-brand-gold/25 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm text-left bg-[#F1F3EC]">
-                        <div className="text-[0.9rem] md:text-[1.05rem] text-brand-brown">
+                        <div className="text-sm md:text-lg text-brand-brown">
                           <span className="font-bold">세부 안내 및 신청 링크 : </span>
                           <a
                             href="https://forms.gle/13j7yMGbBd6Kc6g88"
@@ -3615,7 +3615,7 @@ export default function App() {
                           href="https://forms.gle/13j7yMGbBd6Kc6g88"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="shrink-0 px-4 py-2 bg-brand-sage text-white font-medium text-[0.9rem] rounded-full hover:bg-brand-brown transition-all text-center flex items-center justify-center gap-1 cursor-pointer"
+                          className="shrink-0 px-4 py-2 bg-brand-sage text-white font-medium text-sm rounded-full hover:bg-brand-brown transition-all text-center flex items-center justify-center gap-1 cursor-pointer"
                         >
                           <span>신청 링크 열기</span>
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -3646,17 +3646,17 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end">
               <div className="max-w-[var(--content-max)] mx-auto w-full px-6 pb-8 md:pb-12 flex justify-between items-end">
                 <div className="text-left">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-gold text-brand-brown text-[0.825rem] font-bold tracking-wider mb-2 font-sans">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-gold text-brand-brown text-sm font-bold tracking-wider mb-2 font-sans">
                     SERMONS
                   </span>
-                  <h1 className="text-3xl md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">설교</span><span className="subpage-title-desktop">{sermonTab==='수요_특별'? '수요/특별 설교':'주일/금요 설교'}</span></h1>
-                  <p className="hidden md:block text-white/85 text-[0.9875rem] md:text-[1.15625rem] font-light max-w-[var(--reading-max)] leading-relaxed w-full">
+                  <h1 className="text-3xl-compact md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">설교</span><span className="subpage-title-desktop">{sermonTab==='수요_특별'? '수요/특별 설교':'주일/금요 설교'}</span></h1>
+                  <p className="hidden md:block text-white/85 text-base md:text-lg font-light max-w-[var(--reading-max)] leading-relaxed w-full">
                     선포되는 보배로운 하나님의 말씀을 통해 세상을 이길 지혜와 하늘의 신령한 평정을 누리시길 기도합니다.
                   </p>
                 </div>
                 <button
                   onClick={() => { window.location.hash=''; }}
-                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-[0.8625rem] font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
+                  className="md:hidden flex items-center gap-1 text-white/90 hover:text-white text-sm font-medium shrink-0 mb-1 pb-1 border-b border-white/20 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4 shrink-0" />
                   <span>뒤로 가기</span>
@@ -3676,7 +3676,7 @@ export default function App() {
                 <span>메인 화면으로 돌아가기</span>
               </button>
 
-              <div className="text-[0.825rem] text-brand-brown/50 font-medium font-sans">
+              <div className="text-sm text-brand-brown/50 font-medium font-sans">
                 설교 &gt; <span className="text-brand-sage">{sermonTab==='주일_금요'? '주일/금요 설교':'수요/특별 설교'}</span>
               </div>
             </div>
@@ -3828,15 +3828,15 @@ export default function App() {
                 >
                   <h1
                     className={`font-serif text-white leading-[1.12] drop-shadow-lg ${currentHeroSlide===0
-                        ? 'text-[1.45rem] md:text-[1.9375rem] lg:text-[2.875rem] mb-5'
-                        :'text-[1.8rem] md:text-[2.25rem] lg:text-[3.375rem] mb-4 md:mb-8'
+                        ? 'text-2xl md:text-4xl-compact lg:text-5xl mb-5'
+                        :'text-3xl-compact md:text-4xl lg:text-5xl mb-4 md:mb-8'
                       }`}
                   >
                     {heroSlides[currentHeroSlide].title}
                   </h1>
 
                   {currentHeroSlide===0? (
-                    <p className="block text-white/90 text-[1.125rem] md:text-base font-light leading-relaxed mb-12 md:mb-10">
+                    <p className="block text-white/90 text-lg md:text-base font-light leading-relaxed mb-12 md:mb-10">
                       요한복음 14장 6절
                     </p>
                   ):(
@@ -3969,10 +3969,10 @@ export default function App() {
                     </div>
 
                     <div className="flex flex-col justify-center items-center w-full">
-                      <h3 className="font-serif text-[1.02062rem] sm:text-[1.215rem] md:text-[1.215rem] lg:text-[1.62rem] font-bold text-brand-brown mb-0.5 sm:mb-2 md:mb-0 lg:mb-2 tracking-tight">
+                      <h3 className="font-serif text-base sm:text-xl md:text-xl lg:text-2xl font-bold text-brand-brown mb-0.5 sm:mb-2 md:mb-0 lg:mb-2 tracking-tight">
                         {item.title}
                       </h3>
-                      <p className="hidden sm:block md:hidden lg:block text-brand-brown/50 text-[0.675rem] sm:text-[0.81rem] lg:text-[0.945rem] leading-tight whitespace-pre-line px-2">
+                      <p className="hidden sm:block md:hidden lg:block text-brand-brown/50 text-2xs sm:text-xs lg:text-base leading-tight whitespace-pre-line px-2">
                         {item.desc}
                       </p>
                     </div>
@@ -3993,15 +3993,15 @@ export default function App() {
             <div className="max-w-[var(--content-max)] mx-auto px-6">
               <div className="sermon-heading mb-[clamp(1.5rem,3vw,2.5rem)]">
                 <motion.div {...fadeIn} className="text-left">
-                  <div className="flex items-center gap-2 text-brand-sage text-[0.625rem] sm:text-sm font-medium mb-4">
+                  <div className="flex items-center gap-2 text-brand-sage text-2xs sm:text-sm font-medium mb-4">
                     <MonitorPlay className="w-5 h-5" />
                     <span className="main-section-subtitle">말씀의 은혜</span>
                   </div>
                   <div className="flex items-center justify-between gap-4 mb-4">
-                    <h2 className="text-3xl md:text-3xl lg:text-5xl font-serif text-brand-brown text-left w-full">영신교회 설교</h2>
+                    <h2 className="text-3xl-compact md:text-3xl-compact lg:text-5xl font-serif text-brand-brown text-left w-full">영신교회 설교</h2>
                     <a
                       href="#설교말씀/주일금요"
-                      className="flex-shrink-0 inline-flex items-center gap-1.5 px-5 py-2.5 bg-brand-cream border border-brand-gold/20 text-brand-brown rounded-full hover:bg-brand-brown hover:text-brand-cream transition-all group font-medium shadow-sm text-sm md:text-[0.9375rem] mt-1 cursor-pointer"
+                      className="flex-shrink-0 inline-flex items-center gap-1.5 px-5 py-2.5 bg-brand-cream border border-brand-gold/20 text-brand-brown rounded-full hover:bg-brand-brown hover:text-brand-cream transition-all group font-medium shadow-sm text-sm md:text-base mt-1 cursor-pointer"
                     >
                       말씀 더보기 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
@@ -4034,11 +4034,11 @@ export default function App() {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute bottom-6 left-6 px-4 py-2 bg-brand-brown/80 backdrop-blur-sm text-brand-cream text-[0.625rem] uppercase tracking-widest rounded-full">
+                    <div className="absolute bottom-6 left-6 px-4 py-2 bg-brand-brown/80 backdrop-blur-sm text-brand-cream text-2xs uppercase tracking-widest rounded-full">
                       이번주 주일 설교
                     </div>
                   </div>
-                  <h3 className="main-sermon-title text-2xl md:text-base lg:text-3xl font-serif text-brand-brown mb-1.5 md:mb-3 group-hover:text-brand-sage transition-colors leading-tight">
+                  <h3 className="main-sermon-title text-2xl md:text-base lg:text-3xl-compact font-serif text-brand-brown mb-1.5 md:mb-3 group-hover:text-brand-sage transition-colors leading-tight">
                     복음, 그 가슴 뛰는 부르심
                   </h3>
                   <div className="flex items-center gap-4 text-brand-brown/60 text-sm">
@@ -4072,11 +4072,11 @@ export default function App() {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute bottom-6 left-6 px-4 py-2 bg-brand-brown/80 backdrop-blur-sm text-brand-cream text-[0.625rem] uppercase tracking-widest rounded-full">
+                    <div className="absolute bottom-6 left-6 px-4 py-2 bg-brand-brown/80 backdrop-blur-sm text-brand-cream text-2xs uppercase tracking-widest rounded-full">
                       금요 기도회
                     </div>
                   </div>
-                  <h3 className="text-2xl md:text-base lg:text-3xl font-serif text-brand-brown mb-1.5 md:mb-3 group-hover:text-brand-sage transition-colors leading-tight">
+                  <h3 className="text-2xl md:text-base lg:text-3xl-compact font-serif text-brand-brown mb-1.5 md:mb-3 group-hover:text-brand-sage transition-colors leading-tight">
                     끝까지 견디는 믿음의 소망
                   </h3>
                   <div className="flex items-center gap-4 text-brand-brown/60 text-sm">
@@ -4093,11 +4093,11 @@ export default function App() {
           <section id="핵심사역" className="block pt-[var(--section-space)] pb-[clamp(2rem,3vw,2.5rem)] bg-white overflow-hidden">
             <div className="max-w-[var(--content-max)] mx-auto px-4 md:px-6">
               <motion.div {...fadeIn} className="ministry-heading text-center mb-[var(--section-heading-gap)]">
-                <div className="flex items-center justify-center gap-2 text-brand-sage text-[0.625rem] sm:text-sm font-medium mb-4">
+                <div className="flex items-center justify-center gap-2 text-brand-sage text-2xs sm:text-sm font-medium mb-4">
                   <Leaf className="w-5 h-5" />
                   <span className="main-section-subtitle">이웃 사랑의 실천</span>
                 </div>
-                <h2 className="text-[1.75rem] md:text-[2.25rem] lg:text-[3rem] font-serif mb-4 text-brand-brown leading-tight mx-auto text-center w-full">
+                <h2 className="text-3xl-compact md:text-4xl lg:text-5xl font-serif mb-4 text-brand-brown leading-tight mx-auto text-center w-full">
                   영신교회 지역선교사역
                 </h2>
               </motion.div>
@@ -4139,7 +4139,7 @@ export default function App() {
                         transition={{ duration: 0.45,ease: "easeOut" }}
                         className="text-white text-left"
                       >
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[0.625rem] md:text-sm font-semibold tracking-wider mb-2 border border-white/10 shadow-sm" id="overlay-badge">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-2xs md:text-sm font-semibold tracking-wider mb-2 border border-white/10 shadow-sm" id="overlay-badge">
                           <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse"></span>
                           CORE SERVICE
                         </span>
@@ -4178,8 +4178,8 @@ export default function App() {
                             {item.icon}
                           </div>
                           <div className="core-value-copy flex-1 min-w-0">
-                            <h4 className={`font-serif text-[1.125rem] md:text-[1.375rem] mb-1 ${isActive? "text-white":"text-brand-brown"}`}>{item.title}</h4>
-                            <p className={`text-[0.75rem] md:text-[0.9375rem] leading-relaxed ${isActive? "text-white/80":"text-brand-brown/70"}`}>{item.desc}</p>
+                            <h4 className={`font-serif text-lg md:text-2xl mb-1 ${isActive? "text-white":"text-brand-brown"}`}>{item.title}</h4>
+                            <p className={`text-xs md:text-base leading-relaxed ${isActive? "text-white/80":"text-brand-brown/70"}`}>{item.desc}</p>
                           </div>
                         </button>
                       );
@@ -4203,11 +4203,11 @@ export default function App() {
 
             <div className="max-w-[var(--content-max)] mx-auto px-4 md:px-6 relative z-10 text-center">
               <motion.div {...fadeIn}>
-                <div className="faith-subtitle inline-flex items-center gap-1 sm:gap-2 px-2.5 py-1 sm:px-4 sm:py-2 bg-brand-gold/10 text-brand-sage rounded-full text-[0.625rem] sm:text-sm font-medium mb-3 sm:mb-6">
+                <div className="faith-subtitle inline-flex items-center gap-1 sm:gap-2 px-2.5 py-1 sm:px-4 sm:py-2 bg-brand-gold/10 text-brand-sage rounded-full text-2xs sm:text-sm font-medium mb-3 sm:mb-6">
                   <Wind className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>당신의 쉼을 위한 공간</span>
                 </div>
-                <h2 className="text-[1.75rem] md:text-[2.25rem] lg:text-[3rem] font-serif text-brand-brown mb-6 leading-tight mx-auto text-center w-full">
+                <h2 className="text-3xl-compact md:text-4xl lg:text-5xl font-serif text-brand-brown mb-6 leading-tight mx-auto text-center w-full">
                   신앙의 고민과 질문
                 </h2>
                 <p className="faith-description text-base text-brand-brown/70 mb-[var(--section-heading-gap)] leading-relaxed max-w-2xl mx-auto">
@@ -4221,14 +4221,14 @@ export default function App() {
                     <div className="w-12 h-12 mb-4 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-white transition-colors">
                       <Church className="w-6 h-6" />
                     </div>
-                    <h3 className="font-serif text-[0.875rem] md:text-xl mb-3 group-hover:text-brand-sage transition-colors">기도의 집</h3>
-                    <p className="text-[0.74375rem] md:text-[1.0625rem] text-brand-brown/70 mb-4 font-light">익명으로 기도를 부탁하시거나, 마음의 짐을 털어놓으세요. 저희가 함께 마음을 모으겠습니다.</p>
+                    <h3 className="font-serif text-sm md:text-xl mb-3 group-hover:text-brand-sage transition-colors">기도의 집</h3>
+                    <p className="text-xs md:text-lg text-brand-brown/70 mb-4 font-light">익명으로 기도를 부탁하시거나, 마음의 짐을 털어놓으세요. 저희가 함께 마음을 모으겠습니다.</p>
                     <button
                       onClick={() => {
                         setIsPrayerModalOpen(true);
                         setIsSubmitted(false);
                       }}
-                      className="text-brand-sage flex items-center gap-2 font-medium text-[0.6125rem] md:text-sm hover:underline cursor-pointer"
+                      className="text-brand-sage flex items-center gap-2 font-medium text-2xs md:text-sm hover:underline cursor-pointer"
                     >
                       기명/무기명 기도요청 <ChevronRight className="w-4 h-4" />
                     </button>
@@ -4237,11 +4237,11 @@ export default function App() {
                     <div className="w-12 h-12 mb-4 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center group-hover:bg-brand-sage group-hover:text-white transition-colors">
                       <Cross className="w-6 h-6" />
                     </div>
-                    <h3 className="font-serif text-[0.875rem] md:text-xl mb-3 group-hover:text-brand-sage transition-colors">예수님은 누구이신가</h3>
-                    <p className="text-[0.74375rem] md:text-[1.0625rem] text-brand-brown/70 mb-4 font-light">예수님이 누구신지, 그분이 우리에게 어떤 의미인지 쉽고 따뜻하게 알아볼 수 있습니다.</p>
+                    <h3 className="font-serif text-sm md:text-xl mb-3 group-hover:text-brand-sage transition-colors">예수님은 누구이신가</h3>
+                    <p className="text-xs md:text-lg text-brand-brown/70 mb-4 font-light">예수님이 누구신지, 그분이 우리에게 어떤 의미인지 쉽고 따뜻하게 알아볼 수 있습니다.</p>
                     <button
                       onClick={() => { window.location.hash='#우리가믿는예수님'; }}
-                      className="text-brand-sage flex items-center gap-2 font-medium text-[0.6125rem] md:text-sm cursor-pointer"
+                      className="text-brand-sage flex items-center gap-2 font-medium text-2xs md:text-sm cursor-pointer"
                     >
                       더 알아보기 <ChevronRight className="w-4 h-4" />
                     </button>
@@ -4259,11 +4259,11 @@ export default function App() {
             <div className="nextgen-layout max-w-[var(--content-max)] mx-auto px-6 relative z-10">
               <div className="nextgen-heading flex flex-col md:flex-row md:items-end justify-between mb-2 md:mb-4 lg:mb-4">
                 <motion.div {...fadeIn} className="text-left">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-sage/10 text-brand-sage rounded-full text-[0.625rem] sm:text-sm font-medium tracking-wide mb-3" id="nextgen-section-badge">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-sage/10 text-brand-sage rounded-full text-2xs sm:text-sm font-medium tracking-wide mb-3" id="nextgen-section-badge">
                     <Heart className="w-3.5 h-3.5" />
                     <span>꿈과 믿음이 자라가요</span>
                   </span>
-                  <h2 className="text-[1.75rem] md:text-[2.25rem] lg:text-[3rem] font-serif text-brand-brown leading-tight animate-fade-in text-left w-full">
+                  <h2 className="text-3xl-compact md:text-4xl lg:text-5xl font-serif text-brand-brown leading-tight animate-fade-in text-left w-full">
                     영신교회 다음세대
                   </h2>
                 </motion.div>
@@ -4344,21 +4344,21 @@ export default function App() {
                           {/* Content Panel */}
                           <div className="p-6 flex-1 flex flex-col justify-between">
                             <div>
-                              <h3 className="font-serif text-[1.2375rem] md:text-lg text-brand-brown mb-1 md:mb-2 group-hover:text-brand-sage transition-colors">
+                              <h3 className="font-serif text-xl md:text-lg text-brand-brown mb-1 md:mb-2 group-hover:text-brand-sage transition-colors">
                                 {item.title}
                               </h3>
-                              <p className="text-[0.9rem] text-brand-brown/75 leading-relaxed font-light mb-4 line-clamp-2 lg:line-clamp-3">
+                              <p className="text-sm text-brand-brown/75 leading-relaxed font-light mb-4 line-clamp-2 lg:line-clamp-3">
                                 {item.desc}
                               </p>
                             </div>
 
                             {/* Quick Spec Badge */}
                             <div className="nextgen-card-spec pt-2 md:pt-4 border-t border-brand-gold/10 space-y-1.5 text-left">
-                              <div className="flex items-center gap-2 text-[0.975rem] md:text-[1rem] text-brand-brown/65">
+                              <div className="flex items-center gap-2 text-base md:text-base text-brand-brown/65">
                                 <span className="font-semibold text-brand-sage shrink-0 bg-brand-sage/10 px-1.5 py-0.5 rounded">대상</span>
                                 <span className="truncate">{item.target}</span>
                               </div>
-                              <div className="flex items-center gap-2 text-[0.975rem] md:text-[1rem] text-brand-brown/65">
+                              <div className="flex items-center gap-2 text-base md:text-base text-brand-brown/65">
                                 <span className="font-semibold text-brand-gold/90 shrink-0 bg-brand-gold/10 px-1.5 py-0.5 rounded">시간</span>
                                 <span className="truncate">{item.time}</span>
                               </div>
@@ -4380,9 +4380,9 @@ export default function App() {
 
             <div className="max-w-[var(--content-max)] mx-auto px-6 pt-[clamp(1.125rem,4vw,3.625rem)]">
               <motion.div {...fadeIn} className="worship-heading text-center mb-[var(--section-heading-gap)]">
-                <div className="flex items-center justify-center gap-2 text-brand-sage text-[0.625rem] sm:text-sm font-medium mb-4">
+                <div className="flex items-center justify-center gap-2 text-brand-sage text-2xs sm:text-sm font-medium mb-4">
                   <Calendar className="w-5 h-5" />
-                  <span className="tracking-widest uppercase text-[0.625rem] sm:text-sm font-medium">Worship Schedule</span>
+                  <span className="tracking-widest uppercase text-2xs sm:text-sm font-medium">Worship Schedule</span>
                 </div>
                 <h2 className="text-4xl md:text-4xl lg:text-5xl font-serif mb-2 md:mb-4 mx-auto text-center w-full">예배 시간 및 장소</h2>
               </motion.div>
@@ -4392,7 +4392,7 @@ export default function App() {
                 <div id="오시는길" className="md:col-span-3 lg:col-span-3 order-2 md:order-1 lg:order-1 bg-white p-6 md:p-6 lg:p-10 rounded-[2rem] md:rounded-[2.5rem] lg:rounded-[3rem] text-brand-brown shadow-2xl flex flex-col justify-between md:h-[26.875rem] lg:h-[26.875rem]">
                   <div>
                     <div className="space-y-3 md:space-y-1.5 mb-6 md:mb-3 lg:mb-6 text-left">
-                      <div className="flex items-start gap-2.5 text-brand-brown/85 text-[0.9625rem] md:text-xs lg:text-base font-normal leading-relaxed">
+                      <div className="flex items-start gap-2.5 text-brand-brown/85 text-base md:text-xs lg:text-base font-normal leading-relaxed">
                         <MapPin className="w-4 h-4 md:w-4 md:h-4 lg:w-5 lg:h-5 text-brand-sage shrink-0 mt-1" id="directions-map-icon" />
                         <span className="flex items-center flex-wrap gap-2">
                           <span>주소 : 서울특별시 양천구 목동로 19길 28</span>
@@ -4405,18 +4405,18 @@ export default function App() {
                             {copied? (
                               <>
                                 <Check className="w-3 h-3 text-brand-sage" />
-                                <span className="text-[0.6875rem]">복사완료</span>
+                                <span className="text-xs">복사완료</span>
                               </>
                             ):(
                               <>
                                 <Copy className="w-3 h-3" />
-                                <span className="text-[0.6875rem]">복사</span>
+                                <span className="text-xs">복사</span>
                               </>
                             )}
                           </button>
                         </span>
                       </div>
-                      <div className="flex items-start gap-2.5 text-brand-brown/85 text-[0.9625rem] md:text-xs lg:text-base font-normal leading-relaxed">
+                      <div className="flex items-start gap-2.5 text-brand-brown/85 text-base md:text-xs lg:text-base font-normal leading-relaxed">
                         <Phone className="w-4 h-4 md:w-4 md:h-4 lg:w-5 lg:h-5 text-brand-sage shrink-0 mt-1" id="directions-phone-icon" />
                         <span>연락처 : 02-123-4567</span>
                       </div>
@@ -4456,7 +4456,7 @@ export default function App() {
                       {/* PC Version Layout (Hidden on Mobile) */}
                       <div className="hidden md:flex flex-row items-center justify-between text-left gap-4 w-full">
                         {/* Left: Worship Type */}
-                        <div className="worship-schedule-title text-brand-gold/60 text-[1.125rem] md:text-[1.125rem] xl:text-[1.1875rem] min-[1400px]:text-[1.25rem] lg:text-[1.25rem] uppercase tracking-widest font-semibold leading-none whitespace-nowrap">
+                        <div className="worship-schedule-title text-brand-gold/60 text-lg md:text-lg xl:text-xl min-[1400px]:text-xl lg:text-xl uppercase tracking-widest font-semibold leading-none whitespace-nowrap">
                           <span className="hidden lg:inline">{item.type}</span>
                           <span className="lg:hidden">
                             {item.type==="주일 1부 예배"? "1부예배":
@@ -4468,7 +4468,7 @@ export default function App() {
                         {/* Right: Place & Time side by side */}
                         <div className="flex flex-row items-center gap-4 whitespace-nowrap">
                           {/* Place */}
-                          <div className="flex text-white/40 items-center gap-1 text-[0.825rem] leading-none">
+                          <div className="flex text-white/40 items-center gap-1 text-sm leading-none">
                             <MapPin className="w-3.5 h-3.5 text-brand-gold/40 shrink-0" />
                             <span>
                               <span className="hidden lg:inline">{item.place}</span>
@@ -4478,7 +4478,7 @@ export default function App() {
                             </span>
                           </div>
                           {/* Time */}
-                          <div className="text-xl md:text-lg xl:text-lg min-[1400px]:text-[1.375rem] lg:text-2xl font-mono tracking-tight text-brand-gold font-light leading-none">
+                          <div className="text-xl md:text-lg xl:text-lg min-[1400px]:text-2xl lg:text-2xl font-mono tracking-tight text-brand-gold font-light leading-none">
                             {item.time}
                           </div>
                         </div>
@@ -4487,7 +4487,7 @@ export default function App() {
                       {/* Mobile Version Layout (Hidden on PC) */}
                       <div className="flex md:hidden items-center justify-between w-full h-full gap-2">
                         <div className="text-left">
-                          <div className="text-brand-gold/60 text-[1rem] sm:text-[1.0625rem] uppercase tracking-widest font-semibold leading-none">
+                          <div className="text-brand-gold/60 text-base sm:text-lg uppercase tracking-widest font-semibold leading-none">
                             {item.type==="주일 1부 예배"? "1부예배":
                               item.type==="주일 2부 예배"? "2부예배":
                                 item.type==="주일 청년부 예배"? "청년부":
@@ -4496,7 +4496,7 @@ export default function App() {
                           </div>
                         </div>
                         <div className="text-right flex items-center shrink-0">
-                          <div className="text-[1.05875rem] sm:text-[1.21rem] font-mono tracking-tight text-brand-gold font-light leading-none">
+                          <div className="text-base sm:text-xl font-mono tracking-tight text-brand-gold font-light leading-none">
                             {item.time}
                           </div>
                         </div>
@@ -4522,11 +4522,11 @@ export default function App() {
               <div className="hidden md:block">
                 <IconLogo size={30} />
               </div>
-              <span className="font-serif text-[1.5125rem] md:text-[1.625rem] font-semibold tracking-tight text-brand-brown leading-none mt-[0.1875rem]">영신교회</span>
+              <span className="font-serif text-2xl md:text-3xl-compact font-semibold tracking-tight text-brand-brown leading-none mt-[0.1875rem]">영신교회</span>
             </div>
-            <p className="text-[0.825rem] md:text-sm text-brand-gold font-medium tracking-wider">하나님을 기쁘시게 사람을 행복하게</p>
+            <p className="text-sm md:text-sm text-brand-gold font-medium tracking-wider">하나님을 기쁘시게 사람을 행복하게</p>
           </div>
-          <p className="text-[0.9625rem] md:text-lg text-brand-brown/50 mb-8 max-w-xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-brand-brown/50 mb-8 max-w-xl mx-auto leading-relaxed">
             영신교회는 하나님을 향한 바른 예배와<br className="md:hidden" /> 이웃을 향한 사랑의 실천을<br className="hidden md:inline" /> 추구하는<br className="md:hidden" /> 믿음의 공동체입니다.
           </p>
           <div className="flex justify-center gap-6 mb-12">
@@ -4546,7 +4546,7 @@ export default function App() {
               </a>
             ))}
           </div>
-          <div className="text-[0.6875rem] md:text-[0.625rem] uppercase tracking-tighter text-brand-brown/30">
+          <div className="text-xs md:text-2xs uppercase tracking-tighter text-brand-brown/30">
             © 2026 YOUNGSHIN CHURCH. ALL RIGHTS RESERVED.
           </div>
         </div>
@@ -4617,7 +4617,7 @@ export default function App() {
                   <form onSubmit={handlePrayerSubmit} className="space-y-5">
                     {/* Anonymous Toggle */}
                     <div>
-                      <label className="text-[0.6875rem] font-semibold text-brand-brown/70 block mb-2">작성 방식</label>
+                      <label className="text-xs font-semibold text-brand-brown/70 block mb-2">작성 방식</label>
                       <div className="grid grid-cols-2 gap-2 bg-brand-gold/10 p-1.5 rounded-2xl">
                         <button
                           type="button"
@@ -4649,7 +4649,7 @@ export default function App() {
                         animate={{ opacity: 1,y: 0 }}
                         className="space-y-1.5"
                       >
-                        <label className="text-[0.6875rem] font-semibold text-brand-brown/70 block">이름</label>
+                        <label className="text-xs font-semibold text-brand-brown/70 block">이름</label>
                         <input
                           type="text"
                           required={!isAnonymous}
@@ -4663,9 +4663,9 @@ export default function App() {
 
                     {/* Contact field */}
                     <div className="space-y-1.5">
-                      <label className="text-[0.6875rem] font-semibold text-brand-brown/70 block flex justify-between">
+                      <label className="text-xs font-semibold text-brand-brown/70 block flex justify-between">
                         <span>연락처</span>
-                        <span className="text-brand-brown/40 font-normal text-[0.625rem]">답변이나 기도가 필요한 경우 기재</span>
+                        <span className="text-brand-brown/40 font-normal text-2xs">답변이나 기도가 필요한 경우 기재</span>
                       </label>
                       <input
                         type="tel"
@@ -4678,7 +4678,7 @@ export default function App() {
 
                     {/* Prayer Topic Selector */}
                     <div className="space-y-1.5">
-                      <label className="text-[0.6875rem] font-semibold text-brand-brown/70 block">기도 분야</label>
+                      <label className="text-xs font-semibold text-brand-brown/70 block">기도 분야</label>
                       <select
                         value={prayerTopic}
                         onChange={(e) => setPrayerTopic(e.target.value)}
@@ -4694,7 +4694,7 @@ export default function App() {
 
                     {/* Prayer Content */}
                     <div className="space-y-1.5">
-                      <label className="text-[0.6875rem] font-semibold text-brand-brown/70 block">기도 내용</label>
+                      <label className="text-xs font-semibold text-brand-brown/70 block">기도 내용</label>
                       <textarea
                         required
                         rows={4}
