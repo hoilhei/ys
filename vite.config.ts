@@ -6,7 +6,7 @@ import {defineConfig} from 'vite';
 export default defineConfig({
     // Relative paths allow the same build to work at
     // https://username.github.io/repository-name/ without knowing the repo name.
-    base: './',
+    base: '/ys/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
