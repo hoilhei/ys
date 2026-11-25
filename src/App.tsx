@@ -6,6 +6,7 @@ import HeroLights from './components/HeroLights';
 import IconLogo from './components/IconLogo';
 import NeighborAppForm from './components/NeighborAppForm';
 import FaithJourney from './components/FaithJourney';
+import ActivityGallery from './components/ActivityGallery';
 import { motion,useScroll,useTransform,useSpring,useReducedMotion,AnimatePresence } from 'motion/react';
 import {
   Heart,
@@ -3116,7 +3117,7 @@ export default function App() {
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-brand-sage text-white text-sm font-bold tracking-wider mb-2">
                     {activeSubpageItem.title}
                   </span>
-                  <h1 className="text-3xl-compact md:text-5xl font-serif text-white font-bold leading-tight mb-2"><span className="subpage-title-mobile">{activeSubpageItem.sub}</span><span className="subpage-title-desktop">{activeSubpageItem.title==='청소년부(SFC)'? '청소년부':activeSubpageItem.title}</span></h1>
+                  <h1 className="text-3xl-compact md:text-5xl font-serif text-white font-bold leading-tight mb-2">{activeSubpageItem.title==='청소년부(SFC)'? '청소년부':activeSubpageItem.title}</h1>
                   <p className="hidden md:block text-white/85 text-base md:text-lg font-light max-w-[var(--reading-max)] leading-relaxed border-none break-keep">
                     {activeSubpageItem.desc}
                   </p>
@@ -3348,40 +3349,48 @@ export default function App() {
             </div>
 
             {/* Bottom Section: Yearly Activities & Join Guide */}
-            <div className="mt-8 space-y-6">
-              {/* Yearly Activities */}
-              <div className="bg-transparent border-none shadow-none p-0 w-[95%] mx-auto md:bg-white md:p-8 md:rounded-[2rem] md:border md:border-brand-gold/15 md:shadow-sm text-left md:w-full">
-                <h3 className="font-serif text-xl md:text-2xl font-medium text-brand-brown mb-6 flex items-center gap-2">
-                  <Heart className="w-5 h-5 text-brand-gold" />
-                  <span>연간 주요 사역 및 활동</span>
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  {activeSubpageDetails.calendar.map((event,eIdx) => (
-                    <div
-                      key={eIdx}
-                      className="p-5 rounded-2xl border border-brand-gold/10 hover:border-brand-sage/30 hover:bg-brand-cream/10 transition-all flex gap-4"
-                    >
-                      <div className="w-12 h-12 shrink-0 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center font-serif font-extrabold text-base">
-                        {event.month}
+            <div className="mt-8 flex flex-col gap-6">
+              {/* Activity photos on the left, yearly activities on the right */}
+              <div className="contents md:grid md:grid-cols-2 gap-8 md:bg-white md:p-8 md:rounded-[2rem] md:border md:border-brand-gold/15 md:shadow-sm text-left md:w-full">
+                <div key={nextGenSubpageId} className="order-1 md:order-none min-w-0 w-[95%] mx-auto md:w-full">
+                  <ActivityGallery
+                    photoDirectory={`nextgen/${['toddler', 'preschool', 'elementary', 'youth', 'young-adult'][nextGenSubpageId!]}`}
+                    departmentName={activeSubpageItem.title}
+                  />
+                </div>
+                <div className="min-w-0 w-[95%] mx-auto md:w-full">
+                  <h3 className="font-serif text-xl md:text-2xl font-medium text-brand-brown mb-6 flex items-center gap-2">
+                    <Heart className="w-5 h-5 text-brand-gold" />
+                    <span>연간 주요 사역 및 활동</span>
+                  </h3>
+                  <div className="grid grid-cols-1 gap-5">
+                    {activeSubpageDetails.calendar.map((event,eIdx) => (
+                      <div
+                        key={eIdx}
+                        className="p-5 rounded-2xl border border-brand-gold/10 hover:border-brand-sage/30 hover:bg-brand-cream/10 transition-all flex gap-4"
+                      >
+                        <div className="w-12 h-12 shrink-0 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center font-serif font-extrabold text-base">
+                          {event.month}
+                        </div>
+                        <div className="space-y-1.5">
+                          <h4 className="text-base md:text-lg font-medium text-brand-brown leading-tight">
+                            {event.title}
+                          </h4>
+                          <p className="text-xs md:text-base text-brand-brown/70 font-normal leading-relaxed">
+                            {event.desc}
+                          </p>
+                        </div>
                       </div>
-                      <div className="space-y-1.5">
-                        <h4 className="text-base md:text-lg font-medium text-brand-brown leading-tight">
-                          {event.title}
-                        </h4>
-                        <p className="text-xs md:text-base text-brand-brown/70 font-normal leading-relaxed">
-                          {event.desc}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
 
               {/* Join Guide Card */}
               {nextGenSubpageId!==3&&nextGenSubpageId!==4&&(
-                <div className="bg-brand-sage/10 p-6 md:p-8 rounded-[2rem] border border-brand-sage/20 text-left relative overflow-hidden">
+                <div className="order-2 md:order-none bg-brand-sage/10 p-6 md:p-8 rounded-[2rem] border border-brand-sage/20 text-left relative overflow-hidden">
                   <div className="absolute -right-12 -bottom-12 w-32 h-32 bg-brand-sage/10 rounded-full blur-2xl"></div>
-                  <h3 className="font-serif text-lg md:text-xl font-medium text-brand-brown mb-3">처음 방문하는 어린이를 환영합니다!</h3>
+                  <h3 className="font-serif text-lg md:text-xl font-medium text-brand-brown mb-3">처음 방문하시는 분을 환영합니다!</h3>
                   <p className="text-xs md:text-sm text-brand-brown/80 font-light leading-relaxed mb-4">
                     영신교회 다음세대는 새로운 아이를 따듯하게 초대하며 환대합니다. 주일날 시간과 장소에 맞춰 방문해 주시거나 본당 로비 안전 데스크 또는 교무 행정실로 알려주시면 자세한 안내 및 소그룹 매칭을 도와드립니다.
                   </p>
@@ -3558,28 +3567,40 @@ export default function App() {
                     </div>
                   )}
 
-                  <h3 className={`neighbor-program-heading font-serif font-bold text-brand-brown mb-4 flex items-center gap-2 ${neighborSubpageId===0? 'mt-10':''}`}>
-                    <Heart className="w-5 h-5 text-brand-sage" />
-                    <span>주요 활동 및 프로그램 안내</span>
-                  </h3>
-                  <div className="space-y-4">
-                    {neighborItems[neighborSubpageId].details.map((detailText,dIdx) => {
-                      const [title,desc]=detailText.split(": ");
-                      return (
-                        <div
-                          key={dIdx}
-                          className="p-4 rounded-2xl bg-brand-cream/20 border border-brand-gold/5 flex gap-3 hover:bg-brand-cream/35 transition-colors"
-                        >
-                          <div className="w-6 h-6 shrink-0 rounded-full bg-brand-sage text-white flex items-center justify-center font-bold text-sm mt-0.5">
-                            {dIdx+1}
-                          </div>
-                          <div>
-                            <h4 className="text-lg font-medium text-brand-brown mb-1">{title}</h4>
-                            <p className="text-sm md:text-lg text-brand-brown/70 leading-relaxed font-light whitespace-pre-line">{desc}</p>
-                          </div>
-                        </div>
-                      );
-                    })}
+                  <div className={neighborSubpageId===2? 'grid grid-cols-1 md:grid-cols-2 gap-8 items-start':undefined}>
+                    <div className={neighborSubpageId===2? 'min-w-0 md:col-start-2 md:row-start-1':undefined}>
+                      <h3 className={`neighbor-program-heading font-serif font-bold text-brand-brown mb-4 flex items-center gap-2 ${neighborSubpageId===0? 'mt-10':''}`}>
+                        <Heart className="w-5 h-5 text-brand-sage" />
+                        <span>주요 활동 및 프로그램 안내</span>
+                      </h3>
+                      <div className="space-y-4">
+                        {neighborItems[neighborSubpageId].details.map((detailText,dIdx) => {
+                          const [title,desc]=detailText.split(": ");
+                          return (
+                            <div
+                              key={dIdx}
+                              className="p-4 rounded-2xl bg-brand-cream/20 border border-brand-gold/5 flex gap-3 hover:bg-brand-cream/35 transition-colors"
+                            >
+                              <div className="w-6 h-6 shrink-0 rounded-full bg-brand-sage text-white flex items-center justify-center font-bold text-sm mt-0.5">
+                                {dIdx+1}
+                              </div>
+                              <div>
+                                <h4 className="text-lg font-medium text-brand-brown mb-1">{title}</h4>
+                                <p className="text-sm md:text-lg text-brand-brown/70 leading-relaxed font-light whitespace-pre-line">{desc}</p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    {neighborSubpageId===2&&(
+                      <div className="min-w-0 md:col-start-1 md:row-start-1">
+                        <ActivityGallery
+                          photoDirectory="happy-university"
+                          departmentName={neighborItems[neighborSubpageId].title}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
 

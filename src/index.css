@@ -373,7 +373,7 @@
 }
 
 :is(.subpage-shell, .subpage-copy-standard) .subpage-hero h1[class] {
-  font-size: var(--font-size-fluid-hero);
+  font-size: var(--text-5xl-compact);
   margin-bottom: 1.25rem;
   font-weight: 300;
 }
@@ -426,8 +426,14 @@
   min-height: clamp(40.625rem, 39.5rem + 4vw, 43.75rem);
 }
 
-/* Mobile and desktop subpage banners share menu titles. */
-.subpage-title-desktop { display: none; }
+/* Every viewport uses the desktop menu title without an extra banner label. */
+.subpage-layout .subpage-hero .text-left > span[class*="inline-flex"],
+.subpage-layout .subpage-hero .subpage-title-mobile {
+  display: none;
+}
+.subpage-layout .subpage-hero .subpage-title-desktop {
+  display: inline;
+}
 .subpage-layout .subpage-hero h1 span[class] {
   font-size: inherit;
   line-height: inherit;
@@ -567,7 +573,7 @@
     font-weight: 400;
   }
 }
-/* Shared mobile/desktop surfaces and banner labels. */
+/* Shared mobile/desktop surfaces. */
 @media (max-width: 767px), (min-width: 1024px) {
   #예배안내 #오시는길 {
     background-color: transparent;
@@ -579,13 +585,6 @@
     color: rgb(253 251 247 / 85%);
   }
   #예배안내 [id^="worship-schedule-item-"] { border-radius: 0.75rem; }
-  .subpage-layout .subpage-hero .text-left > span[class*="inline-flex"],
-  .subpage-layout .subpage-hero .subpage-title-mobile {
-    display: none;
-  }
-  .subpage-layout .subpage-hero .subpage-title-desktop {
-    display: inline;
-  }
 }
 /* Mobile layout (up to 767px). */
 @media (max-width: 767px) {
