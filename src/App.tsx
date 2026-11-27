@@ -6,6 +6,7 @@ import HeroLights from './components/HeroLights';
 import IconLogo from './components/IconLogo';
 import NeighborAppForm from './components/NeighborAppForm';
 import FaithJourney from './components/FaithJourney';
+import NewFamilyInquiryForm from './components/NewFamilyInquiryForm';
 import ActivityGallery from './components/ActivityGallery';
 import { motion,useScroll,useTransform,useSpring,useReducedMotion,AnimatePresence } from 'motion/react';
 import {
@@ -2106,23 +2107,22 @@ export default function App() {
                   차근차근 안내해 드립니다.</p>
               </motion.div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-                {[
-                  { icon: <MapPin className="w-6 h-6" />,image: undefined,title: "교회 도착",desc: "주일 예배 15분 전, 1층 안내 데스크로 오세요.",meta: "서울 양천구 목동로19길 28" },
-                  { icon: <UserPlus className="w-6 h-6" />,image: undefined,title: "환영 안내",desc: "새가족 도우미가 예배실과 필요한 공간을 안내합니다.",meta: "부담 없는 간단한 안내" },
-                  { icon: <Church className="w-6 h-6" />,image: undefined,title: "함께 예배",desc: "원하는 자리에 편하게 앉아 예배에 참여하시면 됩니다.",meta: "1부 09:30 · 2부 11:30" },
-                  { icon: <MessageSquare className="w-6 h-6" />,image: undefined,title: "차 한잔 교제",desc: "예배 후 새가족실에서 교회를 소개하고 이야기를 나눕니다.",meta: "등록은 천천히 결정하세요" }
-                ].map((step,index) => (
-                  <motion.article key={step.title} initial={{ opacity: 0,y: 20 }} whileInView={{ opacity: 1,y: 0 }} viewport={{ once: true }} transition={{ delay: index*0.1 }} className="text-left bg-white rounded-[2rem] p-5 md:p-6 border border-brand-gold/15 shadow-sm">
-
-                    <div>
-                      <span className="text-xs font-bold text-brand-sage tracking-[0.15em]">STEP {index+1}</span>
-                      <h3 className="first-visit-step-title font-serif text-xl font-bold text-brand-brown mt-1 mb-2 md:mt-2 md:mb-3">{step.title}</h3>
-                      <p className="first-visit-step-description text-base text-brand-brown/65 leading-relaxed min-h-0 md:min-h-[4.125rem]">{step.desc}</p>
-                      <p className="first-visit-step-meta mt-3 pt-2 md:mt-5 md:pt-4 text-xs font-medium text-brand-brown/55 border-t border-brand-gold/15">{step.meta}</p>
-                    </div>
-                  </motion.article>
-                ))}
+              <div className="grid items-stretch gap-5 md:grid-cols-2">
+                <div className="grid grid-cols-2 gap-3 sm:gap-5">
+                  {[
+                    { title: "교회 도착", desc: "주일 예배 15분 전, 1층 안내 데스크로 오세요." },
+                    { title: "환영 안내", desc: "새가족 도우미가 예배실과 필요한 공간을 안내합니다." },
+                    { title: "함께 예배", desc: "원하는 자리에 편하게 앉아 예배에 참여하시면 됩니다." },
+                    { title: "차 한잔 교제", desc: "예배 후 새가족실에서 교회를 소개하고 이야기를 나눕니다." }
+                  ].map((step, index) => (
+                    <motion.article key={step.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="rounded-[2rem] border border-brand-gold/15 bg-white p-4 text-left shadow-sm sm:p-5">
+                      <span className="text-xs font-bold text-brand-sage tracking-[0.15em]">STEP {index + 1}</span>
+                      <h3 className="first-visit-step-title mt-1 mb-2 font-serif text-xl font-bold text-brand-brown">{step.title}</h3>
+                      <p className="first-visit-step-description text-base text-brand-brown/65 leading-relaxed">{step.desc}</p>
+                    </motion.article>
+                  ))}
+                </div>
+                <NewFamilyInquiryForm />
               </div>
             </div>
           </section>
