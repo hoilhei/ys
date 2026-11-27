@@ -453,8 +453,7 @@
 @media (max-width: 1023px),
        (min-width: 1024px) and (max-width: 1366px) and (pointer: coarse) {
   #설교말씀 .sermon-heading { margin-bottom: 1.5rem; }
-  .core-value-copy h4,
-  .core-value-copy p {
+  .core-value-copy h4 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -465,6 +464,12 @@
 /* Tablet layout, including larger touch tablets in landscape. */
 @media (min-width: 768px) and (max-width: 1023px),
        (min-width: 1024px) and (max-width: 1366px) and (pointer: coarse) {
+  .core-value-copy p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .site-layout {
     --tablet-page-gutter: clamp(2rem, 4vw, 2.5rem);
   }

@@ -302,6 +302,7 @@ export default function App() {
   const ministryPageSize=isMobile? 5:isTablet? 6:12;
   const currentVisibleMinistryCount=hasExpandedMinistry? visibleMinistryCount:ministryPageSize;
 
+  const toddlerHeroPhotoPath = 'nextgen/toddler/baby_4.jpeg';
   const nextGenItems=[
     {
       title: "유아부",
@@ -311,12 +312,13 @@ export default function App() {
       location: "3층 유아부실",
       desc: "하나님의 기쁨 안에서 아이들이 예배와 놀이를 통해 하나님을 깊이 알아가며, 따뜻한 사랑과 즐거움이 가득한 믿음의 첫걸음을 함께합니다.",
       image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2640&auto=format&fit=crop",
+      heroImage: `${import.meta.env.BASE_URL}images/${toddlerHeroPhotoPath}`,
       alt: "Happy toddlers playing and laughing during communion",
       photoPaths: [
         'nextgen/toddler/baby_1.jpeg',
         'nextgen/toddler/baby_2.jpeg',
         'nextgen/toddler/baby_3.jpeg',
-        'nextgen/toddler/baby_4.jpeg',
+        toddlerHeroPhotoPath,
       ]
     },
     {
@@ -532,21 +534,23 @@ export default function App() {
   const coreValues=[
     {
       title: "행복한대학",
-      desc: "배움과 웃음이 가득한 시니어들을 위한 선교 공동체입니다. 영신교회 성도 포함 지역 주민 65세 이상 어르신들을 위해 다채로운 활동 및 프로그램들이 진행됩니다.",
+      desc: "영신교회 성도 포함 지역 주민 65세 이상 어르신들을 위해 다채로운 활동 및 프로그램들이 진행됩니다.",
       icon: <GraduationCap className="w-6 h-6" />,
       image: "images/mission_03.png",
       alt: "8명의 아시안 남녀 노인들이 테이블에 마주 앉아 다정하게 손을 맞잡고, 따스한 온기의 주황빛 햇살 아래 깊은 미소와 정감 가득한 이야기꽃을 피우며 차를 즐기는 일상 속 행복한 동양 시니어 공동체의 모습"
     },
     {
       title: "뮤직아카데미",
-      desc: "음악을 통해 재능을 나누며 영혼의 치유와 성장을 이룹니다. 지역주민과 성도를 위해 다양한 아카데미를 열어 교회와 지역 사회를 연결합니다.",
+      intro: "음악을 통해 재능을 나누며 영혼의 치유와 성장을 이룹니다.",
+      desc: "지역주민과 성도를 위해 다양한 아카데미를 열어 교회와 지역 사회를 연결합니다.",
       icon: <Music className="w-6 h-6" />,
       image: "images/mission_02.png",
       alt: "Violin, instruments and sheets of music representing the academy"
     },
     {
       title: "사랑나눔박스",
-      desc: "영신교회가 동행하는 사랑나눔은 한사람을 찾아갑니다. 신정4동 주민센터와 연계하여 독거 어르신과 1인 청년세대를 섬깁니다.",
+      intro: "영신교회가 동행하는 사랑나눔은 한사람을 찾아갑니다.",
+      desc: "신정4동 주민센터와 연계하여 독거 어르신과 1인 청년세대를 섬깁니다.",
       icon: <Heart className="w-6 h-6" />,
       image: "images/mission_01.png",
       alt: "Volunteering donation box and sharing with the local community"
@@ -3116,8 +3120,8 @@ export default function App() {
           {/* Hero Section Container */}
           <div className="subpage-hero nextgen-hero relative h-[45vh] md:h-[30vh] w-full overflow-hidden">
             <img
-              src={activeSubpageItem.image}
-              alt={activeSubpageItem.alt}
+              src={activeSubpageItem.heroImage ?? activeSubpageItem.image}
+              alt={activeSubpageItem.heroImage ? '' : activeSubpageItem.alt}
               className="w-full h-full object-cover brightness-[0.7]"
               referrerPolicy="no-referrer"
             />
@@ -4134,11 +4138,11 @@ export default function App() {
                 </h2>
               </motion.div>
 
-              <div className="grid gap-6 md:grid-cols-2 md:gap-10 md:items-stretch md:h-[25rem]">
-                <motion.div {...fadeIn} className="relative h-[13.75rem] md:h-[26.25rem]">
+              <div className="grid grid-cols-1 gap-6 md:min-h-[26.25rem] md:grid-cols-2 md:items-stretch md:gap-10">
+                <motion.div {...fadeIn} className="relative h-[13.75rem] md:h-auto">
                   <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-sage/10 rounded-full blur-3xl"></div>
                   <div
-                    className="relative z-10 rounded-[2rem] overflow-hidden shadow-2xl h-full w-full group hover:shadow-brand-sage/20 hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                    className="absolute inset-0 z-10 rounded-[2rem] overflow-hidden shadow-2xl group hover:shadow-brand-sage/20 hover:shadow-2xl transition-all duration-300 cursor-pointer"
                     onClick={() => { window.location.hash=coreValueRoutes[activeCoreValue]; }}
                     role="button"
                     tabIndex={0}
@@ -4190,33 +4194,34 @@ export default function App() {
                     </div>
                   </div>
                 </motion.div>
-                <motion.div {...fadeIn} transition={{ delay: 0.1 }} className="flex flex-col justify-center h-full">
-                  <div className="grid grid-cols-1 grid-rows-3 gap-3 h-full">
-                    {coreValues.map((item,idx) => {
-                      const isActive=activeCoreValue===idx;
-                      return (
-                        <button
-                          key={item.title}
-                          onClick={() => {
-                            setActiveCoreValue(idx);
-                          }}
-                          className={`flex h-full items-center justify-between gap-4 py-4 px-5 text-left rounded-3xl transition-all duration-300 border ${isActive
-                              ? "bg-brand-sage border-brand-sage text-white shadow-lg scale-[1.02]"
-                              :"bg-white border-transparent hover:border-brand-gold/30 shadow-sm hover:shadow-md text-brand-brown hover:scale-[1.01]"
-                            } cursor-pointer outline-none`}
-                          id={`core-value-btn-${idx}`}
-                        >
-                          <div className={isActive? "text-white":"text-brand-sage"}>
-                            {item.icon}
-                          </div>
-                          <div className="core-value-copy flex-1 min-w-0">
-                            <h4 className={`font-serif text-lg md:text-2xl mb-1 ${isActive? "text-white":"text-brand-brown"}`}>{item.title}</h4>
-                            <p className={`text-xs md:text-base leading-relaxed ${isActive? "text-white/80":"text-brand-brown/70"}`}>{item.desc}</p>
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
+                <motion.div {...fadeIn} transition={{ delay: 0.1 }} className="grid grid-cols-1 grid-rows-3 gap-3">
+                  {coreValues.map((item,idx) => {
+                    const isActive=activeCoreValue===idx;
+                    return (
+                      <button
+                        key={item.title}
+                        onClick={() => {
+                          setActiveCoreValue(idx);
+                        }}
+                        className={`flex items-center justify-between gap-4 py-4 px-5 text-left rounded-3xl transition duration-300 border ${isActive
+                            ? "bg-brand-sage border-brand-sage text-white shadow-lg"
+                            :"bg-white border-transparent hover:border-brand-gold/30 shadow-sm hover:shadow-md text-brand-brown"
+                          } cursor-pointer outline-none`}
+                        id={`core-value-btn-${idx}`}
+                      >
+                        <div className={isActive? "text-white":"text-brand-sage"}>
+                          {item.icon}
+                        </div>
+                        <div className="core-value-copy flex-1 min-w-0">
+                          <h4 className={`font-serif text-base md:text-xl mb-1 ${isActive? "text-white":"text-brand-brown"}`}>{item.title}</h4>
+                          <p className={`text-xs md:text-base leading-relaxed max-md:break-keep ${isActive? "text-white/80":"text-brand-brown/70"}`}>
+                            {item.intro && <span className="hidden md:inline">{item.intro}{' '}</span>}
+                            {item.desc}
+                          </p>
+                        </div>
+                      </button>
+                    );
+                  })}
                 </motion.div>
               </div>
             </div>
