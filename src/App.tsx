@@ -311,7 +311,13 @@ export default function App() {
       location: "3층 유아부실",
       desc: "하나님의 기쁨 안에서 아이들이 예배와 놀이를 통해 하나님을 깊이 알아가며, 따뜻한 사랑과 즐거움이 가득한 믿음의 첫걸음을 함께합니다.",
       image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2640&auto=format&fit=crop",
-      alt: "Happy toddlers playing and laughing during communion"
+      alt: "Happy toddlers playing and laughing during communion",
+      photoPaths: [
+        'nextgen/toddler/baby_1.jpeg',
+        'nextgen/toddler/baby_2.jpeg',
+        'nextgen/toddler/baby_3.jpeg',
+        'nextgen/toddler/baby_4.jpeg',
+      ]
     },
     {
       title: "유치부",
@@ -321,7 +327,8 @@ export default function App() {
       location: "1층 푸른풀밭",
       desc: "예수님의 사랑을 몸소 배우며 찬양하고 기도하며, 매주 새롭게 주님을 만나는 시간 속에서 따뜻한 믿음과 즐거움이 자라나는 유치부입니다.",
       image: "images/edit_02-2.png",
-      alt: "Happy children playing with shimmering soap bubbles in the beautiful green park under warm natural sunshine"
+      alt: "Happy children playing with shimmering soap bubbles in the beautiful green park under warm natural sunshine",
+      photoPaths: ['nextgen/preschool/1.jpg', 'nextgen/preschool/2.jpg', 'nextgen/preschool/3.jpg']
     },
     {
       title: "초등부",
@@ -331,7 +338,8 @@ export default function App() {
       location: "1층 쉴만한 물가",
       desc: "하나님을 알고, 예수님을 닮아가며 서로를 존중하고 함께 배우는 초등부입니다. 말씀과 기도, 소그룹을 통해 믿음의 뿌리를 단단히 세웁니다.",
       image: "images/edit_02-3.png",
-      alt: "Happy elementary school children smiling and learning together in a bright, warm classroom"
+      alt: "Happy elementary school children smiling and learning together in a bright, warm classroom",
+      photoPaths: ['nextgen/elementary/1.jpg', 'nextgen/elementary/2.jpg', 'nextgen/elementary/3.jpg']
     },
     {
       title: "청소년부(SFC)",
@@ -341,7 +349,8 @@ export default function App() {
       location: "기쁨홀 (지하 1층)",
       desc: "예수 그리스도의 십자가를 중심으로 살아가는 청소년들이, 복음을 깊이 배우고 서로를 세우며 세상 속에서 하나님의 빛을 선명하게 드러내는 공동체입니다.",
       image: "images/edit_03.png",
-      alt: "Happy teenage friends enjoying discussions in warm setting"
+      alt: "Happy teenage friends enjoying discussions in warm setting",
+      photoPaths: ['nextgen/youth/1.jpg', 'nextgen/youth/2.jpg', 'nextgen/youth/3.jpg']
     },
     {
       title: "청년부",
@@ -351,7 +360,8 @@ export default function App() {
       location: "본당 2층",
       desc: "학업, 직장, 연애와 진로의 고민을 함께 나누며, 예배와 교제를 통해 삶의 방향을 세우고 하나님의 뜻에 맞는 청년의 삶을 함께 열어가는 따뜻한 공동체입니다.",
       image: "images/edit_04-2.png",
-      alt: "Wholesome group of young college students laughing and working"
+      alt: "Wholesome group of young college students laughing and working",
+      photoPaths: ['nextgen/young-adult/1.jpg', 'nextgen/young-adult/2.jpg', 'nextgen/young-adult/3.jpg']
     }
   ];
 
@@ -3354,8 +3364,9 @@ export default function App() {
               <div className="contents md:grid md:grid-cols-2 gap-8 md:bg-white md:p-8 md:rounded-[2rem] md:border md:border-brand-gold/15 md:shadow-sm text-left md:w-full">
                 <div key={nextGenSubpageId} className="order-1 md:order-none min-w-0 w-[95%] mx-auto md:w-full">
                   <ActivityGallery
-                    photoDirectory={`nextgen/${['toddler', 'preschool', 'elementary', 'youth', 'young-adult'][nextGenSubpageId!]}`}
+                    photoPaths={activeSubpageItem.photoPaths}
                     departmentName={activeSubpageItem.title}
+                    viewOriginal={nextGenSubpageId === 0}
                   />
                 </div>
                 <div className="min-w-0 w-[95%] mx-auto md:w-full">
@@ -3596,7 +3607,7 @@ export default function App() {
                     {neighborSubpageId===2&&(
                       <div className="min-w-0 md:col-start-1 md:row-start-1">
                         <ActivityGallery
-                          photoDirectory="happy-university"
+                          photoPaths={['happy-university/1.jpg', 'happy-university/2.jpg', 'happy-university/3.jpg']}
                           departmentName={neighborItems[neighborSubpageId].title}
                         />
                       </div>
